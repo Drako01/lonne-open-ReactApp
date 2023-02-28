@@ -1,4 +1,4 @@
-header{
+.App-header {
     background-color: #90a755;
     min-height: 100vh;
     display: flex;
@@ -6,5 +6,10 @@ header{
     align-items: center;
     justify-content: center;
     font-size: calc(.8rem + 2vmin);
-    color: #003e43;
+    color: var(--light);
+}
+
+.App-logo {
+    height: 50vmin;
+    pointer-events: none;
 }
