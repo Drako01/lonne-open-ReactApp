@@ -39,7 +39,7 @@
 
 /* Reglas de Utilidad */
 * {    
-    font-family: var(--fontB);
+    font-family: var(--fontR);
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
