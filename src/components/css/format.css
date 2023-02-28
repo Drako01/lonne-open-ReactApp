@@ -20,26 +20,26 @@
 /* Importacion de Tipografia */
 @font-face {
     font-family: 'Roboto';
-    src: url('./assets/fonts/Roboto-Regular.ttf');
+    src: url('../assets/font/Roboto-Regular.ttf');
 }
 
 @font-face {
     font-family: "Playfair";
-    src: url('/font/PlayfairDisplay-Bold.ttf') format('truetype');
+    src: url('../assets/font/PlayfairDisplay-Bold.ttf') format('truetype');
     font-style: normal;
     font-weight: bold;
 }
 
 @font-face {
     font-family: "Barlow";
-    src: url('/font/BarlowSemiCondensed-Light.ttf') format('truetype');
+    src: url('../assets/font/BarlowSemiCondensed-Light.ttf') format('truetype');
     font-style: normal;
     font-weight: lighter;
 }
 
 /* Reglas de Utilidad */
-* {
-    font-family: var(--fontR);
+* {    
+    font-family: var(--fontB);
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
@@ -56,7 +56,6 @@ header p,
 .subitems,
 .menu {
     margin: 0;
-    font-family: "Barlow";
 }
 
 /* Rellenos */
@@ -84,6 +83,9 @@ iframe {
     list-style: none;
 }
 
+body{
+    background-color: #90A755;
+}
 
 /* Componentes */
 .btn {
