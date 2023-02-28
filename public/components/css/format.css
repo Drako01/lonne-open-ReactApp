@@ -1,0 +1,103 @@
+/* Variables */
+:root {
+    /* Colores */
+    --first:  #90A755;
+    --second: #f5f5f5;
+    --third: #3d4b19;
+    --gold: #C29436;
+    --light: #eee;
+    --dark: #333;
+    /* Tamaños */
+    --small: 200px;
+    --medium: 400px;
+    --large: 600px;
+    /* Tipografia */
+    --fontR: 'Roboto', sans-serif;
+    --fontP: 'Playfair', sans-serif;
+    --fontB: 'Barlow', sans-serif;
+}
+
+/* Importacion de Tipografia */
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Playfair";
+    src: url('/font/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url('/font/BarlowSemiCondensed-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: lighter;
+}
+
+/* Reglas de Utilidad */
+* {
+    font-family: var(--fontR);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Reinicios de Estilos */
+/* Margenes */
+body,
+h1,
+h2,
+h3,
+h4,
+header p,
+.submenu,
+.subitems,
+.menu {
+    margin: 0;
+    font-family: "Barlow";
+}
+
+/* Rellenos */
+.submenu,
+.subitems,
+.menu {
+    padding: 0;
+}
+
+/* Bordes */
+iframe {
+    border: 0;
+}
+
+/* Estilos */
+:is(header,
+    nav,
+    footer) a {
+    text-decoration: none;
+}
+
+.submenu,
+.subitems,
+.menu {
+    list-style: none;
+}
+
+
+/* Componentes */
+.btn {
+    min-width: 1.8rem;
+    min-height: 1.5rem;
+    border-radius: .25rem;
+    border: 1px solid var(--first);
+    color: var(--light);
+    background-color: var(--third);
+}
+
+.btn:hover {
+    color: var(--third);
+    background-color: var(--second);
+}
+
+/* 2023 - Autor: Alejandro Daniel Di Stefano */

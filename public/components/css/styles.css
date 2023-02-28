@@ -1,4 +1,5 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+/* Reglas generales */
+@import url(format.css);
+
+
+/* Autor: Alejandro Di Stefano */
