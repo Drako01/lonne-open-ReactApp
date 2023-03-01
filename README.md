@@ -18,8 +18,10 @@
 <p align="center"> 
     <a href="#" target="_blank">
         <img src="https://lonneopen.com/img/logo.png" alt="CoderHouse"  height="300"/>
-    </a>
+    </a> 
 </p>
+<h2 align="center"> PRO SHOP </h2>
+
 
 ---
 
