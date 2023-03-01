@@ -14,6 +14,17 @@
 
 ---
 
+## Desarrollo de un E-Commerce Funcional desde el FrontEnd utilizando la Librería REACT JS
+
+<p align="center"> 
+    <a href="#" target="_blank">
+        <img src="https://lonneopen.com/img/logo.png" alt="CoderHouse"  height="300"/>
+    </a>
+</p>
+
+---
+
+
 ## Temas Incluidos por Entrega
 
 ### 1er Entrega
