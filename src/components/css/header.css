@@ -9,6 +9,11 @@
     color: var(--light);
 }
 
+.App-header>h2,
+h3 {
+    font-family: var(--fontB);
+}
+
 .App-logo {
     height: 50vmin;
     pointer-events: none;

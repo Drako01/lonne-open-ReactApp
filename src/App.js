@@ -4,10 +4,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Lonne Open</h1>
-
-        <img src={logo} className="App-logo" alt="logo" />
-        
+        <img src={logo} className="App-logo" alt="logo" />  
+        <h2>PRO SHOP</h2>   
+        <h3>Conocé nuestras Novedades</h3>   
       </header>
     </div>
   );
