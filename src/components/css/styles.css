@@ -1,11 +1,7 @@
 /* Reglas generales */
 @import url(format.css);
 
-/* Header */
-@import url(header.css);
-
-/* Footer */
-@import url(footer.css);
-
+/* Navbar */
+@import url(Navbar.css);
 
 /* Autor: Alejandro Di Stefano */
