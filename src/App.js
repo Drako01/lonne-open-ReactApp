@@ -1,15 +1,11 @@
-import logo from './components/assets/img/logo.png';
-import Navbar from './components/js/Navbar.js'
+import Header from './components/js/Header.js'
+import Footer from './components/js/Footer.js'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar />
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>PRO SHOP</h2>
-        <h3>Conocé nuestras Novedades</h3>
-      </header>
+    <div>
+        <Header />      
+        <Footer />
     </div>
   );
 }

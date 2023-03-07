@@ -1,0 +1,11 @@
+.Footer{
+    position: sticky;
+    margin-bottom: 0;
+}
+
+.Footer p{
+    color: var(--light);
+    font-family: var(--fontB);
+    font-size: 1.2rem;
+    text-align: center;
+}
