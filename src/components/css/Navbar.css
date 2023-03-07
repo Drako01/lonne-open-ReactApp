@@ -1,4 +1,4 @@
-h1{
+.Navbar h1{
     color: var(--light);
     font-family: var(--fontB);
     font-size: 2.5rem;
