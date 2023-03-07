@@ -23,6 +23,7 @@
 .NavbarButtons > button:hover{
     cursor: pointer;
     background-color: #7d895d;
+    color: var(--light);
 }
 
 .App-header {
