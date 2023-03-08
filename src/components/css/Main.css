@@ -1,0 +1,10 @@
+.App-main {
+    background-color: var(--light);
+    min-height: 72vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(.8rem + 2vmin);
+    color: var(--first);
+}

@@ -1,34 +1,59 @@
-.Navbar h1{
-    color: var(--light);
-    font-family: var(--fontB);
-    font-size: 2.5rem;
-}
-.Navbar, .NavbarButtons{
+.Navbar {
     display: flex;
-    justify-content: center;
-    padding: 2rem;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.NavbarButtons > button{
+.Navbar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Navbar ul li {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    list-style: none;
+    padding: .5rem 1rem;
+    height: 2.5rem;
+    font-family: var(--fontB);
+    border: 1px solid var(--first);
+}
+
+.Navbar ul li:hover {
+    background-color: var(--fourth);
+    cursor: pointer;
+    border-radius: .25rem;
+    border: 1px solid var(--light);
+}
+
+
+.Navbar .App-logo {
+    height: 4rem;
+}
+
+.Navbar>button {
     margin: 1rem;
     padding: .25rem .8rem;
     border-radius: .25rem;
-    border: none;  
-    min-width: 200px; 
-    min-height: 40px;
+    border: 1px solid var(--light);
+    background-color: transparent;
+    min-width: 7rem;
+    min-height: 2.5rem;
     font-size: 1rem;
-}
-
-.NavbarButtons > button:hover{
-    cursor: pointer;
-    background-color: #7d895d;
     color: var(--light);
 }
 
+.Navbar>button:hover {
+    cursor: pointer;
+    background-color: var(--fourth);    
+}
+
 .App-header {
-    background-color: #90a755;
-    min-height: 90vh;
+    background-color: var(--first);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,6 +72,6 @@ h3 {
     pointer-events: none;
 }
 
-.Logo{
+.Logo {
     height: 5rem;
 }

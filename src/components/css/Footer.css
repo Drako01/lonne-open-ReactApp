@@ -9,3 +9,21 @@
     font-size: 1.2rem;
     text-align: center;
 }
+.Iconos-social{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+.Iconos-social> img{
+    width: 3.5rem;
+    margin: 0 1rem;
+    padding: .5rem;
+    border: 1px solid var(--first);
+}
+
+.Iconos-social> img:hover{
+    background-color: var(--fourth);
+    cursor: pointer;
+    border-radius: .25rem;
+    border: 1px solid var(--light);
+}
