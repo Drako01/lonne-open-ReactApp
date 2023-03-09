@@ -1,7 +1,8 @@
 import icono from '../assets/icons/logo.ico';
 import buscar from '../assets/icons/busqueda.png';
 import mail from '../assets/icons/correo.png';
-import carrito from '../assets/icons/carro.png';
+import Button from './Button';
+import CartWidget from './CartWidget';
 
 const Navbar = () => {
     return (
@@ -17,9 +18,9 @@ const Navbar = () => {
                 <ul>
                     <li><img src={buscar} className="App-icono" alt="icono" /></li>
                     <li><img src={mail} className="App-icono" alt="icono" /></li>
-                    <li><img src={carrito} className="App-icono" alt="icono" /></li>
+                    <CartWidget />
                 </ul>
-                <button>Login</button> 
+                <Button label='Login' callback={() => {}} /> 
             </div>
         </nav>
     )

@@ -2,7 +2,6 @@
     position: sticky;
     margin-bottom: 0;
 }
-
 .Footer p{
     color: var(--light);
     font-family: var(--fontB);
@@ -20,7 +19,6 @@
     padding: .5rem;
     border: 1px solid var(--first);
 }
-
 .Iconos-social> img:hover{
     background-color: var(--fourth);
     cursor: pointer;

@@ -4,10 +4,17 @@
 /* Header */
 @import url(Header.css);
 
+/* Navbar */
+@import url(Navbar.css);
+
 /* Main */
 @import url(Main.css);
 
 /* Footer */
 @import url(Footer.css);
+
+/* Botones */
+@import url(Button.css);
+
 
 /* Autor: Alejandro Daniel Di Stefano */
