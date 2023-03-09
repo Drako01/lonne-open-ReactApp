@@ -1,10 +1,10 @@
 import carrito from '../assets/icons/carro.png';
 
-const CartWidget = () => {
+const CartWidget = (props) => {
 
     return (
         <li>
-            <img src={carrito} className="App-icono Cart" alt="icono" /> 0
+            <img src={carrito} onClick={props.callback} className="App-icono Cart" alt="icono" /> {props.click}
         </li>
     )
 }
