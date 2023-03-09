@@ -20,7 +20,7 @@ const Navbar = () => {
                     <li><img src={mail} className="App-icono" alt="icono" /></li>
                     <CartWidget />
                 </ul>
-                <Button label='Login' callback={() => {}} /> 
+                <Button label='Login' /> 
             </div>
         </nav>
     )
