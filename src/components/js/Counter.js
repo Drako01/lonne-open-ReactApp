@@ -10,7 +10,6 @@ const Counter = () => {
 
     return (
         <div>
-            <p></p>
             <CartWidget callback={increment} click={count}  />
         </div>
     )
