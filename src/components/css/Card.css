@@ -1,0 +1,58 @@
+.Card {
+    display: flex;
+    justify-content: space-between;
+    width: 75vw;
+    max-width: 40rem;
+    padding: 50px 30px 50px 20px;
+    background: var(--sweetdark);
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.Card img{
+    max-width: 280px;
+    width: 28vw;
+    height: 300px;
+    object-fit: cover;
+    margin-left: -60px;
+    margin-right: 30px;
+    border-radius: inherit;
+    box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
+}
+
+.Card h3{
+    color: rgb(0 0 0 / 90%);;
+}
+
+.Card p{
+    color: rgb(0 0 0 / 70%);;
+}
+
+.Card button{
+    background-color: var(--fourth);
+    margin-top: 8.25rem;
+}
+
+.Card button:hover{
+    background-color: var(--first);
+}
+
+@media (width <= 740px) {
+    .Card{
+        flex-direction: column;
+        text-align: center;
+        margin: 2rem 1.5rem;
+        padding-top: 2rem;
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+        width: 100%;
+    }
+    .Card img{
+        margin: -100px 0 30px 0;
+        width: 100%;
+        max-width: 1000px;
+    }
+    .Card button{
+        margin-top: 1rem;
+    }
+}

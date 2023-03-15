@@ -19,5 +19,9 @@
 /* WhatsAppButton */
 @import url(WhatsAppButton.css);
 
+/* Cards */
+@import url(Card.css);
+@import url(CardsPanel.css);
+
 
 /* Autor: Alejandro Daniel Di Stefano */
