@@ -1,25 +1,28 @@
-import tenis from '../assets/img/zapa-wilson_1.png'
 import Button from './Button';
 
-const Cards = () => {
+const Cards = ({image, name, category, size, price, description}) => {
     const comprar = () => {
         console.log('Hice una Compra')
-    }
+    }   
+
     return (
         <div className="Card">
-            <img src={tenis} alt="Jugador de Tenis" />
+            <img src={image} alt={name} />
             <div>
-                <h2>Subtitulo</h2>
-                <h3>Otro subtitulo</h3>
+                <h2>{name}</h2>
+                <h3>{category}</h3>
                 <p>
-                    Parrafo descriptivo
+                    {description}
                 </p>
-                <p>
-                    $ 1.000.-
-                </p>
+                <h3>
+                    Talle: {size}
+                </h3>
+                <h3>
+                    Precio: $ {price}.-
+                </h3>
             </div>
             <div>
-                <Button label='Comprar' callback={comprar}/>
+                <Button label='Comprar' callback={comprar} />
             </div>
         </div>
     )
