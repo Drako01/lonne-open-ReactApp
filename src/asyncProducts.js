@@ -1,4 +1,4 @@
-const route = '../src/components/assets/img/';
+const route = '../assets/img/';
 
 const products = [
     {

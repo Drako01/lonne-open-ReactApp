@@ -1,6 +1,6 @@
 import Button from './Button';
 
-const Cards = ({image, name, category, size, price, description}) => {
+const Cards = ({name, category, description, size, price, image, stock}) => {
     const comprar = () => {
         console.log('Hice una Compra')
     }   
@@ -13,6 +13,9 @@ const Cards = ({image, name, category, size, price, description}) => {
                 <h3>{category}</h3>
                 <p>
                     {description}
+                </p>
+                <p>
+                    En Stock: {stock}
                 </p>
                 <h3>
                     Talle: {size}
