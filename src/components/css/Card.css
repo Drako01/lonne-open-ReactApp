@@ -43,7 +43,6 @@
 }
 .Card button{
     background-color: var(--fourth);
-    /* margin-top: 8.25rem; */
 }
 
 .Card button:hover{
