@@ -26,17 +26,6 @@
 ---
 
 
-## Temas Incluidos por Entrega
-
-### 1er Entrega
-
-```ssh
- 1. Instalación y configuración del entorno
-
- 2. JSX y transpiling
-
- 3. Componentes I
-```
 
 <p align="center"> 
     <img src="https://jobs.coderhouse.com/assets/logos_coderhouse.png" alt="CoderHouse"  height="100"/>
@@ -47,6 +36,9 @@
 ### Autor: Alejandro Daniel Di Stefano
 
 ---
+
+
+
 
 # Getting Started with Create React App
 
