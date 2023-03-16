@@ -41,3 +41,13 @@
     height: 50vmin;
     pointer-events: none;
 }
+
+@media (width <= 740px) {
+    .Navbar{
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+    .Navbar .App-logo{
+        display: none;
+    }
+}

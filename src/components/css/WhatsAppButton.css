@@ -9,3 +9,16 @@
 .WhatsApp:hover{
     cursor: pointer;
 }
+
+@media (width <= 740px) {
+
+    .WhatsApp{
+        width: 2.5rem;
+        bottom: 3rem;
+    }
+    .Navbar ul {
+        margin-block-start: 0;
+        margin-block-end: 1em;
+        padding-inline-start: 0;
+    }
+}

@@ -25,3 +25,10 @@
     border-radius: .25rem;
     border: 1px solid var(--light);
 }
+
+@media (width <= 740px) {
+    .Footer p{
+        padding: 0 1rem;
+        font-size: .7rem;
+    }
+}
