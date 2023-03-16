@@ -17,7 +17,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Negro y Celeste',
         size: '41',
-        price: '21.300',
+        price: '29.300',
         image: `${route}zapa-wilson_2.png`,
         stock: 12
     },
@@ -27,7 +27,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Rosa y Blanco',
         size: '38',
-        price: '21.500',
+        price: '28.500',
         image: `${route}zapa-wilson_3.png`,
         stock: 15
     },
@@ -37,7 +37,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Naranja',
         size: '43',
-        price: '21.800',
+        price: '27.800',
         image: `${route}zapa-wilson_4.png`,
         stock: 20
     },
