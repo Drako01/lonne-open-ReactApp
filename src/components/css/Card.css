@@ -43,6 +43,13 @@
     background-color: var(--first);
 }
 
+
+.Card h3.Price{    
+    color: var(--first);
+    font-size: 1.6rem;
+    float: right;
+}
+
 @media (width <= 740px) {
     .Card{
         flex-direction: column;
@@ -60,5 +67,10 @@
     }
     .Card button{
         margin-top: 1rem;
+    }
+    .Card h3.Price{    
+        color: var(--first);
+        font-size: 1.4rem;
+        float: none;
     }
 }

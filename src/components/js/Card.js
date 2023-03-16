@@ -20,7 +20,7 @@ const Cards = ({id, name, category, description, size, price, image, stock}) => 
                 <h3>
                     Talle: {size}
                 </h3>
-                <h3>
+                <h3 className='Price'>
                     Precio: $ {price}.-
                 </h3>
             </div>
