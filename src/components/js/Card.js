@@ -1,8 +1,8 @@
 import Button from './Button';
 
-const Cards = ({name, category, description, size, price, image, stock}) => {
+const Cards = ({id,name, category, description, size, price, image, stock}) => {
     const comprar = () => {
-        console.log('Hice una Compra')
+        console.log(`Compre el Producto con Id: ${id} y se llama ${name}`)
     }   
 
     return (
