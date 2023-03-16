@@ -8,7 +8,7 @@ const Cards = ({id, name, category, description, size, price, image, stock}) => 
     return (
         <div className="Card">
             <img src={image} alt={name} />
-            <div>
+            <div className='Dates'>
                 <h2>{name}</h2>
                 <h3>{category}</h3>
                 <p>
@@ -24,7 +24,7 @@ const Cards = ({id, name, category, description, size, price, image, stock}) => 
                     Precio: $ {price}.-
                 </h3>
             </div>
-            <div>
+            <div className='Btn'>
                 <Button label='Comprar' callback={comprar} />
             </div>
         </div>

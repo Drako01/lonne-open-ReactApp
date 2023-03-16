@@ -20,7 +20,7 @@
     box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
 }
 .Card h2{
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .Card h3{
@@ -33,10 +33,17 @@
     color: rgb(0 0 0 / 70%);
     font-size: .9rem;
 }
-
+.Card .Dates{
+    padding-bottom:  1rem;
+}
+.Card .Btn {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
 .Card button{
     background-color: var(--fourth);
-    margin-top: 8.25rem;
+    /* margin-top: 8.25rem; */
 }
 
 .Card button:hover{
@@ -72,5 +79,8 @@
         color: var(--first);
         font-size: 1.4rem;
         float: none;
+    }
+    .Card .Btn {
+        align-items: center;
     }
 }
