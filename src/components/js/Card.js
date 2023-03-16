@@ -2,7 +2,7 @@ import Button from './Button';
 
 const Cards = ({id, name, category, description, size, price, image, stock}) => {
     const comprar = () => {
-        console.log(`Compre el Producto con Id: ${id} y se llama ${name} a un Valor de: $${price}.-`)
+        console.log(`Compre el Producto con Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.-`)
     }   
 
     return (

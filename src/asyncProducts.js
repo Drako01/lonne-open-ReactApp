@@ -7,7 +7,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Negro y Blanco',
         size: '40',
-        price: '1.000',
+        price: '30.000',
         image:  `${route}zapa-wilson_1.png`,
         stock: 10
     },
@@ -17,7 +17,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Negro y Celeste',
         size: '41',
-        price: '1.300',
+        price: '21.300',
         image: `${route}zapa-wilson_2.png`,
         stock: 12
     },
@@ -27,7 +27,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Rosa y Blanco',
         size: '38',
-        price: '1.500',
+        price: '21.500',
         image: `${route}zapa-wilson_3.png`,
         stock: 15
     },
@@ -37,9 +37,29 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Naranja',
         size: '43',
-        price: '1.800',
+        price: '21.800',
         image: `${route}zapa-wilson_4.png`,
         stock: 20
+    },
+    {
+        id: '5',
+        name: 'Head',
+        category: 'Tubo de Pelotas',
+        description: 'Tubo de Pelotas x 3 Profesionales.',
+        size: '--',
+        price: '5.800',
+        image: `${route}tubo_pelotas_1.png`,
+        stock: 60
+    },
+    {
+        id: '6',
+        name: 'Penn',
+        category: 'Tubo de Pelotas',
+        description: 'Tubo de Pelotas x 3 Profesionales.',
+        size: '--',
+        price: '4.700',
+        image: `${route}tubo_pelotas_2.png`,
+        stock: 125
     }
 ]
 
