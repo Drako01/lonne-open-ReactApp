@@ -3,7 +3,7 @@ const route = '../src/components/assets/img/';
 const products = [
     {
         id: '1',
-        name: 'Wilson Combinada',
+        name: 'Wilson Combinada Hombre',
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Negro y Blanco',
         size: '40',
@@ -13,7 +13,7 @@ const products = [
     },
     {
         id: '2',
-        name: 'Wilson Combinada',
+        name: 'Wilson Combinada Hombre',
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Negro y Celeste',
         size: '41',
@@ -23,7 +23,7 @@ const products = [
     },
     {
         id: '3',
-        name: 'Wilson Combinada',
+        name: 'Wilson Combinada Mujer',
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Rosa y Blanco',
         size: '38',
@@ -33,7 +33,7 @@ const products = [
     },
     {
         id: '4',
-        name: 'Wilson Combinada',
+        name: 'Wilson Combinada Mixta',
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Naranja',
         size: '43',
