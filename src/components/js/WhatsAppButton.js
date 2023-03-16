@@ -1,4 +1,4 @@
-import btnwa from '../assets/img/whatsapp.png';
+import btnwa from '../assets/icons/whatsapp.png';
 
 const WhatsAppButton = () => {
     const mensajeWhatsApp = () => {
