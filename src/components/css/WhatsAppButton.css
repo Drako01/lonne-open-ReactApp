@@ -1,21 +1,24 @@
-.WhatsApp{
+.WhatsApp {
     position: fixed;
     right: 1.5rem;
     bottom: 1.5rem;
     width: 3.5rem;
     z-index: 10;
+    transition: transform .2s ease-in-out;
 }
 
-.WhatsApp:hover{
+.WhatsApp:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }
 
-@media (width <= 740px) {
+@media (width <=740px) {
 
-    .WhatsApp{
+    .WhatsApp {
         width: 2.5rem;
         bottom: 3rem;
     }
+
     .Navbar ul {
         margin-block-start: 0;
         margin-block-end: 1em;
