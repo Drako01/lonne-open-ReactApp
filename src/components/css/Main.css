@@ -6,6 +6,6 @@
     align-items: center;
     justify-content: center;
     font-size: calc(.8rem + 2vmin);
-    color: var(--first);
+    color: var(--brick);
 }
 

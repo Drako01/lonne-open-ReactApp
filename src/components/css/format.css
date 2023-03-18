@@ -1,7 +1,7 @@
 /* Variables */
 :root {
     /* Colores */
-    --first:  #a75555;
+    --first:  #90A755; 
     --second: #f5f5f5;
     --third: #3d4b19;
     --fourth: #7d895d;
@@ -9,6 +9,7 @@
     --light: #eee;
     --dark: #333;
     --sweetdark: #e3e3e3;
+    --brick: #c93c20 ;
     /* Tamaños */
     --small: 200px;
     --medium: 400px;

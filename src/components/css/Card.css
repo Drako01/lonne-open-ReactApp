@@ -45,22 +45,25 @@
 .Card .Dates{
     padding-bottom:  1rem;
 }
+.Dates h2{
+    color: var(--brick);
+}
 .Card .Btn {
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 .Card button{
-    background-color: var(--fourth);
+    background-color: var(--brick);
 }
 
 .Card button:hover{
-    background-color: var(--first);
+    background-color: var(--fourth);
 }
 
 
 .Card h3.Price{    
-    color: var(--first);
+    color: var(--fourth);
     font-size: 1.6rem;
     float: right;
 }
@@ -84,7 +87,6 @@
         margin-top: 1rem;
     }
     .Card h3.Price{    
-        color: var(--first);
         font-size: 1.4rem;
         float: none;
     }
