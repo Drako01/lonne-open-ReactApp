@@ -61,8 +61,8 @@
 
 .Card button:hover{
     border: solid 1px var(--fourth);
-    background-color: transparent;
-    color: var(--fourth);
+    background-color: var(--fourth);
+    color: var(--light);
 }
 
 
