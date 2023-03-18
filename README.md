@@ -1,6 +1,5 @@
 # Proyecto React JS
 
-
 <p align="center"> 
 <a href="https://reactjs.org/" target="_blank" rel="Drako01"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react"  width="150" height="150"/> </a>
  </p>
@@ -16,13 +15,13 @@
 ## Desarrollo de un E-Commerce Funcional desde el FrontEnd utilizando la Librería REACT JS
 
 <p align="center"> 
+    <a href="https://lonne-open-proshop.netlify.app/" target="_blank">
         <img src="https://lonneopen.com/img/logo.png" alt="CoderHouse"  height="300"/>
+    </a>
 </p>
 <h2 align="center"> PRO SHOP </h2>
 
-
 ---
-
 
 ## Temas Incluidos por Entrega
 
