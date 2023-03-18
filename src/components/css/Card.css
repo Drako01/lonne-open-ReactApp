@@ -54,11 +54,15 @@
     align-items: flex-end;
 }
 .Card button{
-    background-color: var(--brick);
+    border: solid 1px var(--brick);
+    background-color: transparent;
+    color: var(--brick);
 }
 
 .Card button:hover{
-    background-color: var(--fourth);
+    border: solid 1px var(--fourth);
+    background-color: transparent;
+    color: var(--fourth);
 }
 
 
