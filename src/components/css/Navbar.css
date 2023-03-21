@@ -42,6 +42,13 @@
     pointer-events: none;
 }
 
+.Counter{
+    display: flex;
+}
+.Counter img{
+    width: 24px;
+}
+
 @media (width <= 740px) {
     .Navbar{
         flex-direction: column-reverse;

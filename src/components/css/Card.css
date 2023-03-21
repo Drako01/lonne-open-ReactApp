@@ -3,7 +3,7 @@
     justify-content: space-between;
     width: 75vw;
     max-width: 40rem;
-    padding: 50px 30px 50px 20px;
+    padding: 50px 8px 50px 20px;
     background: var(--sweetdark);
     border-radius: 1rem;
     margin: 1rem;
@@ -44,15 +44,21 @@
 }
 .Card .Dates{
     padding-bottom:  1rem;
+    padding-right: 2rem;
 }
 .Dates h2{
     color: var(--brick);
+}
+.Dates>img{    
+    float: right;    
 }
 .Card .Btn {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: flex-end;
 }
+
 .Card button{
     border: solid 1px var(--brick);
     background-color: transparent;
@@ -64,14 +70,70 @@
     background-color: var(--fourth);
     color: var(--light);
 }
-
+.Card img.Favoritos{
+    width: 26px;
+    height: 26px;
+    position: sticky;
+    z-index: 10 ;
+    top: 0;
+    right: 0;
+}
 
 .Card h3.Price{    
     color: var(--fourth);
     font-size: 1.6rem;
-    float: right;
 }
 
+
+.CardDetail .Btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 240px;
+}
+.CardDetail{
+    display: flex;
+    text-align: left;
+    width: 75vw;
+    max-width: 80rem;
+    margin: 2rem 1.5rem;
+    padding-top: 2rem;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
+    background-color: aliceblue;
+    width: 100%;
+}
+
+.CardDetail img{
+    margin: -100px 0 30px 0;
+    width: 32rem;
+    max-width: 1000px;
+    border-radius: 1rem;
+    box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
+    transition: transform .2s ease-in-out; 
+}
+.CardDetail button{
+    margin-top: 1rem;
+    width: 100%;
+}
+.CardDetail h3.Price{    
+    font-size: 1.8rem;
+    float: none;
+}
+
+@media (width <= 840px) {
+    .CardDetail{
+        max-width: 758px;
+        flex-direction: column;
+        text-align: center;
+        margin: 2rem 1.5rem;
+        padding-top: 2rem;
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+        width: 90% !important;
+    }
+}
 @media (width <= 740px) {
     .Card{
         flex-direction: column;
@@ -96,5 +158,9 @@
     }
     .Card .Btn {
         align-items: center;
+    }
+    .Card img.Favoritos {
+        position: relative;
+        margin-right: 0;
     }
 }
