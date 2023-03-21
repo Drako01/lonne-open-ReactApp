@@ -50,8 +50,8 @@
 }
 .Card .Btn {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 .Card button{
     border: solid 1px var(--brick);

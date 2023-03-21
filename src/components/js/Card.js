@@ -1,9 +1,9 @@
 import Button from './Button';
 
-const Cards = ({id, name, category, description, size, price, image, stock}) => {
+const Cards = ({ id, name, category, description, size, price, image, stock }) => {
     const comprar = () => {
         console.log(`Compre el Producto con Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.-`)
-    }   
+    }
 
     return (
         <div className="Card">
@@ -25,6 +25,7 @@ const Cards = ({id, name, category, description, size, price, image, stock}) => 
                 </h3>
             </div>
             <div className='Btn'>
+                <Button label='Detalle'  />
                 <Button label='Comprar' callback={comprar} />
             </div>
         </div>

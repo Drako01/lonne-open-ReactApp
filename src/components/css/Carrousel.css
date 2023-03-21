@@ -1,0 +1,18 @@
+.css-ohwg9z{
+    margin-bottom: 3rem;
+}
+.css-1f8sh1y {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 796px !important;    
+}
+
+@media (width <= 740px) {
+    .css-1f8sh1y{
+        width: 400px !important;
+    }
+    .css-1f8sh1y img{
+        width: 400px !important;
+    }
+}
