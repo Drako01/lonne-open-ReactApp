@@ -18,6 +18,7 @@
     --fontR: 'Roboto', sans-serif;
     --fontP: 'Playfair', sans-serif;
     --fontB: 'Barlow', sans-serif;
+    --fontA: 'Arual', sans-serif;
 }
 
 /* Importacion de Tipografia */
@@ -29,6 +30,12 @@
 @font-face {
     font-family: "Playfair";
     src: url('../assets/font/PlayfairDisplay-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Arual";
+    src: url('../assets/font/Arual.ttf') format('truetype');
     font-style: normal;
     font-weight: bold;
 }

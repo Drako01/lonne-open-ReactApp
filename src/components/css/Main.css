@@ -9,3 +9,17 @@
     color: var(--brick);
 }
 
+.App-main h1{
+    font-family: var(--fontA);
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: var(--first);
+}
+
+@media (width <= 840px) {
+    .App-main h1{
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+
+}
