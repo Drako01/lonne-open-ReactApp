@@ -43,7 +43,7 @@ const products = [
     },
     {
         id: '5',
-        name: 'Head',
+        name: 'Tubo Head',
         category: 'Tubo de Pelotas',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
@@ -53,7 +53,7 @@ const products = [
     },
     {
         id: '6',
-        name: 'Penn',
+        name: 'Tubo Penn',
         category: 'Tubo de Pelotas',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
