@@ -22,9 +22,9 @@ const Cards = ({ id, name, category, description, price, size, image }) => {
                     <h3 className='Price'>
                         Precio: $ {price}.-
                     </h3>
-                </div>
+                {/* </div>
             
-            <div className='Btn'>
+            <div className='Btn'> */}
                 <img src={`${route}favoritovacio.png`} alt='Favoritos' className='Favoritos' onClick={favorito} />
                 <Button label='Detalles' callback={detalles} />
                 <Button label='Comprar' callback={comprar} />                

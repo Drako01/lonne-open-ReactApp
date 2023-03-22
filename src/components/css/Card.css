@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     width: 75vw;
-    max-width: 40rem;
+    height: 50vh;
+    max-width: 35rem;
     padding: 50px 8px 50px 20px;
     background: var(--sweetdark);
     border-radius: 1rem;
@@ -43,14 +44,20 @@
     font-size: .9rem;
 }
 .Card .Dates{
-    padding-bottom:  1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:  1rem;
+}
+.Card .Dates h2,  .Card .Dates h3{
+    text-align: left;
 }
 .Dates h2{
     color: var(--brick);
 }
-.Dates>img{    
+/* .Dates>img{    
     float: right;    
-}
+} */
 .Card .Btn {
     display: flex;
     flex-direction: column;
@@ -74,7 +81,7 @@
     height: 26px;
     position: sticky;
     z-index: 10 ;
-    margin: 1rem 0 2rem 0;
+    margin: 2rem 0;
 }
 
 .Card h3.Price{    
@@ -98,6 +105,7 @@
     display: flex;
     text-align: left;
     width: 75vw;
+    min-height: 70vh;
     max-width: 80rem;
     margin: 2rem 1.5rem;
     padding-top: 2rem;
@@ -141,10 +149,11 @@
         flex-direction: column;
         text-align: center;
         margin: 2rem 1.5rem;
-        padding-top: 2rem;
+        padding-top: 3rem;
         padding-left: 3.125rem;
         padding-right: 3.125rem;
         width: 100%;
+        min-height: 75vh;
     }
     .Card img{
         margin: -100px 0 30px 0;
@@ -161,5 +170,7 @@
     .Card .Btn {
         align-items: center;
     }
-    
+    .CardDetail{
+        min-height: 85vh;
+    }
 }
