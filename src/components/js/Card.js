@@ -17,8 +17,12 @@ const Cards = ({ id, name, category, description, price, size, image }) => {
             <img src={image} alt={name} />            
 
                 <div className='Dates'>
-                    <h2 className='TextDates'>{name}</h2>
-                    <h3 className='TextDates'>Talle: {size}</h3>
+                    <h2 className='TextDates'>
+                        {name}
+                    </h2>
+                    <h3 className='TextDates'>
+                        Talle: {size}
+                    </h3>
                     <h3 className='Price'>
                         Precio: $ {price}.-
                     </h3>
