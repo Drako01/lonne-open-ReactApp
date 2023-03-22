@@ -9,9 +9,11 @@ const Counter = () => {
 
     const increment = () => {
         setCount(prev => prev + 1)
+        console.log(`El carrito tiene ${count + 1 } items`)
     }
     const incrementFav = () => {
         setFav(prev => prev + 1)
+        console.log(`Ya tenemos ${fav + 1} Favoritos`)
     }
 
     return (
