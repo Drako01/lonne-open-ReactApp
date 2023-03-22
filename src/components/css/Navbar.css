@@ -22,7 +22,6 @@
 }
 
 .Navbar ul li:hover {
-    background-color: var(--fourth);
     cursor: pointer;
     border-radius: .25rem;
     border: 1px solid var(--light);
