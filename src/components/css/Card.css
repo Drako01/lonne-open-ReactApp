@@ -105,15 +105,15 @@
 .CardDetail{
     display: flex;
     text-align: left;
-    width: 75vw;
+    width: 90vw;
     min-height: 70vh;
     max-width: 80rem;
     margin: 2rem 1.5rem;
     padding-top: 2rem;
     padding-left: 3.125rem;
     padding-right: 3.125rem;
-    background-color: aliceblue;
-    width: 100%;
+    background-color: aliceblue;    
+    min-height: 80vh; 
 }
 
 .CardDetail img{
@@ -132,6 +132,18 @@
     font-size: 1.8rem;
     float: none;
 }
+@media (width <= 878px) {
+    .CardDetail {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        width: 75vw;   
+        min-height: 100vh;  
+    }
+    .Card .Btn {
+        align-items: center;
+    }
+}
 
 @media (width <= 840px) {
     .CardDetail{
@@ -148,7 +160,7 @@
         padding:  1rem 1.2rem 1rem 0;
     }
 }
-@media (width <= 740px) {
+@media (width <= 750px) {
     .Card{
         flex-direction: column;
         text-align: center;
@@ -171,13 +183,11 @@
         font-size: 1.4rem;
         float: none;
     }
-    .Card .Btn {
-        align-items: center;
-    }
+    
     .Card .Dates{
         padding:  0;
     }
     .CardDetail{
-        min-height: 100vh;
+        min-height: 100vh;  
     }
 }

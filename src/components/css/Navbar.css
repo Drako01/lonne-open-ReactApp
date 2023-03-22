@@ -48,12 +48,20 @@
     width: 24px;
 }
 
-@media (width <= 740px) {
+@media (width <= 968px) {
+    .Navbar .App-logo{
+        display: none;
+    }
+}
+@media (width <= 878px) {
+    ul{
+        padding-inline-start: 0px;
+    }
+}
+@media (width <= 758px) {
     .Navbar{
         flex-direction: column-reverse;
         align-items: flex-end;
     }
-    .Navbar .App-logo{
-        display: none;
-    }
+    
 }
