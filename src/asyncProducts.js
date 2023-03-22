@@ -61,6 +61,27 @@ const products = [
         image: `${route}tubo_pelotas_2.png`,
         stock: 125
     }
+    ,
+    {
+        id: '7',
+        name: 'Raqueta De Tenis',
+        category: 'Raqueta',
+        description: 'Raqueta De Tenis Babolat Pure Aero Grip 2 (4 1/4) Color:Amarillo',
+        size: '4 1/4',
+        price: '95.299',
+        image: `${route}raqueta01.png`,
+        stock: 15
+    },
+    {
+        id: '8',
+        name: 'Raqueta De Tenis',
+        category: 'Raqueta',
+        description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
+        size: '4 3/8',
+        price: '99.999',
+        image: `${route}raqueta02.png`,
+        stock: 12
+    }
 ]
 
 export const getProducts = () => {
