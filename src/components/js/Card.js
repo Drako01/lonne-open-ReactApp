@@ -16,7 +16,7 @@ const Cards = ({ id, name, category, description, price, size, image }) => {
             <div className="Card">
                 <img src={image} alt={name} />
                 <div className='Dates'>
-                    <img src={`${route}favoritovacio.png`} alt='Favoritos' className='Favoritos' onClick={favorito} />
+                    
                     <div className='Dates'>
                         <h2>{name}</h2>
                         <h3>{category}</h3>
@@ -27,6 +27,7 @@ const Cards = ({ id, name, category, description, price, size, image }) => {
                     </div>
                 </div>
                 <div className='Btn'>
+                <img src={`${route}favoritovacio.png`} alt='Favoritos' className='Favoritos' onClick={favorito} />
                 <Button label='Detalles' callback={detalles} />
                 <Button label='Comprar' callback={comprar} />
             </div >
