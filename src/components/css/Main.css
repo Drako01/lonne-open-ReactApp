@@ -16,6 +16,11 @@
     color: var(--first);
     text-shadow: .025rem .25rem 1.25rem var(--first);
 }
+.Dollar {
+    color: var(--first);
+    padding: 2rem 0;
+    text-align: center;
+}
 
 @media (width <= 840px) {
     .App-main h1{
