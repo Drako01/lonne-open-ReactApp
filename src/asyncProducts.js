@@ -120,6 +120,26 @@ const products = [
         price: '4.990',
         image: `${route}munequera02.png`,
         stock: 250
+    },
+    {
+        id: '13',
+        name: 'Vincha Nike Swoosh Negra',
+        category: 'Vincha',
+        description: 'Vincha Nike Swoosh Negra - Material: 70% Algodón, 19% Poliamida, 7% Poliéster, 4% Caucho',
+        size: '--',
+        price: '3.639',
+        image: `${route}vincha01.png`,
+        stock: 210
+    },
+    {
+        id: '14',
+        name: 'Vincha Adidas Toalla',
+        category: 'Vincha',
+        description: 'Vincha adidas Toalla Reversibles Absorbentes Tenis Padel',
+        size: '--',
+        price: '6.790',
+        image: `${route}vincha02.png`,
+        stock: 350
     }
 ]
 
