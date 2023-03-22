@@ -154,7 +154,7 @@
         padding-top: 2rem;
         padding-left: 3.125rem;
         padding-right: 3.125rem;
-        width: 90% !important;
+        width: 90% ;
     }
     .Card .Dates{
         padding:  1rem 1.2rem 1rem 0;
@@ -168,7 +168,6 @@
         padding-top: 3rem;
         padding-left: 3.125rem;
         padding-right: 3.125rem;
-        width: 100%;
         min-height: 75vh;
     }
     .Card img{
