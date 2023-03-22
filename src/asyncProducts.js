@@ -80,6 +80,26 @@ const products = [
         price: '99.999',
         image: `${route}raqueta02.png`,
         stock: 12
+    },
+    {
+        id: '9',
+        name: 'Remera Deportiva Hombre',
+        category: 'Remera',
+        description: 'Camiseta Nike Dri-Fit Academy',
+        size: 'XL',
+        price: '8.750',
+        image: `${route}remera01.png`,
+        stock: 52
+    },
+    {
+        id: '10',
+        name: 'Remera Deportiva Hombre',
+        category: 'Remera',
+        description: 'Remera Deportiva Hombre Lycra Ejercicio Sport Premiun Import',
+        size: 'L',
+        price: '5.860',
+        image: `${route}remera02.png`,
+        stock: 50
     }
 ]
 
