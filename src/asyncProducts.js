@@ -100,6 +100,26 @@ const products = [
         price: '5.860',
         image: `${route}remera02.png`,
         stock: 50
+    },
+    {
+        id: '11',
+        name: 'Muñequeras Diadora',
+        category: 'Muñequeras',
+        description: 'Muñequeras Diadora Algodon Deportivo Larga X Par (2 Unid.)',
+        size: '--',
+        price: '860',
+        image: `${route}munequera01.png`,
+        stock: 150
+    },
+    {
+        id: '12',
+        name: 'Muñequeras Doble Wilson',
+        category: 'Muñequeras',
+        description: 'Par Muñequeras Doble Wilson Tenis Padel Paddle Tennis',
+        size: '--',
+        price: '4.990',
+        image: `${route}munequera02.png`,
+        stock: 250
     }
 ]
 
