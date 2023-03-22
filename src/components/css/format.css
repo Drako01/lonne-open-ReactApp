@@ -19,6 +19,7 @@
     --fontP: 'Playfair', sans-serif;
     --fontB: 'Barlow', sans-serif;
     --fontA: 'Arual', sans-serif;
+    --fontAn: 'Anastas', sans-serif;
 }
 
 /* Importacion de Tipografia */
@@ -34,10 +35,16 @@
     font-weight: bold;
 }
 @font-face {
+    font-family: "Anastas";
+    src: url('../assets/font/ANASTAS.TTF') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
     font-family: "Arual";
     src: url('../assets/font/Arual.ttf') format('truetype');
     font-style: normal;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 @font-face {

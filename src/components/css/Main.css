@@ -14,6 +14,7 @@
     font-size: 5rem;
     margin-bottom: 1rem;
     color: var(--first);
+    text-shadow: .025rem .25rem 1.25rem var(--first);
 }
 
 @media (width <= 840px) {
