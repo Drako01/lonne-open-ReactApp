@@ -60,8 +60,7 @@ const products = [
         price: '4.700',
         image: `${route}tubo_pelotas_2.png`,
         stock: 125
-    }
-    ,
+    },
     {
         id: '7',
         name: 'Raqueta De Tenis',
