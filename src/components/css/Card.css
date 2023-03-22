@@ -86,9 +86,13 @@
 .CardDetail .Btn {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-end;
     min-width: 240px;
+}
+.CardDetail .Btn img{
+    width: 40px;
+    height: 40px;
 }
 .CardDetail{
     display: flex;

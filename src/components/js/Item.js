@@ -15,7 +15,7 @@ const Item = ({ id , name, category, description, price, size, image, stock }) =
                 <div>
                     <img src={image} alt={name} />
                     <div className='Dates'>
-                    <img src={`${route}favoritolleno.png`} alt='Favoritos' className='Favoritos'  onClick={favorito}/>
+                    
                         <h2>{name}</h2> 
                         <h3>{category}</h3>
                         <p>
@@ -33,7 +33,8 @@ const Item = ({ id , name, category, description, price, size, image, stock }) =
                     </div>
                 </div>
 
-                <div className='Btn'>                
+                <div className='Btn'>  
+                    <img src={`${route}favoritolleno.png`} alt='Favoritos' className='Favoritos'  onClick={favorito}/>              
                     <Button label='Comprar' callback={comprar}/>
                 </div>
 
