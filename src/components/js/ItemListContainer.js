@@ -3,7 +3,7 @@ import { getProducts } from '../../asyncProducts';
 import { useEffect, useState } from 'react';
 
 
-const CardsPanel = () => {
+const ItemListContainer = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -20,4 +20,4 @@ const CardsPanel = () => {
     )
 }
 
-export default CardsPanel;
+export default ItemListContainer;

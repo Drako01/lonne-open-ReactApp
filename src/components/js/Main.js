@@ -1,12 +1,12 @@
 import Greeting from './Greeting'
-import CardsPanel from './CardsPanel';
+import ItemListContainer from './ItemListContainer';
 import ItemDetailContainer from './ItemDetailContainer';
 
 const Main = () => {
     return (
         <main className="App-main">
             <Greeting greeting={'PRO SHOP'}/>
-            <CardsPanel />
+            <ItemListContainer />
             <ItemDetailContainer />
         </main>
     )
