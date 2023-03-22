@@ -75,8 +75,7 @@
     height: 26px;
     position: sticky;
     z-index: 10 ;
-    top: 0;
-    right: 0;
+    margin-top: 0;
 }
 
 .Card h3.Price{    
@@ -159,8 +158,5 @@
     .Card .Btn {
         align-items: center;
     }
-    .Card img.Favoritos {
-        position: relative;
-        margin-right: 0;
-    }
+    
 }
