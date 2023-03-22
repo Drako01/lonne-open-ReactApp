@@ -92,8 +92,19 @@
     color: var(--fourth);
     font-size: 1.6rem;
 }
-
-
+.CardDetail{
+    display: flex;
+    text-align: left;
+    max-width: 80rem;
+    width: 60vw;
+    min-height: 70vh;
+    margin: 2rem 1.5rem;
+    padding-top: 2rem;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
+    background-color: aliceblue;    
+    min-height: 80vh; 
+}
 .CardDetail .Btn {
     display: flex;
     flex-direction: column;
@@ -105,20 +116,6 @@
     width: 40px;
     height: 40px;
 }
-.CardDetail{
-    display: flex;
-    text-align: left;
-    width: 90vw;
-    min-height: 70vh;
-    max-width: 80rem;
-    margin: 2rem 1.5rem;
-    padding-top: 2rem;
-    padding-left: 3.125rem;
-    padding-right: 3.125rem;
-    background-color: aliceblue;    
-    min-height: 80vh; 
-}
-
 .CardDetail img{
     margin: -100px 0 30px 0;
     width: 32rem;
