@@ -19,7 +19,6 @@ const Cards = ({ id, name, category, description, price, size, image }) => {
                     
                     <div className='Dates'>
                         <h2>{name}</h2>
-                        <h3>{category}</h3>
                         <h3>Talle: {size}</h3>
                         <h3 className='Price'>
                             Precio: $ {price}.-
