@@ -51,6 +51,9 @@
     height: 45vh;
     padding:  1rem 1.5rem 1rem 0;
 }
+.Card .TextDates{
+    align-self: start;
+}
 .Card .Dates h2,  .Card .Dates h3{
     text-align: left;
 }
@@ -82,7 +85,7 @@
     height: 26px;
     position: sticky;
     z-index: 10 ;
-    margin: 2rem 0;
+    margin: .8rem 0;
 }
 
 .Card h3.Price{    
@@ -132,6 +135,21 @@
     font-size: 1.8rem;
     float: none;
 }
+.CardDetail .Dates {
+    align-items: start;
+}
+.CardDetail .Dates h2{
+    font-size: 2.3rem;
+}
+.CardDetail .Dates h3{
+    font-size: 1.8rem;
+}
+.CardDetail .Dates p{
+    font-size: 1.3rem;
+}
+
+
+
 @media (width <= 878px) {
     .CardDetail {
         display: flex;
