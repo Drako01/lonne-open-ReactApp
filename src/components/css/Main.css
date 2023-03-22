@@ -15,6 +15,7 @@
     margin-bottom: 1rem;
     color: var(--first);
     text-shadow: .025rem .25rem 1.25rem var(--first);
+    text-align: center;
 }
 .Dollar {
     color: var(--first);

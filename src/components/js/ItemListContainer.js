@@ -3,7 +3,7 @@ import { getProducts } from '../../asyncProducts';
 import { useEffect, useState } from 'react';
 
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -15,6 +15,7 @@ const ItemListContainer = () => {
 
     return (
         <div>
+            <h1>{greeting}</h1>
             <CardList products={products} /> 
         </div>        
     )
