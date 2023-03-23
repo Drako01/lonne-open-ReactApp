@@ -148,3 +148,13 @@ body.open .background{
 .delay10{
     animation-delay: 1.1s;
 }
+
+@media (width <= 740px) {
+
+    .menu{
+        padding-left: 3rem;
+    }
+    .menu nav a{
+        font-size: 1.2rem;
+    }
+}
