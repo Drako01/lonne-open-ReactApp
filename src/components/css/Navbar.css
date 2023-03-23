@@ -9,15 +9,14 @@
     justify-content: space-between;
     align-items: center;
 }
-.Navbar ul a{
-    color: var(--light);
-    margin: 0 .5rem;
-}
-.Active{
-    background-color: var(--fourth);
-    border: 1px solid var(--light);
-}
 
+.Active{
+    border: 1px solid var(--light);
+    border-radius: .25rem;
+}
+.Active:hover{
+    border: 1px solid var(--first);
+}
 .Navbar ul li {
     display: flex;
     justify-content: space-evenly;
@@ -34,7 +33,15 @@
     border-radius: .25rem;
     border: 1px solid var(--light);
 }
-
+.Navbar ul a{
+    color: var(--light);
+    margin: 0 .5rem;
+}
+.Navbar ul a:hover {
+    cursor: pointer;
+    border-radius: .25rem;
+    /* border: 1px solid var(--light); */
+}
 .Navbar ul li > .Cart{
     margin-right: 1rem;
 }
