@@ -12,6 +12,7 @@ const Navbar = () => {
             <div className="Navbar">
                 <Link to={`/`}><img src={icono} className="App-logo" alt="logo" /></Link>
                 <ul>
+                    <NavLink to='/'  className={({ isActive }) => isActive ? 'Active' : 'Inactive'}><li>Inicio</li></NavLink>
                     <NavLink to='/category/Raqueta'  className={({ isActive }) => isActive ? 'Active' : 'Inactive'}><li>Raquetas</li></NavLink>
                     <NavLink to='/category/Tubos'  className={({ isActive }) => isActive ? 'Active' : 'Inactive'}><li>Tubos</li></NavLink>
                     <NavLink to='/category/Zapatillas'  className={({ isActive }) => isActive ? 'Active' : 'Inactive'}><li>Zapatillas</li></NavLink>

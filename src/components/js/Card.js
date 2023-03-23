@@ -1,6 +1,6 @@
 import Button from './Button';
 import { Link } from 'react-router-dom';
-
+import carrito from '../assets/icons/carro.png'; 
 
 const Cards = ({ id, name, description, price, size, image }) => {
     const comprar = () => {
@@ -27,7 +27,7 @@ const Cards = ({ id, name, description, price, size, image }) => {
                     </h3>
                 <img src={`${route}favoritovacio.png`} alt='Favoritos' className='Favoritos' onClick={favorito} />
                 <Link to={`/item/${id}`}>Detalles</Link>
-                <Button label='Comprar' callback={comprar} />                
+                <Button label='Comprar' callback={comprar} />               
             </div >
         </div >
     )
