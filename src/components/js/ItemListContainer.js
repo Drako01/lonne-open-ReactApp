@@ -1,6 +1,6 @@
 import CardList from './CardList'
 import { useParams } from 'react-router-dom'
-import { getProducts, getProductsByCategory } from '../../asyncProducts';
+import { getProducts, getProductsByCategory } from '../../asyncMock';
 import { useEffect, useState } from 'react';
 
 
