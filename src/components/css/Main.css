@@ -29,5 +29,17 @@
         font-size: 3rem;
         margin-bottom: 3rem;
     }
+}
 
+@media (width <= 640px) {
+    .Logo-Icono{
+        justify-content: flex-end;
+        margin-right: 2rem;        
+    }
+    .Logo-Icono img{
+        height: 5rem;
+    }
+    .App-main h1{
+        font-size: 2rem;
+    }
 }

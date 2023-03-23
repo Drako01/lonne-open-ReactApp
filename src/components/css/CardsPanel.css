@@ -13,3 +13,9 @@
         padding: .5rem;
     }
 }
+
+@media (width <= 640px) {
+    .CardsPanel{
+        margin: 1rem .5rem 4rem .5rem;
+    }
+}

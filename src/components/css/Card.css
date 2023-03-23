@@ -225,3 +225,10 @@
         min-height: 890px;
     }
 }
+
+@media (width <= 640px) {
+    .Card{
+        width: 95%;
+        margin: 3rem 0;
+    }
+}
