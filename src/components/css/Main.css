@@ -20,7 +20,8 @@
 .Logo-Icono{
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    margin-top: 3rem;
 }
 
 @media (width <= 840px) {
