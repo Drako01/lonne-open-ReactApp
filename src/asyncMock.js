@@ -140,6 +140,106 @@ const products = [
         price: '6.790',
         image: `${route}vincha02.png`,
         stock: 350
+    },
+    {
+        id: '15',
+        name: 'Vincha Nike Swoosh Negra',
+        category: 'Vincha',
+        description: 'Vincha Nike Swoosh Negra - Material: 70% Algodón, 19% Poliamida, 7% Poliéster, 4% Caucho',
+        size: '--',
+        price: '3.639',
+        image: `${route}vincha01.png`,
+        stock: 210
+    },
+    {
+        id: '16',
+        name: 'Vincha Adidas Toalla',
+        category: 'Vincha',
+        description: 'Vincha adidas Toalla Reversibles Absorbentes Tenis Padel',
+        size: '--',
+        price: '6.790',
+        image: `${route}vincha02.png`,
+        stock: 350
+    },
+    {
+        id: '17',
+        name: 'Muñequeras Diadora',
+        category: 'Muñequeras',
+        description: 'Muñequeras Diadora Algodon Deportivo Larga X Par (2 Unid.)',
+        size: '--',
+        price: '860',
+        image: `${route}munequera01.png`,
+        stock: 150
+    },
+    {
+        id: '18',
+        name: 'Muñequeras Doble Wilson',
+        category: 'Muñequeras',
+        description: 'Par Muñequeras Doble Wilson Tenis Padel Paddle Tennis',
+        size: '--',
+        price: '4.990',
+        image: `${route}munequera02.png`,
+        stock: 250
+    },
+    {
+        id: '19',
+        name: 'Remera Deportiva Hombre',
+        category: 'Remera',
+        description: 'Camiseta Nike Dri-Fit Academy',
+        size: 'XL',
+        price: '8.750',
+        image: `${route}remera01.png`,
+        stock: 52
+    },
+    {
+        id: '20',
+        name: 'Remera Deportiva Hombre',
+        category: 'Remera',
+        description: 'Remera Deportiva Hombre Lycra Ejercicio Sport Premiun Import',
+        size: 'L',
+        price: '5.860',
+        image: `${route}remera02.png`,
+        stock: 50
+    },
+    {
+        id: '21',
+        name: 'Raqueta De Tenis',
+        category: 'Raqueta',
+        description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
+        size: '4 3/8',
+        price: '99.999',
+        image: `${route}raqueta02.png`,
+        stock: 12
+    },
+    {
+        id: '22',
+        name: 'Raqueta De Tenis',
+        category: 'Raqueta',
+        description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
+        size: '4 3/8',
+        price: '99.999',
+        image: `${route}raqueta02.png`,
+        stock: 12
+    },
+    {
+        id: '23',
+        name: 'Tubo Head',
+        category: 'Tubos',
+        description: 'Tubo de Pelotas x 3 Profesionales',
+        size: '--',
+        price: '5.800',
+        image: `${route}tubo_pelotas_1.png`,
+        stock: 60
+    },
+    {
+        id: '24',
+        name: 'Tubo Penn',
+        category: 'Tubos',
+        description: 'Tubo de Pelotas x 3 Profesionales',
+        size: '--',
+        price: '4.700',
+        image: `${route}tubo_pelotas_2.png`,
+        stock: 125
     }
 ]
 
