@@ -17,10 +17,10 @@
     text-shadow: .025rem .25rem 1.25rem var(--first);
     text-align: center;
 }
-.Dollar {
-    color: var(--first);
-    padding: 2rem 0;
-    text-align: center;
+.Logo-Icono{
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 @media (width <= 840px) {

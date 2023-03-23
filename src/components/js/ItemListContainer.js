@@ -2,6 +2,7 @@ import CardList from './CardList'
 import { useParams } from 'react-router-dom'
 import { getProducts, getProductsByCategory } from '../../asyncMock';
 import { useEffect, useState } from 'react';
+import logo  from '../assets/icons/logo.ico'
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -23,6 +24,10 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div>
+            <div className='Logo-Icono'>
+                <img src={logo} alt='Lonne Open'/>
+            </div>
+            
             <h1>{greeting}</h1>
             <CardList products={products} /> 
             
