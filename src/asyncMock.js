@@ -64,7 +64,7 @@ const products = [
     {
         id: '7',
         name: 'Raqueta De Tenis',
-        category: 'Raqueta',
+        category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Grip 2 (4 1/4) Color:Amarillo',
         size: '4 1/4',
         price: '95.299',
@@ -74,7 +74,7 @@ const products = [
     {
         id: '8',
         name: 'Raqueta De Tenis',
-        category: 'Raqueta',
+        category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
         size: '4 3/8',
         price: '99.999',
@@ -84,7 +84,7 @@ const products = [
     {
         id: '9',
         name: 'Remera Deportiva Hombre',
-        category: 'Remera',
+        category: 'Remeras',
         description: 'Camiseta Nike Dri-Fit Academy',
         size: 'XL',
         price: '8.750',
@@ -94,7 +94,7 @@ const products = [
     {
         id: '10',
         name: 'Remera Deportiva Hombre',
-        category: 'Remera',
+        category: 'Remeras',
         description: 'Remera Deportiva Hombre Lycra Ejercicio Sport Premiun Import',
         size: 'L',
         price: '5.860',
@@ -104,7 +104,7 @@ const products = [
     {
         id: '11',
         name: 'Muñequeras Diadora',
-        category: 'Muñequeras',
+        category: 'Munequeras',
         description: 'Muñequeras Diadora Algodon Deportivo Larga X Par (2 Unid.)',
         size: '--',
         price: '860',
@@ -114,7 +114,7 @@ const products = [
     {
         id: '12',
         name: 'Muñequeras Doble Wilson',
-        category: 'Muñequeras',
+        category: 'Munequeras',
         description: 'Par Muñequeras Doble Wilson Tenis Padel Paddle Tennis',
         size: '--',
         price: '4.990',
@@ -124,7 +124,7 @@ const products = [
     {
         id: '13',
         name: 'Vincha Nike Swoosh Negra',
-        category: 'Vincha',
+        category: 'Vinchas',
         description: 'Vincha Nike Swoosh Negra - Material: 70% Algodón, 19% Poliamida, 7% Poliéster, 4% Caucho',
         size: '--',
         price: '3.639',
@@ -134,7 +134,7 @@ const products = [
     {
         id: '14',
         name: 'Vincha Adidas Toalla',
-        category: 'Vincha',
+        category: 'Vinchas',
         description: 'Vincha adidas Toalla Reversibles Absorbentes Tenis Padel',
         size: '--',
         price: '6.790',
@@ -144,7 +144,7 @@ const products = [
     {
         id: '15',
         name: 'Vincha Nike Swoosh Negra',
-        category: 'Vincha',
+        category: 'Vinchas',
         description: 'Vincha Nike Swoosh Negra - Material: 70% Algodón, 19% Poliamida, 7% Poliéster, 4% Caucho',
         size: '--',
         price: '3.639',
@@ -154,7 +154,7 @@ const products = [
     {
         id: '16',
         name: 'Vincha Adidas Toalla',
-        category: 'Vincha',
+        category: 'Vinchas',
         description: 'Vincha adidas Toalla Reversibles Absorbentes Tenis Padel',
         size: '--',
         price: '6.790',
@@ -164,7 +164,7 @@ const products = [
     {
         id: '17',
         name: 'Muñequeras Diadora',
-        category: 'Muñequeras',
+        category: 'Munequeras',
         description: 'Muñequeras Diadora Algodon Deportivo Larga X Par (2 Unid.)',
         size: '--',
         price: '860',
@@ -174,7 +174,7 @@ const products = [
     {
         id: '18',
         name: 'Muñequeras Doble Wilson',
-        category: 'Muñequeras',
+        category: 'Munequeras',
         description: 'Par Muñequeras Doble Wilson Tenis Padel Paddle Tennis',
         size: '--',
         price: '4.990',
@@ -184,7 +184,7 @@ const products = [
     {
         id: '19',
         name: 'Remera Deportiva Hombre',
-        category: 'Remera',
+        category: 'Remeras',
         description: 'Camiseta Nike Dri-Fit Academy',
         size: 'XL',
         price: '8.750',
@@ -194,7 +194,7 @@ const products = [
     {
         id: '20',
         name: 'Remera Deportiva Hombre',
-        category: 'Remera',
+        category: 'Remeras',
         description: 'Remera Deportiva Hombre Lycra Ejercicio Sport Premiun Import',
         size: 'L',
         price: '5.860',
@@ -204,7 +204,7 @@ const products = [
     {
         id: '21',
         name: 'Raqueta De Tenis',
-        category: 'Raqueta',
+        category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
         size: '4 3/8',
         price: '99.999',
@@ -214,7 +214,7 @@ const products = [
     {
         id: '22',
         name: 'Raqueta De Tenis',
-        category: 'Raqueta',
+        category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
         size: '4 3/8',
         price: '99.999',

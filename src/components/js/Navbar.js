@@ -44,12 +44,12 @@ const Navbar = () => {
             <div className='menu'>
                 <nav>
                     <NavLink to='/' className={'delay00'}><li>Inicio</li></NavLink>
-                    <NavLink to='/category/Raqueta' className={'delay01'}><li>Raquetas</li></NavLink>
+                    <NavLink to='/category/Raquetas' className={'delay01'}><li>Raquetas</li></NavLink>
                     <NavLink to='/category/Tubos' className={'delay02'}><li>Tubos</li></NavLink>
                     <NavLink to='/category/Zapatillas' className={'delay03'}><li>Zapatillas</li></NavLink>
-                    <NavLink to='/category/Remera' className={'delay04'}><li>Remeras</li></NavLink>
-                    <NavLink to='/category/Muñequeras' className={'delay05'}><li>Muñequeras</li></NavLink>
-                    <NavLink to='/category/Vincha' className={'delay06'}><li>Vinchas</li></NavLink>
+                    <NavLink to='/category/Remeras' className={'delay04'}><li>Remeras</li></NavLink>
+                    <NavLink to='/category/Munequeras' className={'delay05'}><li>Muñequeras</li></NavLink>
+                    <NavLink to='/category/Vinchas' className={'delay06'}><li>Vinchas</li></NavLink>
 
                     <NavLink to={`/`} className={'delay07'}><img src={buscar} alt="icono" /> Buscar</NavLink>                    
 
