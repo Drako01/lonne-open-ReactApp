@@ -1,5 +1,4 @@
 import buscar from '../assets/icons/busqueda.png';
-import mail from '../assets/icons/correo.png';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react'
 import CartWidget from './CartWidget'
