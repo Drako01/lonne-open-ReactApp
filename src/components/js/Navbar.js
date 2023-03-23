@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react'
 import CartWidget from './CartWidget'
 import Favorites from './Favorites'
+import Messajes from './Messajes';
 
 
 const Navbar = () => {
@@ -13,6 +14,7 @@ const Navbar = () => {
     const Counter = () => {
         const [count, setCount] = useState(0)
         const [fav, setFav] = useState(0)
+        const [mje, setMje] = useState(0)
 
         const increment = () => {
             setCount(prev => prev + 1)
@@ -22,12 +24,16 @@ const Navbar = () => {
             setFav(prev => prev + 1)
             console.log(`Ya tenemos ${fav + 1} Favoritos`)
         }
-
+        const incrementMje = () => {
+            setMje(prev => prev + 1)
+            console.log(`Ya tenemos ${mje + 1} Mensajes`)
+        }
         return (
 
             <div className='IconosMenu'>
+                <NavLink to={`/`} className={'delay08'}><Messajes callback={incrementMje} click={mje} /></NavLink>
                 <NavLink to='/' className={'delay09'}><CartWidget callback={increment} click={count} /></NavLink>
-                <NavLink to='/' className={'delay10'}><Favorites callback={incrementFav} click={fav} /></NavLink>
+                <NavLink to='/' className={'delay10'}><Favorites callback={incrementFav} click={fav} /></NavLink>                
             </div>
 
         )
@@ -46,8 +52,7 @@ const Navbar = () => {
                     <NavLink to='/category/Muñequeras' className={'delay05'}><li>Muñequeras</li></NavLink>
                     <NavLink to='/category/Vincha' className={'delay06'}><li>Vinchas</li></NavLink>
 
-                    <NavLink to={`/`} className={'delay07'}><img src={buscar} alt="icono" /> Buscar</NavLink>
-                    <NavLink to={`/`} className={'delay08'}><img src={mail} alt="icono" /> Mensajes</NavLink>
+                    <NavLink to={`/`} className={'delay07'}><img src={buscar} alt="icono" /> Buscar</NavLink>                    
 
                     <Counter />
 
