@@ -227,8 +227,14 @@
 }
 
 @media (width <= 640px) {
-    .Card{
+    .Card,
+    .CardDetail{
         width: 95%;
         margin: 3rem 0;
     }
+    .CardDetail{
+        width: 95%;
+        margin: 8rem .5rem 3rem .5rem ;
+    }
+    
 }
