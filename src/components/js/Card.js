@@ -1,6 +1,5 @@
 import Button from './Button';
 import { Link } from 'react-router-dom';
-import carrito from '../assets/icons/carro.png'; 
 
 const Cards = ({ id, name, description, price, size, image }) => {
     const comprar = () => {
