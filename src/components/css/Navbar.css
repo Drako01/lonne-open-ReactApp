@@ -152,9 +152,14 @@ body.open .background{
 @media (width <= 740px) {
 
     .menu{
-        padding-left: 3rem;
+        padding-left: 4rem;
+        padding-top: 4rem;
+        align-items: start;
     }
     .menu nav a{
         font-size: 1.2rem;
+    }
+    .menu a, .IconosMenu a li{
+        padding: 10px 0;
     }
 }
