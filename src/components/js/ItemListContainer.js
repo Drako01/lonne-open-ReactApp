@@ -28,7 +28,7 @@ const ItemListContainer = ({ greeting }) => {
                 <img src={logo} alt='Lonne Open'/>
             </div>
             
-            <h1>{greeting}</h1>
+            <h1>{greeting} {categoryId}</h1>
             <CardList products={products} /> 
             
         </div>        
