@@ -1,82 +1,150 @@
-.Navbar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.burguer,
+.menu,
+.background{
+    position: fixed;
+    background-repeat: no-repeat;
+}
+li{
+    text-decoration: none;
+    list-style: none;
 }
 
-.Navbar ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.menu,
+.menu a,
+.background{
+    transition: 0.5s;
 }
-
-.Active{
-    border: 1px solid var(--light);
-    border-radius: .25rem;
-}
-.Active:hover{
-    border: 1px solid var(--first);
-}
-.Navbar ul li {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 1.2rem;
-    padding: .5rem 1rem;
-    height: 2.5rem;
-    font-family: var(--fontB);
-    border: 1px solid var(--first);
-}
-
-.Navbar ul li:hover {
-    cursor: pointer;
-    border-radius: .25rem;
-    border: 1px solid var(--light);
-}
-.Navbar ul a{
-    color: var(--light);
-    margin: 0 .5rem;
-}
-.Navbar ul a:hover {
-    cursor: pointer;
-    border-radius: .25rem;
-    /* border: 1px solid var(--light); */
-}
-.Navbar ul li > .Cart{
-    margin-right: 1rem;
-}
-
-.Navbar .App-logo {
-    height: 5rem;
-    float: left;
-}
-
-.App-logo {
-    height: 50vmin;
-    pointer-events: none;
-}
-
-.Counter{
-    display: flex;
-}
-.Counter img{
+.menu a img{
     width: 24px;
+    height: 24px;
+}
+.burguer{
+    z-index: 30;
+    top: 20px;
+    left: 20px;
+    place-items: center;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    background-image: url('../../../public/img/menu.png');
+    border: 0;
+    padding: 0;
+    cursor: pointer;
 }
 
-@media (width <= 968px) {
-    .Navbar .App-logo{
-        display: none;
+.menu{
+    z-index: 20;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    background: hsla(0, 0%, 0%, 0.6);
+    opacity: 0;
+    visibility: hidden;
+}
+.menu nav:hover a{
+    opacity: 0.25;
+}
+.menu nav a:hover{
+    opacity: 1;
+}
+.menu nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.menu a,
+.IconosMenu{
+    position: relative;
+    color: var(--light);
+    font-size: 2rem;
+    padding: 20px 0;
+    width: 300px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+.IconosMenu{
+    padding:  0;
+}
+.IconosMenu a li{
+    padding: 20px 0;
+}
+
+.menu a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: #f7f7f7;
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+    transition: 0.4s;
+}
+@keyframes appear {
+    0%{
+        opacity: 0;
+        translate: 0 50px;
+    }
+    100%{
+        opacity: 1;
     }
 }
-@media (width <= 878px) {
-    ul{
-        padding-inline-start: 0px;
-    }
+.menu a:hover::after{
+    transform: scaleX(1);
 }
-@media (width <= 758px) {
-    .Navbar{
-        flex-direction: column-reverse;
-        align-items: flex-end;
-    }
-    
+body.open .burguer{
+    background-image: url(../../../public/img/close.png);
+}
+body.open .menu{
+    opacity: 1;
+    visibility: visible;
+}
+body.open .menu a{
+    animation: appear 0.3s backwards;
+}
+body.open .background{
+    filter: blur(10px);
+}
+
+.delay00{
+    animation-delay: 0.1s;
+}
+.delay01{
+    animation-delay: 0.2s;
+}
+.delay02{
+    animation-delay: 0.3s;
+}
+.delay03{
+    animation-delay: 0.4s;
+}
+.delay04{
+    animation-delay: 0.5s;
+}
+.delay05{
+    animation-delay: 0.6s;
+}
+.delay06{
+    animation-delay: 0.6s;
+}
+.delay06{
+    animation-delay: 0.7s;
+}
+.delay07{
+    animation-delay: 0.8s;
+}
+.delay08{
+    animation-delay: 0.9s;
+}
+.delay09{
+    animation-delay: 1s;
+}
+.delay10{
+    animation-delay: 1.1s;
 }

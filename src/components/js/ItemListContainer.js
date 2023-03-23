@@ -25,6 +25,7 @@ const ItemListContainer = ({ greeting }) => {
         <div>
             <h1>{greeting}</h1>
             <CardList products={products} /> 
+            
         </div>        
     )
 }

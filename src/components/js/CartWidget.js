@@ -4,7 +4,7 @@ const CartWidget = (props) => {
 
     return (
         <li>
-            <img src={carrito} onClick={props.callback} className="App-icono Cart" alt="icono" /> {props.click}
+            <img src={carrito} onClick={props.callback} className="App-icono Cart" alt="icono" /> Carrito {props.click}
         </li>
     )
 }
