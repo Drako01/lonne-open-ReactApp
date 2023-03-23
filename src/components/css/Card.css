@@ -80,6 +80,26 @@
     background-color: var(--fourth);
     color: var(--light);
 }
+.Card a{
+    margin: .7rem;
+    padding: .5rem .8rem;
+    border-radius: .25rem;
+    min-height: 2.5rem;
+    font-size: 1rem;
+    border: solid 1px var(--brick);
+    background-color: transparent;
+    color: var(--brick);
+    min-width: 230px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+}
+.Card a:hover{
+    cursor: pointer;
+    border: solid 1px var(--fourth);
+    background-color: var(--fourth);
+    color: var(--light);
+}
 .Card img.Favoritos{
     width: 26px;
     height: 26px;
@@ -98,7 +118,7 @@
     max-width: 80rem;
     width: 90vw;
     min-height: 70vh;
-    margin: 2rem 1.5rem;
+    margin: 6rem 1.5rem;
     padding-top: 2rem;
     padding-left: 3.125rem;
     padding-right: 3.125rem;
@@ -154,6 +174,7 @@
         text-align: left;
         width: 75vw;   
         min-height: 100vh;  
+        margin: 10rem 1.5rem;
     }
     .Card .Btn {
         align-items: center;
@@ -165,7 +186,7 @@
         max-width: 758px;
         flex-direction: column;
         text-align: center;
-        margin: 2rem 1.5rem;
+        margin: 8rem 1.5rem;
         padding-top: 2rem;
         padding-left: 3.125rem;
         padding-right: 3.125rem;
@@ -179,7 +200,6 @@
     .Card{
         flex-direction: column;
         text-align: center;
-        margin: 2rem 1.5rem;
         padding-top: 3rem;
         padding-left: 1.5rem;
         padding-right: 1.5rem;

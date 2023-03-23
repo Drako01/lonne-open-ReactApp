@@ -1,21 +1,25 @@
 import Item from './Item'
-import { getProducts } from '../../asyncProducts';
+import { getProductById } from '../../asyncProducts';
 import { useEffect, useState } from 'react';
-
+import { useParams } from 'react-router';
 
 const ItemDetailContainer = () => {
-    const [products, setProducts] = useState([])
+    const [products, setProduct] = useState()
+
+    const { itemId } = useParams()
+
 
     useEffect(() => {
-        getProducts()
-            .then(products => {
-                setProducts(products)
-            })
-    }, [])
+        getProductById(itemId).then(response => {
+            setProduct(response)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [itemId])
 
     return (
         <div>
-            <Item {...products[9]} /> 
+            <Item {...products} /> 
         </div>        
     )
 }

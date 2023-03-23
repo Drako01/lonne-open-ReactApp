@@ -1,17 +1,25 @@
 import CardList from './CardList'
-import { getProducts } from '../../asyncProducts';
+import { useParams } from 'react-router-dom'
+import { getProducts, getProductsByCategory } from '../../asyncProducts';
 import { useEffect, useState } from 'react';
 
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
 
+    const { categoryId } = useParams()
+
     useEffect(() => {
-        getProducts()
+        const asyncFunction = categoryId ? getProductsByCategory : getProducts
+
+        asyncFunction(categoryId)
             .then(products => {
                 setProducts(products)
             })
-    }, [])
+            .catch(error => {
+                console.log(error)
+            })
+    }, [categoryId])
 
     return (
         <div>

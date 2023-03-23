@@ -104,7 +104,8 @@ iframe {
 /* Estilos */
 :is(header,
     nav,
-    footer) a {
+    footer,
+    ul) a {
     text-decoration: none;
 }
 

@@ -8,7 +8,7 @@ const products = [
         description: 'Zapatillas de tenis en Negro y Blanco',
         size: '40',
         price: '30.000',
-        image:  `${route}zapa-wilson_1.png`,
+        image: `${route}zapa-wilson_1.png`,
         stock: 10
     },
     {
@@ -44,7 +44,7 @@ const products = [
     {
         id: '5',
         name: 'Tubo Head',
-        category: 'Tubo de Pelotas',
+        category: 'Tubos',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
         price: '5.800',
@@ -54,7 +54,7 @@ const products = [
     {
         id: '6',
         name: 'Tubo Penn',
-        category: 'Tubo de Pelotas',
+        category: 'Tubos',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
         price: '4.700',
@@ -147,6 +147,22 @@ export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products)
+        }, 500)
+    })
+}
+
+export const getProductsByCategory = (categoryId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products.filter(prod => prod.category === categoryId))
+        }, 500)
+    })
+}
+
+export const getProductById = (productId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === productId))
         }, 500)
     })
 }

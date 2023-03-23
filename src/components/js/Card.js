@@ -1,11 +1,10 @@
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
-const Cards = ({ id, name, category, description, price, size, image }) => {
+
+const Cards = ({ id, name, description, price, size, image }) => {
     const comprar = () => {
         console.log(`Compre el Producto con Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.-`)
-    }
-    const detalles = () => {
-        console.log(`Detalle del Producto con Id: ${id}, se llama ${description} ${name} a un Valor de: $${price}.-`)
     }
     const favorito = () => {
         console.log(`Agregue a Favoritos el Producto con Id: ${id}, se llama ${description} ${name} a un Valor de: $${price}.-`)
@@ -27,7 +26,7 @@ const Cards = ({ id, name, category, description, price, size, image }) => {
                         Precio: $ {price}.-
                     </h3>
                 <img src={`${route}favoritovacio.png`} alt='Favoritos' className='Favoritos' onClick={favorito} />
-                <Button label='Detalles' callback={detalles} />
+                <Link to={`/item/${id}`}>Detalles</Link>
                 <Button label='Comprar' callback={comprar} />                
             </div >
         </div >
