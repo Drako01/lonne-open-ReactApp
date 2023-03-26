@@ -1,6 +1,7 @@
 import ItemListContainer from './ItemListContainer';
 import ItemDetailContainer from './ItemDetailContainer';
 import { Routes, Route } from 'react-router-dom';
+// import FindProduct from './FindProduct';
 
 
 const Main = () => {
@@ -9,7 +10,8 @@ const Main = () => {
             <Routes>
                 <Route path='/' element={<ItemListContainer greeting={'PRO SHOP'} />}/>
                 <Route path='/category/:categoryId' element={<ItemListContainer greeting={`Categoria: `} />}/>
-                <Route path='/item/:itemId' element= {<ItemDetailContainer />}/>
+                <Route path=':name/item/:itemId' element= {<ItemDetailContainer />}/>
+                {/* <Route path='/search/:input' element= {<FindProduct />}/> */}
             </Routes>
         </main>
     )

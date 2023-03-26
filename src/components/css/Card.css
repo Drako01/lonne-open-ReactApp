@@ -92,8 +92,13 @@
     min-width: 230px;
     text-decoration: none;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: middle;    
 }
+
+.Like:hover{
+    cursor: pointer;
+}
+
 .Card a:hover{
     cursor: pointer;
     border: solid 1px var(--fourth);
@@ -164,9 +169,23 @@
 .CardDetail .Dates p{
     font-size: 1.3rem;
 }
-
-
-
+.Fav-Icon{
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    border: none !important;
+    background-color: transparent;
+    color: currentColor !important;
+    min-width: 32px !important;    
+}
+.Fav-Icon svg{
+    width: 32px !important;
+    height: 32px !important;
+}
+.Fav-Icon:hover{
+    cursor: pointer;
+    background-color: transparent !important;
+}
 @media (width <= 878px) {
     .CardDetail {
         display: flex;

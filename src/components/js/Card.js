@@ -1,32 +1,30 @@
-import Button from './Button';
 import { Link } from 'react-router-dom';
+import ShoppingCart from './ShoppingCart';
+import NotLike from './NotLike';
 
-const Cards = ({ id, name, description, price, size, image }) => {
-    const comprar = () => {
-        console.log(`Compre el Producto con Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.-`)
-    }
+
+const Cards = ({ id, name, price, size,description, image }) => {
     const favorito = () => {
-        console.log(`Agregue a Favoritos el Producto con Id: ${id}, se llama ${description} ${name} a un Valor de: $${price}.-`)
+        console.log(`Se agrego a Favoritos el Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.-`)
     }
-    const route = '/img/';
 
     return (
         <div className="Card">
-            <img src={image} alt={name} />            
+            <img src={image} alt={name} />
 
-                <div className='Dates'>
-                    <h2 className='TextDates'>
-                        {name}
-                    </h2>
-                    <h3 className='TextDates'>
-                        Talle: {size}
-                    </h3>
-                    <h3 className='Price'>
-                        Precio: $ {price}.-
-                    </h3>
-                <img src={`${route}favoritovacio.png`} alt='Favoritos' className='Favoritos' onClick={favorito} />
-                <Link to={`/item/${id}`}>Detalles</Link>
-                <Button label='Comprar' callback={comprar} />               
+            <div className='Dates'>
+                <h2 className='TextDates'>
+                    {name}
+                </h2>
+                <h3 className='TextDates'>
+                    Talle: {size}
+                </h3>
+                <h3 className='Price'>
+                    Precio: $ {price}.-
+                </h3>
+                <Link onClick={favorito} className="Fav-Icon"><NotLike/></Link>                
+                <Link to={` ${name}/item/${id}`}>Detalles</Link>
+                <Link to={`/cart/${id}`}>Agregar al Carrito <ShoppingCart/> </Link>
             </div >
         </div >
     )
