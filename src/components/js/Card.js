@@ -25,7 +25,7 @@ const Cards = ({ id, name, description, price, size, image }) => {
                         Precio: $ {price}.-
                     </h3>
                 <img src={`${route}favoritovacio.png`} alt='Favoritos' className='Favoritos' onClick={favorito} />
-                <Link to={`/item/${id}`}>Detalles</Link>
+                <Link to={` ${name}/item/${id}`}>Detalles</Link>
                 <Button label='Comprar' callback={comprar} />               
             </div >
         </div >
