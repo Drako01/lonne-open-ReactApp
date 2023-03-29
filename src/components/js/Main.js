@@ -3,7 +3,6 @@ import ItemDetailContainer from './ItemDetailContainer';
 import ItemCartContainer from './ItemCartContainer';
 import { Routes, Route } from 'react-router-dom';
 import ItemCheckoutContainer from './ItemCheckoutContainer'
-// import FindProduct from './FindProduct';
 
 
 const Main = () => {
@@ -15,7 +14,6 @@ const Main = () => {
                 <Route path=':name/item/:itemId' element= {<ItemDetailContainer />}/>
                 <Route path=':name/cart/:itemId' element= {<ItemCartContainer />}/>
                 <Route path=':name/checkout/:itemId' element= {<ItemCheckoutContainer />}/>
-                {/* <Route path='/search/:input' element= {<FindProduct />}/> */}
             </Routes>
         </main>
     )

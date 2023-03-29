@@ -1,17 +1,8 @@
-// import Button from './Button';
-import Like from './IsLike';
 import { Link } from 'react-router-dom';
-// import ShoppingCart from './ShoppingCart';
 
 
-const Item = ({ id, name, category, description, price, size, image, stock }) => {
-    // const comprar = () => {
-    //     console.log(`Compre el Producto con Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.-`)
-    // }
-    const favorito = () => {
-        console.log(`Se agrego a Favoritos el Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.- Desde Detalles`)
-    }
-
+const Item = ({ id, name, category, description, price, size, image, stock }) => {   
+    
     return (
         <div className="Card CardDetail" id='Item-Detail'>
 
@@ -36,9 +27,7 @@ const Item = ({ id, name, category, description, price, size, image, stock }) =>
                 </div>
             </div>
 
-            <div className='Btn'>
-                <Link onClick={favorito} className="Fav-Icon"><Like /></Link>
-                {/* <Button label='Comprar' callback={comprar} /> */}
+            <div className='Btn'>      
                 <Link to={`../${name}/cart/${id}`}>Comprar </Link>
             </div>
 

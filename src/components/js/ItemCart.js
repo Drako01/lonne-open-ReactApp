@@ -1,11 +1,6 @@
-// import Button from './Button';
-// import Like from './IsLike';
 import { Link } from 'react-router-dom';
 
 const Item = ({ id , name, category, description, price, size, image, stock }) => {
-    // const comprar = () => {
-    //     console.log(`Compre el Producto con Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.-`)
-    // }
     
     return (
         <div className="Card CardDetail" id='Item-Detail'>           
@@ -33,7 +28,6 @@ const Item = ({ id , name, category, description, price, size, image, stock }) =
 
                 <div className='Btn'>
                 <Link to={`../${name}/checkout/${id}`}>Pagar </Link>
-                    {/* <Button label='Pagar' callback={comprar}/> */}
                 </div>
 
         </div>

@@ -1,15 +1,10 @@
 import { Link } from 'react-router-dom';
 import ShoppingCart from './ShoppingCart';
-import NotLike from './NotLike';
 
 
 
-const Cards = ({ id, name, price, size,description, image }) => {
+const Cards = ({ id, name, price, size, description, image }) => {
     
-    //Usar useEfect
-    const favorito = () => {        
-        console.log(`Se agrego a Favoritos el Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.- Desde la Card`)
-    }
 
     return (
         <div className="Card">
@@ -24,8 +19,7 @@ const Cards = ({ id, name, price, size,description, image }) => {
                 </h3>
                 <h3 className='Price'>
                     Precio: $ {price}.-
-                </h3>
-                <Link onClick={favorito} className="Fav-Icon"><NotLike/></Link>                
+                </h3>                             
                 <Link to={` ${name}/item/${id}`}>Detalles</Link>
                 <Link to={`${name}/cart/${id}`}>Agregar al Carrito <ShoppingCart/> </Link>
             </div >

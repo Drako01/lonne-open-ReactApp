@@ -1,7 +1,3 @@
-// import Button from './Button';
-// // import Like from './IsLike';
-// import { Link } from 'react-router-dom';
-
 const Item = ({ id, name, category, description, price, size, image, stock }) => {
 
     return (
