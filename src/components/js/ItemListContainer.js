@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { getProducts, getProductsByCategory } from '../../asyncMock';
 import { useEffect, useState } from 'react';
 import logo  from '../assets/icons/logo.ico'
+import { Link } from 'react-router-dom';
+
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -25,7 +27,9 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <div>
             <div className='Logo-Icono'>
-                <img src={logo} alt='Lonne Open'/>
+                <Link  to={`/`}>
+                    <img src={logo} alt='Lonne Open'/>
+                </Link>                
             </div>
             
             <h1>{greeting} {categoryId}</h1>

@@ -149,6 +149,12 @@
     box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
     transition: transform .2s ease-in-out; 
 }
+.CardDetail img.Donald{
+    margin: 0;
+    padding: 0;
+    height: auto;
+    box-shadow: none;
+}
 .CardDetail button{
     margin-top: 1rem;
     width: 100%;
@@ -179,6 +185,8 @@
     min-width: 32px !important;    
 }
 .Fav-Icon svg{
+    margin-top: .5rem;
+    padding-top: .25rem;
     width: 32px !important;
     height: 32px !important;
 }

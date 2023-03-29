@@ -3,9 +3,12 @@ import ShoppingCart from './ShoppingCart';
 import NotLike from './NotLike';
 
 
+
 const Cards = ({ id, name, price, size,description, image }) => {
-    const favorito = () => {
-        console.log(`Se agrego a Favoritos el Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.-`)
+    
+    //Usar useEfect
+    const favorito = () => {        
+        console.log(`Se agrego a Favoritos el Id: ${id} y se llama ${description} ${name} a un Valor de: $${price}.- Desde la Card`)
     }
 
     return (
@@ -24,7 +27,7 @@ const Cards = ({ id, name, price, size,description, image }) => {
                 </h3>
                 <Link onClick={favorito} className="Fav-Icon"><NotLike/></Link>                
                 <Link to={` ${name}/item/${id}`}>Detalles</Link>
-                <Link to={`/cart/${id}`}>Agregar al Carrito <ShoppingCart/> </Link>
+                <Link to={`${name}/cart/${id}`}>Agregar al Carrito <ShoppingCart/> </Link>
             </div >
         </div >
     )
