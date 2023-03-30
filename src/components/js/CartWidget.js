@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const CartWidget = () => {
     
     const { totalQuantity } = useCart()
-    
+
     return (
         <li>
             <Link to={'/cart'} className="delay09 CartWidget">
-                <img src={carrito} className="App-icono Cart" alt="icono" /> <h4>Carrito {totalQuantity}</h4>
+                <img src={carrito} className="App-icono Cart" alt="icono" /> <h4>{totalQuantity}</h4>
             </Link>
             
         </li>
