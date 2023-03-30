@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom';
-
+import ItemCount from './ItemCount'
+import { useCart } from '../../context/CartContext'
 
 const Item = ({ id, name, category, description, price, size, image, stock }) => {   
     
+    const { addItem, isInCart } = useCart()
+
+    const handleOnAdd = (quantity) => {
+        const productToAdd = {
+            id, name, price, quantity
+        }
+        addItem(productToAdd)
+    }
+
+
     return (
         <div className="Card CardDetail" id='Item-Detail'>
 
@@ -27,8 +38,15 @@ const Item = ({ id, name, category, description, price, size, image, stock }) =>
                 </div>
             </div>
 
-            <div className='Btn'>      
-                <Link to={`../${name}/cart/${id}`}>Comprar </Link>
+            <div className='Btn'>     
+            {
+                    isInCart(id) ? (
+                        <Link className='ProductInCart'>Pagar</Link>
+                    ) : (
+                        <ItemCount onAdd={handleOnAdd} stock={stock} />
+                    )
+                } 
+                
             </div>
 
         </div>

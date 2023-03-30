@@ -194,6 +194,33 @@
     cursor: pointer;
     background-color: transparent !important;
 }
+
+
+.Controls{
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+}
+
+.Card button.ButtonControls{
+    border: none;
+    min-width: 24px !important;
+    height: 24px !important;
+    font-size: 1.5rem;
+}
+.Card button.ButtonControls:hover{
+    background-color: transparent;
+    color: var(--fourth);    
+}
+h4.Number{
+    font-size: 1.5rem;
+}
+.Card a.ProductInCart{
+    background-color: var(--fourth);
+    color: var(--light);
+    border: var(--light);
+}
+
 @media (width <= 878px) {
     .CardDetail {
         display: flex;

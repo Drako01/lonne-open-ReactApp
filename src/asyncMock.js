@@ -7,7 +7,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Negro y Blanco',
         size: '40',
-        price: '30.000',
+        price: 30000,
         image: `${route}zapa-wilson_1.png`,
         stock: 10
     },
@@ -17,7 +17,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Negro y Celeste',
         size: '41',
-        price: '29.300',
+        price: 29300,
         image: `${route}zapa-wilson_2.png`,
         stock: 12
     },
@@ -27,7 +27,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Rosa y Blanco',
         size: '38',
-        price: '28.500',
+        price: 28500,
         image: `${route}zapa-wilson_3.png`,
         stock: 15
     },
@@ -37,7 +37,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Naranja',
         size: '43',
-        price: '27.800',
+        price: 27800,
         image: `${route}zapa-wilson_4.png`,
         stock: 20
     },
@@ -47,7 +47,7 @@ const products = [
         category: 'Tubos',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
-        price: '5.800',
+        price: 5800,
         image: `${route}tubo_pelotas_1.png`,
         stock: 60
     },
@@ -57,7 +57,7 @@ const products = [
         category: 'Tubos',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
-        price: '4.700',
+        price: 4700,
         image: `${route}tubo_pelotas_2.png`,
         stock: 125
     },
@@ -67,7 +67,7 @@ const products = [
         category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Grip 2 (4 1/4) Color:Amarillo',
         size: '4 1/4',
-        price: '95.299',
+        price: 95299,
         image: `${route}raqueta01.png`,
         stock: 15
     },
@@ -77,7 +77,7 @@ const products = [
         category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
         size: '4 3/8',
-        price: '99.999',
+        price: 99999,
         image: `${route}raqueta02.png`,
         stock: 12
     },
@@ -87,7 +87,7 @@ const products = [
         category: 'Remeras',
         description: 'Camiseta Nike Dri-Fit Academy',
         size: 'XL',
-        price: '8.750',
+        price: 8750,
         image: `${route}remera01.png`,
         stock: 52
     },
@@ -97,7 +97,7 @@ const products = [
         category: 'Remeras',
         description: 'Remera Deportiva Hombre Lycra Ejercicio Sport Premiun Import',
         size: 'L',
-        price: '5.860',
+        price: 5860,
         image: `${route}remera02.png`,
         stock: 50
     },
@@ -107,7 +107,7 @@ const products = [
         category: 'Munequeras',
         description: 'Muñequeras Diadora Algodon Deportivo Larga X Par (2 Unid.)',
         size: '--',
-        price: '860',
+        price: 860,
         image: `${route}munequera01.png`,
         stock: 150
     },
@@ -117,7 +117,7 @@ const products = [
         category: 'Munequeras',
         description: 'Par Muñequeras Doble Wilson Tenis Padel Paddle Tennis',
         size: '--',
-        price: '4.990',
+        price: 4990,
         image: `${route}munequera02.png`,
         stock: 250
     },
@@ -127,7 +127,7 @@ const products = [
         category: 'Vinchas',
         description: 'Vincha Nike Swoosh Negra - Material: 70% Algodón, 19% Poliamida, 7% Poliéster, 4% Caucho',
         size: '--',
-        price: '3.639',
+        price: 3639,
         image: `${route}vincha01.png`,
         stock: 210
     },
@@ -137,7 +137,7 @@ const products = [
         category: 'Vinchas',
         description: 'Vincha adidas Toalla Reversibles Absorbentes Tenis Padel',
         size: '--',
-        price: '6.790',
+        price: 6790,
         image: `${route}vincha02.png`,
         stock: 350
     },
@@ -147,7 +147,7 @@ const products = [
         category: 'Vinchas',
         description: 'Vincha Nike Swoosh Negra - Material: 70% Algodón, 19% Poliamida, 7% Poliéster, 4% Caucho',
         size: '--',
-        price: '3.639',
+        price: 3639,
         image: `${route}vincha01.png`,
         stock: 210
     },
@@ -157,7 +157,7 @@ const products = [
         category: 'Vinchas',
         description: 'Vincha adidas Toalla Reversibles Absorbentes Tenis Padel',
         size: '--',
-        price: '6.790',
+        price: 6895,
         image: `${route}vincha02.png`,
         stock: 350
     },
@@ -167,7 +167,7 @@ const products = [
         category: 'Munequeras',
         description: 'Muñequeras Diadora Algodon Deportivo Larga X Par (2 Unid.)',
         size: '--',
-        price: '860',
+        price: 870,
         image: `${route}munequera01.png`,
         stock: 150
     },
@@ -177,7 +177,7 @@ const products = [
         category: 'Munequeras',
         description: 'Par Muñequeras Doble Wilson Tenis Padel Paddle Tennis',
         size: '--',
-        price: '4.990',
+        price: 5100,
         image: `${route}munequera02.png`,
         stock: 250
     },
@@ -187,7 +187,7 @@ const products = [
         category: 'Remeras',
         description: 'Camiseta Nike Dri-Fit Academy',
         size: 'XL',
-        price: '8.750',
+        price: 8750,
         image: `${route}remera01.png`,
         stock: 52
     },
@@ -197,7 +197,7 @@ const products = [
         category: 'Remeras',
         description: 'Remera Deportiva Hombre Lycra Ejercicio Sport Premiun Import',
         size: 'L',
-        price: '5.860',
+        price: 5860,
         image: `${route}remera02.png`,
         stock: 50
     },
@@ -207,7 +207,7 @@ const products = [
         category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
         size: '4 3/8',
-        price: '99.999',
+        price: 99999,
         image: `${route}raqueta02.png`,
         stock: 12
     },
@@ -217,7 +217,7 @@ const products = [
         category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
         size: '4 3/8',
-        price: '99.999',
+        price: 99999,
         image: `${route}raqueta02.png`,
         stock: 12
     },
@@ -227,7 +227,7 @@ const products = [
         category: 'Tubos',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
-        price: '5.800',
+        price: 5800,
         image: `${route}tubo_pelotas_1.png`,
         stock: 60
     },
@@ -237,7 +237,7 @@ const products = [
         category: 'Tubos',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
-        price: '4.700',
+        price: 4700,
         image: `${route}tubo_pelotas_2.png`,
         stock: 125
     }

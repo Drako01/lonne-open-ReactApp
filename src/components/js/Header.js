@@ -1,9 +1,13 @@
 import Navbar from './Navbar'
+import { CartProvider } from '../../context/CartContext';
 
 const Header = () => {
     return (
         <header className="App-header">
-            <Navbar />            
+            <CartProvider>
+                <Navbar />
+            </CartProvider>
+
         </header>
     )
 }

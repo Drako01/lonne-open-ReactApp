@@ -4,7 +4,6 @@ import ItemCartContainer from './ItemCartContainer';
 import { Routes, Route } from 'react-router-dom';
 import ItemCheckoutContainer from './ItemCheckoutContainer'
 
-
 const Main = () => {
     return (
         <main className="App-main">

@@ -1,14 +1,40 @@
 .App-header {
-    background-color: var(--first);
+    background-color: var(--light);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    font-size: calc(.8rem + 2vmin);
+    justify-content:flex-end;
     color: var(--light);
 }
 
 .App-header>h2,
 h3 {
     font-family: var(--fontB);
+}
+.DontView{
+    display: none;
+}
+
+li a.CartWidget{
+    margin: 1rem;
+}
+.CartWidget {
+    position: relative;
+    width:10rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: var(--fourth);
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+}
+.CartWidget h4{
+    color: var(--light);
+    margin-left: 1rem;
+    font-weight: lighter;
 }
