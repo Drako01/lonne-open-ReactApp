@@ -66,7 +66,7 @@ const Cart = () => {
 
             <h3 className='PrecioTotal'>{`Total: $${pricing}.-`}</h3>
             <div className='ComprarFinal'>
-                <Link >Comprar</Link>
+                <Link to={'../checkout'}>Comprar</Link>
             </div>
 
         </section>
