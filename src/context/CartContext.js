@@ -38,7 +38,7 @@ export const CartProvider = ({ children }) => {
         let totalPrice = 0
 
         cart.forEach(prod => {
-            totalPrice += prod.price
+            totalPrice += (prod.price * prod.quantity)            
         })
 
         return totalPrice
