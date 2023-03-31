@@ -10,10 +10,9 @@ const Cart = () => {
     }
 
     const cartItems = cart.map((p) => (
-        <tr key={p.id}>
-            <td>{p.id}</td>
-            <td>{p.name}</td>
-            <td>{`$${p.price}.-`}</td>
+        <tr key={p.id}>            
+            <td className='NombreProducto'>{p.name}</td>
+            <td className='PriceProducto'>{`$${p.price}.-`}</td>
             <td>{p.quantity}</td>
             <td className='EliminarItem'>
                 <button onClick={() => handleRemoveItem(p.id)}>
@@ -24,12 +23,11 @@ const Cart = () => {
     ));
 
     return (
-        <section>
+        <section className='CarroDeCompras'>
             <h1>Carro de Compras</h1>
             <table>
                 <thead>
-                    <tr>
-                        <th>ID</th>
+                    <tr>                        
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Cantidad</th>

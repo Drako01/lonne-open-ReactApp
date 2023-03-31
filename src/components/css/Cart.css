@@ -1,3 +1,14 @@
+.CarroDeCompras{
+    width: 80%;
+}
+.NombreProducto{
+    text-align: left;
+}
+.PriceProducto{
+    font-weight: bold !important;
+    color: var(--gold);
+    font-size: 1.2rem;
+}
 h3.PrecioTotal{
     text-align: right;
     color: var(--gold);
