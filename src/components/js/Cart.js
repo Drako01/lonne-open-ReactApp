@@ -1,32 +1,16 @@
 import { useCart } from '../../context/CartContext';
+import close from '../assets/icons/close.png'
 
 const Cart = () => {
 
 
-    const { cart, totalPrice } = useCart()
-
-    const products = [cart]
+    const { totalPrice, cart } = useCart()
+    const cartItems = cart
     const pricing = totalPrice
-
-    console.log(`Total: $${pricing}.-`)
-
-
-    products.forEach(producto => {
-        producto.forEach(prod => {
-
-            console.log(prod.id)
-
-            console.log(prod.name)
-
-            console.log(prod.price)
-
-            console.log(prod.quantity)
-
-        })
-    })
 
     return (
         <section>
+            <h1>Carro de Compras</h1>
             <table>
                 <thead>
                     <tr>
@@ -34,15 +18,51 @@ const Cart = () => {
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr id="tabla"></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Wilson Combinada Hombre</td>
+                        <td>$30000</td>
+                        <td>2</td>
+                        <td className='EliminarItem'>
+                            <img src={close} alt='Close' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Wilson Combinada Niños</td>
+                        <td>$37500</td>
+                        <td>1</td>
+                        <td className='EliminarItem'>
+                            <img src={close} alt='Close' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Wilson Combinada Mujer</td>
+                        <td>$29800</td>
+                        <td>2</td>
+                        <td className='EliminarItem'>
+                            <img src={close} alt='Close' />
+                        </td>
+                    </tr>
                 </tbody>
 
-
             </table >
-            {`Total: $${pricing}.-`}
+            {
+                cartItems.forEach(p => {
+                    console.log(`Tengo el producto con el id: ${p.id}`)
+                    console.log(`Este producto se llama: ${p.name}`)
+                    console.log(`y vale: ${p.price}`)
+                    console.log(`Compré: ${p.quantity}`)
+                })
+            }
+
+
+            <h3 className='PrecioTotal'>{`Total: $${pricing}.-`}</h3>
         </section>
 
     )

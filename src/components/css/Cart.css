@@ -1,0 +1,43 @@
+h3.PrecioTotal{
+    text-align: right;
+    color: var(--gold);
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+table{
+    width: 100%;
+    margin: 3rem 0;
+}
+table > thead > tr{
+    background-color: var(--first);
+    color: var(--light);
+    font-size: 1.1rem;
+    height: 2.5rem;
+    
+}
+
+table > thead > th{
+    display: flex;
+    justify-content: space-between;  
+}
+th, td{
+    font-weight: lighter !important;
+}
+table > tbody > tr > td{
+    background-color: var(--second);
+    color: var(--fourth);
+    font-size: 1.1rem;
+    height: 2.5rem;
+    text-align: center;
+}
+.EliminarItem{
+    background-color: var(--brick);
+}
+.EliminarItem img{
+    width: 1.6rem;
+    padding: .125rem;
+}
+.EliminarItem:hover{
+    cursor: pointer;
+}
