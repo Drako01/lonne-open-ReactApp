@@ -7,7 +7,7 @@ const products = [
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Negro y Blanco',
         size: '40',
-        price: 30000,
+        price: 29999,
         image: `${route}zapa-wilson_1.png`,
         stock: 10
     },

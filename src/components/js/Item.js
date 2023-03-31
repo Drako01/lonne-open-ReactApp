@@ -41,7 +41,7 @@ const Item = ({ id, name, category, description, price, size, image, stock }) =>
             <div className='Btn'>     
             {
                     isInCart(id) ? (
-                        <Link className='ProductInCart'>Pagar</Link>
+                        <Link to={'../cart'} className='ProductInCart'>Pagar</Link>
                     ) : (
                         <ItemCount onAdd={handleOnAdd} stock={stock} />
                     )

@@ -3,6 +3,7 @@ import ItemDetailContainer from './ItemDetailContainer';
 import { Routes, Route } from 'react-router-dom';
 import Cart from './Cart'
 import Checkout from './Checkout'
+import Payment from './Payment'
 
 const Main = () => {
     return (
@@ -13,6 +14,7 @@ const Main = () => {
                 <Route path=':name/item/:itemId' element= {<ItemDetailContainer />}/>
                 <Route path='/cart' element= {<Cart />}/>
                 <Route path='/checkout' element= {<Checkout />}/>
+                <Route path='/payment' element= {<Payment />}/>
             </Routes>
         </main>
     )
