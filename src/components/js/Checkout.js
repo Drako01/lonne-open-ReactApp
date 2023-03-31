@@ -4,7 +4,7 @@ const Checkout = () => {
     return (
         <div className='Checkout'>
             <h1>
-                Soy Checkout.!!
+                Checkout
             </h1>
             <img src={donald} alt='Donald' />
         </div>
