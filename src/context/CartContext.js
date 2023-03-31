@@ -1,6 +1,6 @@
 import { createContext, useState, useContext } from 'react';
 
-const CartContext = createContext('valor inicial')
+const CartContext = createContext('Inicio')
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])    
@@ -8,8 +8,6 @@ export const CartProvider = ({ children }) => {
     const addItem = (productToAdd) => {
         if(!isInCart(productToAdd.id)) {
             setCart(prev => [...prev, productToAdd])
-        } else {
-            console.log('No se agrega porque ya esta en el carrito')
         }
     }
 

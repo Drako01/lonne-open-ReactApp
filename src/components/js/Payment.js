@@ -4,7 +4,7 @@ const Payment = () =>{
     return (
         <section>
             <h1>
-                Ud ha Pagado.!
+                Usted ha Pagado.!
             </h1>
             <div className='ComprarFinal'>
                 <Link to={'/'} >Volver</Link>
