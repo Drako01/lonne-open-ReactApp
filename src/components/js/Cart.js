@@ -30,7 +30,7 @@ const Cart = () => {
                         <td>$30000</td>
                         <td>2</td>
                         <td className='EliminarItem'>
-                            <img src={close} alt='Close' />
+                            <Link to='/' ><img src={close} alt='Close' /></Link>
                         </td>
                     </tr>
                     <tr>
@@ -39,7 +39,7 @@ const Cart = () => {
                         <td>$37500</td>
                         <td>1</td>
                         <td className='EliminarItem'>
-                            <img src={close} alt='Close' />
+                            <Link to='/' ><img src={close} alt='Close' /></Link>
                         </td>
                     </tr>
                     <tr>
@@ -48,7 +48,7 @@ const Cart = () => {
                         <td>$29800</td>
                         <td>2</td>
                         <td className='EliminarItem'>
-                            <img src={close} alt='Close' />
+                            <Link to='/' ><img src={close} alt='Close' /></Link>
                         </td>
                     </tr>
                 </tbody>
@@ -66,9 +66,9 @@ const Cart = () => {
 
             <h3 className='PrecioTotal'>{`Total: $${pricing}.-`}</h3>
             <div className='ComprarFinal'>
-            <Link >Comprar</Link>
+                <Link >Comprar</Link>
             </div>
-            
+
         </section>
 
     )
