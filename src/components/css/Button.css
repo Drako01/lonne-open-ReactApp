@@ -13,3 +13,24 @@ button {
 button:hover {
     cursor: pointer;
 }
+.ComprarFinal{
+    display: flex;
+    justify-content: flex-end;
+}
+.ComprarFinal a{
+    background-color: var(--first);
+    margin: .7rem;
+    padding: .6rem .8rem;
+    border-radius: .25rem;
+    border: 1px solid var(--light);
+    min-width: 7rem;
+    min-height: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--light);
+}
+.ComprarFinal a:hover{
+    cursor: pointer;
+    background-color: var(--fourth);
+}

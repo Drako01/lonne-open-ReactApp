@@ -1,5 +1,7 @@
 import { useCart } from '../../context/CartContext';
 import close from '../assets/icons/close.png'
+import { Link } from 'react-router-dom';
+
 
 const Cart = () => {
 
@@ -63,6 +65,10 @@ const Cart = () => {
 
 
             <h3 className='PrecioTotal'>{`Total: $${pricing}.-`}</h3>
+            <div className='ComprarFinal'>
+            <Link >Comprar</Link>
+            </div>
+            
         </section>
 
     )

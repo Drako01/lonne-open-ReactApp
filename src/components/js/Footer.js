@@ -23,7 +23,7 @@ const Footer = () => {
             </section>
             <WhatsAppButton /> 
             <p>
-                &copy; Alejandro Di Stefano | 2da Entrega Parcial | Curso de React en CoderHouse | Comisión #39610
+                &copy; Alejandro Di Stefano | Entrega Final | Curso de React en CoderHouse | Comisión #39610
             </p>             
         </div>
     )
