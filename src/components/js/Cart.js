@@ -2,13 +2,26 @@ import { useCart } from '../../context/CartContext';
 import close from '../assets/icons/close.png'
 import { Link } from 'react-router-dom';
 
-
 const Cart = () => {
+    const { totalPrice, cart, removeItem } = useCart();
 
+    const handleRemoveItem = (id) => {
+        removeItem(id);
+    }
 
-    const { totalPrice, cart } = useCart()
-    const cartItems = cart
-    const pricing = totalPrice
+    const cartItems = cart.map((p) => (
+        <tr key={p.id}>
+            <td>{p.id}</td>
+            <td>{p.name}</td>
+            <td>{`$${p.price}.-`}</td>
+            <td>{p.quantity}</td>
+            <td className='EliminarItem'>
+                <button onClick={() => handleRemoveItem(p.id)}>
+                    <img src={close} alt='Close' />
+                </button>
+            </td>
+        </tr>
+    ));
 
     return (
         <section>
@@ -23,55 +36,15 @@ const Cart = () => {
                         <th>Eliminar</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Wilson Combinada Hombre</td>
-                        <td>$30000</td>
-                        <td>2</td>
-                        <td className='EliminarItem'>
-                            <Link to='/' ><img src={close} alt='Close' /></Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Wilson Combinada Niños</td>
-                        <td>$37500</td>
-                        <td>1</td>
-                        <td className='EliminarItem'>
-                            <Link to='/' ><img src={close} alt='Close' /></Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Wilson Combinada Mujer</td>
-                        <td>$29800</td>
-                        <td>2</td>
-                        <td className='EliminarItem'>
-                            <Link to='/' ><img src={close} alt='Close' /></Link>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody>{cartItems}</tbody>
+            </table>
 
-            </table >
-            {
-                cartItems.forEach(p => {
-                    console.log(`Tengo el producto con el id: ${p.id}`)
-                    console.log(`Este producto se llama: ${p.name}`)
-                    console.log(`y vale: ${p.price}`)
-                    console.log(`Compré: ${p.quantity}`)
-                })
-            }
-
-
-            <h3 className='PrecioTotal'>{`Total: $${pricing}.-`}</h3>
+            <h3 className='PrecioTotal'>{`Total: $${totalPrice}.-`}</h3>
             <div className='ComprarFinal'>
-                <Link to={'../checkout'}>Comprar</Link>
+                <Link to='../checkout'>Comprar</Link>
             </div>
-
         </section>
+    );
+};
 
-    )
-}
-
-export default Cart
+export default Cart;

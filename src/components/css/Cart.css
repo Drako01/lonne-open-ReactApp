@@ -34,6 +34,13 @@ table > tbody > tr > td{
 .EliminarItem{
     background-color: var(--brick);
 }
+.EliminarItem button{
+    margin: 0;
+    border: none;
+}
+td.EliminarItem{
+    max-width: 1.5rem;
+}
 .EliminarItem img{
     width: 1.6rem;
     padding: .125rem;
