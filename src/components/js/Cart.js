@@ -3,14 +3,16 @@ import close from '../assets/icons/close.png'
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const { totalPrice, cart, removeItem } = useCart();
+    const { totalPrice, cart, removeItem, totalQuantity } = useCart();
+
+    const totalQuantityInCart = totalQuantity
 
     const clickRemoveItem = (id) => {
         removeItem(id);
     }
 
     const cartItems = cart.map((p) => (
-        <tr key={p.id}>            
+        <tr key={p.id}>
             <td className='NombreProducto'>{p.name}</td>
             <td className='PriceProducto'>{`$${p.price}.-`}</td>
             <td>{p.quantity}</td>
@@ -27,7 +29,7 @@ const Cart = () => {
             <h1>Carro de Compras</h1>
             <table>
                 <thead>
-                    <tr>                        
+                    <tr>
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
@@ -36,11 +38,24 @@ const Cart = () => {
                 </thead>
                 <tbody>{cartItems}</tbody>
             </table>
+            {
+                totalQuantityInCart < 1 ? (
+                    <div className='CarritoVacio ComprarFinal'>
+                        <h3>El Carrito esta Vacío.!</h3>
+                        <Link to='/'>Volver</Link>
+                    </div>
+                    
+                ) : (
+                    <div>
+                        <h3 className='PrecioTotal'>{`Total: $${totalPrice}.-`}</h3>
+                        <div className='ComprarFinal'>
+                            <Link to='../checkout'>Comprar</Link>
+                        </div>
+                    </div>
 
-            <h3 className='PrecioTotal'>{`Total: $${totalPrice}.-`}</h3>
-            <div className='ComprarFinal'>
-                <Link to='../checkout'>Comprar</Link>
-            </div>
+                )
+            }
+
         </section>
     );
 };
