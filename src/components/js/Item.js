@@ -43,7 +43,10 @@ const Item = ({ id, name, category, description, price, size, image, stock }) =>
                     isInCart(id) ? (
                         <Link to={'../cart'} className='ProductInCart'>Pagar</Link>
                     ) : (
-                        <ItemCount onAdd={handleOnAdd} stock={stock} />
+                        <div>                       
+                            <ItemCount onAdd={handleOnAdd} stock={stock} />                                                        
+                        </div>
+                        
                     )
                 } 
                 

@@ -94,6 +94,9 @@
     text-align: center;
     vertical-align: middle;    
 }
+.Btn .BackBoard{
+    min-width: 230px !important;
+}
 
 .Like:hover{
     cursor: pointer;
