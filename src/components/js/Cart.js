@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
     const { totalPrice, cart, removeItem } = useCart();
 
-    const handleRemoveItem = (id) => {
+    const clickRemoveItem = (id) => {
         removeItem(id);
     }
 
@@ -15,7 +15,7 @@ const Cart = () => {
             <td className='PriceProducto'>{`$${p.price}.-`}</td>
             <td>{p.quantity}</td>
             <td className='EliminarItem'>
-                <button onClick={() => handleRemoveItem(p.id)}>
+                <button onClick={() => clickRemoveItem(p.id)}>
                     <img src={close} alt='Close' />
                 </button>
             </td>
