@@ -42,7 +42,7 @@ const Cart = () => {
                 totalQuantityInCart < 1 ? (
                     <div className='CarritoVacio ComprarFinal'>
                         <h3>El Carrito esta Vacío.!</h3>
-                        <Link to='/'>Volver</Link>
+                        <Link to='/' className='CarroVacioBoton'>Volver</Link>
                     </div>
                     
                 ) : (

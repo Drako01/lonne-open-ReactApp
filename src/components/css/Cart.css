@@ -80,7 +80,13 @@ td.EliminarItem {
     align-items: center;
     background-color: var(--brick);
 }
-
+a.CarroVacioBoton{
+    background-color: var(--brick);
+}
+a.CarroVacioBoton:hover{
+    background-color: var(--light);
+    color: var(--brick);
+}
 .CarritoVacio h3 {
     font-size: 1.8rem;
     color: var(--light);
