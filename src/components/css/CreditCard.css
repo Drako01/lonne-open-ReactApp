@@ -53,4 +53,7 @@ h1.Mini{
     form.CreditCardForm input.CVC{
         margin-left: 0;
     }
+    h1.Mini{
+        font-size: 1.5rem;
+    }
 }
