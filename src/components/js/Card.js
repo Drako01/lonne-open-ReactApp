@@ -5,7 +5,7 @@ import { useCart } from '../../context/CartContext'
 
 const Cards = ({ id, name, price, size, image, stock }) => {    
 
-    const { addItem, isInCart } = useCart()
+    const { addItem, getItemCount, isInCart } = useCart()
 
     const handleOnAdd = (quantity) => {
         const productToAdd = {
@@ -38,7 +38,7 @@ const Cards = ({ id, name, price, size, image, stock }) => {
                 }
                 {
                     isInCart(id) ? (
-                        <Link className='ProductInCart'>Producto en Carrito</Link>
+                        <Link className='ProductInCart'>{ getItemCount(id)} Productos en el Carrito</Link>
                     ) : (
                         <ItemCount onAdd={handleOnAdd} stock={stock} />
                     )
