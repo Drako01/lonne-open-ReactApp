@@ -46,7 +46,7 @@ const CreditCardForm = () => {
                 focused={focus}
             />
             <form className="CreditCardForm" action={'./checkout'} >
-                <input className="col-12"
+                <input 
                     type="tel"
                     name="number"
                     maxLength="16"
@@ -56,7 +56,7 @@ const CreditCardForm = () => {
                     onFocus={(e) => setFocus(e.target.name)}
                     required
                 />
-                <input className="col-12"
+                <input
                     type="text"
                     name="name"
                     maxLength="30"
@@ -67,7 +67,7 @@ const CreditCardForm = () => {
                     required
                 />
                 <div className="FinalDates">
-                    <input className="col-6"
+                    <input 
                         type="text"
                         name="expiry"
                         maxLength="4"
@@ -77,7 +77,7 @@ const CreditCardForm = () => {
                         onFocus={(e) => setFocus(e.target.name)}
                         required
                     />
-                    <input className="CVC col-6"
+                    <input className="CVC"
                         type="tel"
                         name="cvc"
                         maxLength="3"
@@ -91,7 +91,7 @@ const CreditCardForm = () => {
                 </div>
 
                 <div className='ComprarFinal'>
-                    <Button label={'Finalizar Compra'} type="submit" onClick={clear} />
+                    <Button label={'Finalizar Compra'} onClick={clear} />
                 </div>
             </form>
         </div>
