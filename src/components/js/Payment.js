@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
+import CreditCardForm from './CreditCard';
 
-const Payment = () =>{
+const Payment = () => {
     return (
-        <section>
-            <h1>
-                Usted ha Pagado.!
+        <div className='Checkout'>
+            <h1 className='Mini'>
+                Payment
             </h1>
-            <div className='ComprarFinal'>
-                <Link to={'/'} >Volver</Link>
-            </div>
-        </section>
+            <section className='Checkout__'>
+            <CreditCardForm />
+            </section>            
+        </div>
     )
 }
 

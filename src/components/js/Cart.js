@@ -49,7 +49,7 @@ const Cart = () => {
                     <div>
                         <h3 className='PrecioTotal'>{`Total: $${totalPrice}.-`}</h3>
                         <div className='ComprarFinal'>
-                            <Link to='../checkout'>Comprar</Link>
+                            <Link to='../payment'>Comprar</Link>
                         </div>
                     </div>
 

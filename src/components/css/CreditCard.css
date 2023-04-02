@@ -1,0 +1,36 @@
+form.CreditCardForm{
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2rem 0;
+}
+
+form.CreditCardForm input{
+    height: 2.3rem;
+    margin: .25rem 0;
+    border: none;
+    font-family: 'Roboto';
+    color: var(--fourth);
+    font-size: 1rem;
+    border-radius: .25rem;
+    padding: 1rem;
+}
+form.CreditCardForm input.CVC{
+    margin-left: .5rem;
+}
+.FinalDates{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+h1.Mini{
+    font-size: 3rem;
+}
+
+.CreditCardForm button{
+    margin-top: 2rem;
+    background-color: var(--first);
+}
+.CreditCardForm button:hover{
+    background-color: var(--fourth);
+}

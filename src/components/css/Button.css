@@ -17,7 +17,8 @@ button:hover {
     display: flex;
     justify-content: flex-end;
 }
-.ComprarFinal a{
+.ComprarFinal a,
+.ComprarFinal button{
     background-color: var(--first);
     margin: .7rem;
     padding: .6rem .8rem;
@@ -33,4 +34,8 @@ button:hover {
 .ComprarFinal a:hover{
     cursor: pointer;
     background-color: var(--fourth);
+}
+
+.ComprarFinal button{
+    width: 100%;
 }

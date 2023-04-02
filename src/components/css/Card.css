@@ -228,6 +228,12 @@ h4.Number{
     flex-direction: column;
     align-items: center;
 }
+.Checkout__{
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 @media (width <= 878px) {
     .CardDetail {
         display: flex;
