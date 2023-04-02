@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import donald from '../assets/icons/donald.gif'
 
-const Checkout = () =>{
+const Checkout = () => {
     return (
-        <section>
+        <section className='Checkout'>
             <h1 className='Mini'>
-                Usted ha Pagado.!
+                Compra finalizada con exito.!
             </h1>
             <img src={donald} alt='Donald' />
             <div className='ComprarFinal'>
-                <Link to={'/'} >Volver</Link>
+                <Link to={'/'} className='VolverFinal'>Volver</Link>
             </div>
         </section>
     )

@@ -228,6 +228,9 @@ h4.Number{
     flex-direction: column;
     align-items: center;
 }
+.Checkout img{
+    margin-top: 4rem;
+}
 .Checkout__{
     padding: 3rem 0;
     display: flex;
