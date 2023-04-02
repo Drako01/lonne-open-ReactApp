@@ -13,13 +13,15 @@ button {
 button:hover {
     cursor: pointer;
 }
-.ComprarFinal{
+
+.ComprarFinal {
     display: flex;
     justify-content: flex-end;
     width: 100%;
 }
+
 .ComprarFinal a,
-.ComprarFinal button{
+.ComprarFinal button {
     background-color: var(--first);
     margin: .7rem;
     padding: .6rem .8rem;
@@ -32,16 +34,27 @@ button:hover {
     text-decoration: none;
     color: var(--light);
 }
-.ComprarFinal a:hover{
+
+.ComprarFinal a:hover {
     cursor: pointer;
     background-color: var(--fourth);
 }
 
-.ComprarFinal button{
+.ComprarFinal a {
     width: 100%;
 }
 
-.ComprarFinal a.VolverFinal{
+.ComprarFinal a.VolverFinal {
     margin-top: 4rem;
     width: 100%;
+}
+
+@media (width <=640px) {
+
+    .ComprarFinal {
+        justify-content: center;
+    }
+    .ComprarFinal a {
+        width: 50vw;
+    }
 }

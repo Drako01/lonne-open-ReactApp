@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-import Button from "./Button";
+// import Button from "./Button";
 import { useCart } from '../../context/CartContext'
+import { Link } from 'react-router-dom';
 
 
 const CreditCardForm = () => {
@@ -91,7 +92,8 @@ const CreditCardForm = () => {
                 </div>
 
                 <div className='ComprarFinal'>
-                    <Button label={'Finalizar Compra'} onClick={clear} />
+                    <Link to={'../checkout'} onClick={clear}>Finalizar Compra</Link>
+                    {/* <Button label={'Finalizar Compra'} onClick={clear} /> */}
                 </div>
             </form>
         </div>
