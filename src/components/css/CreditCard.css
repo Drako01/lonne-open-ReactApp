@@ -34,3 +34,23 @@ h1.Mini{
 .CreditCardForm button:hover{
     background-color: var(--fourth);
 }
+
+@media (width <= 640px) {
+    form.CreditCardForm{        
+        width: 100vw;
+        align-items: center;
+        padding: 2rem;
+    }
+    .FinalDates{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .FinalDates> input{       
+        margin: 0;
+        padding: 0;
+    }
+    form.CreditCardForm input.CVC{
+        margin-left: 0;
+    }
+}
