@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
 
     const getItemCount = (productId) => {
         return cart.filter((item) => item.id === productId).reduce((total, item) => total + item.quantity, 0);
-      };
+        };
 
 
     const clearCart = () => {

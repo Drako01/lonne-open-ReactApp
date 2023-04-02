@@ -3,7 +3,7 @@ import ItemCount from './ItemCount'
 import { useCart } from '../../context/CartContext'
 
 
-const Cards = ({ id, name, price, size, image, stock }) => {    
+const Cards = ({ id, name, price, size, image, stock }) => {
 
     const { addItem, getItemCount, isInCart } = useCart()
 
@@ -27,8 +27,8 @@ const Cards = ({ id, name, price, size, image, stock }) => {
                 </h3>
                 <h3 className='Price'>
                     Precio: $ {price}.-
-                </h3>                             
-                
+                </h3>
+
                 {
                     isInCart(id) ? (
                         <Link to={` ${name}/item/${id}`} className="DontView">Detalles</Link>
@@ -38,11 +38,14 @@ const Cards = ({ id, name, price, size, image, stock }) => {
                 }
                 {
                     isInCart(id) ? (
-                        <Link className='ProductInCart'>{ getItemCount(id)} Productos en el Carrito</Link>
+                        <Link className='ProductInCart'>
+                            {getItemCount(id) === 1 ? `${getItemCount(id)} Producto en el Carrito` : `${getItemCount(id)} Productos en el Carrito`}
+                        </Link>
+                        
                     ) : (
                         <ItemCount onAdd={handleOnAdd} stock={stock} />
                     )
-                }                
+                }
             </div >
         </div >
     )
