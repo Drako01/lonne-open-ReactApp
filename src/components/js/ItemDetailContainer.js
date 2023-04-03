@@ -8,13 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ItemDetailContainer = () => {
-    const [products, setProduct] = useState()
     const navigate = useNavigate();
-    const { itemId } = useParams()
-
     const handleOnClick = () => {
         navigate('/');
     }
+    
+    const [products, setProduct] = useState()    
+    const { itemId } = useParams()
     
     useEffect(() => {
         getProductById(itemId).then(response => {
@@ -29,7 +29,7 @@ const ItemDetailContainer = () => {
             <button onClick={handleOnClick} className='CloseItem'>
                 <img src={close} alt='Close' />
             </button>
-            <Item {...products} />
+            {products ? <Item {...products} /> : <p>Cargando...</p>}
         </div>
     )
 }
