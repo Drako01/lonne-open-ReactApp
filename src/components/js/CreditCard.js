@@ -69,7 +69,7 @@ const CreditCardForm = () => {
                 />
                 <div className="FinalDates">
                     <input
-                        type="text"
+                        type="tel"
                         name="expiry"
                         maxLength="4"
                         placeholder="Expiración (MM/AA)"
