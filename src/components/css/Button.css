@@ -41,6 +41,12 @@ button:hover {
     cursor: pointer;
     background-color: var(--fourth);
 }
+.ComprarFinal a.VaciarCarrito{
+    background-color: var(--fourth);
+}
+.ComprarFinal a.VaciarCarrito:hover{
+    background-color: var(--brick);
+}
 .ComprarFinal a.VolverFinal {
     margin-top: 4rem;
 }
