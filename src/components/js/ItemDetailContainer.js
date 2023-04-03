@@ -8,21 +8,25 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ItemDetailContainer = () => {
+
     const navigate = useNavigate();
+
     const handleOnClick = () => {
         navigate('/');
     }
-    
-    const [products, setProduct] = useState()    
+
+    const [products, setProduct] = useState(null);
     const { itemId } = useParams()
-    
+
     useEffect(() => {
-        getProductById(itemId).then(response => {
-            setProduct(response)
-        }).catch(error => {
-            console.log(error)
-        })
-    }, [itemId])
+        getProductById(itemId)
+            .then(response => {
+                setProduct(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, [itemId]);
 
     return (
         <div>

@@ -55,7 +55,7 @@ const Cart = () => {
                         <h3 className='PrecioTotal'>{`Total: $${totalPrice}.-`}</h3>
                         <div className='ComprarFinal FinalButtons'>  
                             <Link onClick={clear} >Vaciar Carrito</Link>
-                            <Link to='../payment'>Comprar</Link>
+                            <Link to='/payment'>Comprar</Link>
                         </div>
                     </div>
 
