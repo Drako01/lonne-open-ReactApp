@@ -305,9 +305,6 @@ h4.Number{
     .CardDetail{
         margin: 8rem .5rem 3rem .5rem ;
     }
-    .Card .Dates{
-        height: 20vh;
-    }
     .CardDetail .Dates h2 {
         font-size: 2rem;
     }
