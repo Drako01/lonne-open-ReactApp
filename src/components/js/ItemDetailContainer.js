@@ -1,21 +1,14 @@
-import Item from './Item'
+import Item from './Item';
 import { getProductById } from '../../asyncMock';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import close from '../assets/icons/close.png'
-
-
+import close from '../assets/icons/close.png';
 
 const ItemDetailContainer = () => {
 
     const navigate = useNavigate();
-
-    const handleOnClick = () => {
-        navigate('/');
-    }
-
-    const [products, setProduct] = useState(null);
-    const { itemId } = useParams()
+    const [product, setProduct] = useState(null);
+    const { itemId } = useParams();
 
     useEffect(() => {
         getProductById(itemId)
@@ -27,15 +20,18 @@ const ItemDetailContainer = () => {
             });
     }, [itemId]);
 
+    const handleOnClick = () => {
+        navigate('/');
+    };
+
     return (
         <div>
             <button onClick={handleOnClick} className='CloseItem'>
                 <img src={close} alt='Close' />
             </button>
-            {products ? <Item {...products} /> : <p>Cargando...</p>}
+            {product ? <Item {...product} /> : <h3>Cargando...</h3>}
         </div>
-    )
-}
-
+    );
+};
 
 export default ItemDetailContainer;
