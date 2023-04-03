@@ -9,7 +9,7 @@ const products = [
         size: '40',
         price: 29999,
         image: `${route}zapa-wilson_1.png`,
-        stock: 10
+        stock: 0
     },
     {
         id: '2',
@@ -59,7 +59,7 @@ const products = [
         size: '--',
         price: 4700,
         image: `${route}tubo_pelotas_2.png`,
-        stock: 125
+        stock: 0
     },
     {
         id: '7',
@@ -99,7 +99,7 @@ const products = [
         size: 'L',
         price: 5860,
         image: `${route}remera02.png`,
-        stock: 50
+        stock: 0
     },
     {
         id: '11',
