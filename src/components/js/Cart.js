@@ -2,10 +2,15 @@ import { useCart } from '../../context/CartContext';
 import close from '../assets/icons/close.png'
 import { Link } from 'react-router-dom';
 
+
+
 const Cart = () => {
     const { totalPrice, cart, removeItem, totalQuantity } = useCart();
 
     const totalQuantityInCart = totalQuantity
+    const { clearCart } = useCart();
+
+    const clear = clearCart;
 
     const clickRemoveItem = (id) => {
         removeItem(id);
@@ -44,11 +49,12 @@ const Cart = () => {
                         <h3>El Carrito esta Vacío.!</h3>
                         <Link to='/' className='CarroVacioBoton'>Volver</Link>
                     </div>
-                    
+
                 ) : (
                     <div>
                         <h3 className='PrecioTotal'>{`Total: $${totalPrice}.-`}</h3>
-                        <div className='ComprarFinal'>
+                        <div className='ComprarFinal FinalButtons'>  
+                            <Link onClick={clear} >Vaciar Carrito</Link>
                             <Link to='../payment'>Comprar</Link>
                         </div>
                     </div>

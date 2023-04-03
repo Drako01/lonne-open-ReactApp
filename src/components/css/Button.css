@@ -15,11 +15,13 @@ button:hover {
 }
 
 .ComprarFinal {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+    display: flex; 
+    justify-content: center;  
 }
-
+.FinalButtons{
+    flex-direction: column;
+    justify-content: center;
+}
 .ComprarFinal a,
 .ComprarFinal button {
     background-color: var(--first);
@@ -39,16 +41,18 @@ button:hover {
     cursor: pointer;
     background-color: var(--fourth);
 }
-
-.ComprarFinal a {
-    width: 100%;
-}
-
 .ComprarFinal a.VolverFinal {
     margin-top: 4rem;
-    width: 100%;
 }
-
+.CloseItem{
+    position: absolute;
+    right: 6rem;
+    background-color: var(--brick);
+    min-width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media (width <=640px) {
 
     .ComprarFinal {

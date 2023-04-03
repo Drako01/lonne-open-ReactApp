@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-// import Button from "./Button";
-import { useCart } from '../../context/CartContext'
-import { Link } from 'react-router-dom';
-
+import { Link, useSubmit } from 'react-router-dom';
 
 const CreditCardForm = () => {
     const [number, setNumber] = useState("");
@@ -12,25 +9,30 @@ const CreditCardForm = () => {
     const [expiry, setExpiry] = useState("");
     const [cvc, setCvc] = useState("");
     const [focus, setFocus] = useState("");
-    const { clearCart } = useCart();
-
-    const clear = clearCart
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
         switch (name) {
             case "number":
-                setNumber(value);
+                if (/^[0-9\s]{0,19}$/.test(value)) {
+                    setNumber(value);
+                }
                 break;
             case "name":
-                setName(value);
+                if (/^[a-zA-Z\s]{0,19}$/.test(value)) {
+                    setName(value);
+                }
                 break;
             case "expiry":
+
                 setExpiry(value);
+
                 break;
             case "cvc":
-                setCvc(value);
+                if (/^[0-9]{0,3}$/.test(value)) {
+                    setCvc(value);
+                }
                 break;
             default:
                 break;
@@ -46,7 +48,7 @@ const CreditCardForm = () => {
                 cvc={cvc}
                 focused={focus}
             />
-            <form className="CreditCardForm" action={'./checkout'} >
+            <form className="CreditCardForm" action={"./checkout"}>
                 <input
                     type="tel"
                     name="number"
@@ -55,6 +57,7 @@ const CreditCardForm = () => {
                     value={number}
                     onChange={handleInputChange}
                     onFocus={(e) => setFocus(e.target.name)}
+                    pattern="[0-9\s]{13,19}"
                     required
                 />
                 <input
@@ -65,6 +68,7 @@ const CreditCardForm = () => {
                     value={name}
                     onChange={handleInputChange}
                     onFocus={(e) => setFocus(e.target.name)}
+                    pattern="[a-zA-Z\s]+"
                     required
                 />
                 <div className="FinalDates">
@@ -76,7 +80,7 @@ const CreditCardForm = () => {
                         value={expiry}
                         onChange={handleInputChange}
                         onFocus={(e) => setFocus(e.target.name)}
-                        pattern="^(12[3-9]|[1-9]\d{3}|1[3-9]\d{2}|12\d{2})$"
+                        pattern="^(0[1-9]|1[0-2])\/\d{2}$"
                         required
                     />
                     <input
@@ -89,15 +93,15 @@ const CreditCardForm = () => {
                         value={cvc}
                         onChange={handleInputChange}
                         onFocus={(e) => setFocus(e.target.name)}
-                        pattern="^[0-9]{3}$"
+                        pattern="[0-9]{3}"
                         required
                     />
-
                 </div>
 
-                <div className='ComprarFinal'>
-                    <Link to={'../checkout'} onClick={clear}>Finalizar Compra</Link>
-                    {/* <Button label={'Finalizar Compra'} onClick={clear} /> */}
+                <div className="ComprarFinal">
+                    <Link to={"../checkout"} onClick={useSubmit}>
+                        Finalizar Compra
+                    </Link>
                 </div>
             </form>
         </div>
