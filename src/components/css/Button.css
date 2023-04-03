@@ -61,4 +61,12 @@ button:hover {
     .ComprarFinal a {
         width: 50vw;
     }
+    .CloseItem{
+        right: 2rem;
+        min-width: 24px;
+    }
+    .CloseItem img{
+        width: 1.1rem;
+        padding: 0;
+    }
 }

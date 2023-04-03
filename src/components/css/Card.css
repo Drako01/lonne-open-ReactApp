@@ -303,8 +303,18 @@ h4.Number{
         margin: 3rem 0;
     }
     .CardDetail{
-        width: 95%;
         margin: 8rem .5rem 3rem .5rem ;
     }
-    
+    .Card .Dates{
+        height: 20vh;
+    }
+    .CardDetail .Dates h2 {
+        font-size: 2rem;
+    }
+    .CardDetail .Dates h3 {
+        font-size: 1.6rem;
+    }
+    .CardDetail .Dates p {
+        font-size: 1.1rem;
+    }
 }
