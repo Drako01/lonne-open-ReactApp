@@ -1,7 +1,7 @@
 import Item from './Item'
 import { getProductById } from '../../asyncMock';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import close from '../assets/icons/close.png'
 import { useNavigate } from 'react-router-dom';
 
