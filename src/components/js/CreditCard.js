@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-import { Link, useSubmit } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { useCart } from '../../context/CartContext';
+
+
 
 const CreditCardForm = () => {
     const [number, setNumber] = useState("");
@@ -9,6 +13,12 @@ const CreditCardForm = () => {
     const [expiry, setExpiry] = useState("");
     const [cvc, setCvc] = useState("");
     const [focus, setFocus] = useState("");
+    const navigate = useNavigate();
+    const { clearCart } = useCart()
+    const vaciarCarrito = () =>{
+        return clearCart();
+    }
+    
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -39,6 +49,18 @@ const CreditCardForm = () => {
         }
     };
 
+    const handlePayment = () => {
+        Swal.fire({
+            title: '¡Compra exitosa!',
+            text: 'Gracias por tu compra',
+            icon: 'success',
+            didClose: () => {
+                vaciarCarrito(); 
+                navigate('/');
+            }            
+        });
+    }
+    
     return (
         <div>
             <Cards
@@ -48,7 +70,7 @@ const CreditCardForm = () => {
                 cvc={cvc}
                 focused={focus}
             />
-            <form className="CreditCardForm" action={"./checkout"}>
+            <form className="CreditCardForm" >
                 <input
                     type="tel"
                     name="number"
@@ -99,13 +121,14 @@ const CreditCardForm = () => {
                 </div>
 
                 <div className="ComprarFinal">
-                    <Link to={"../checkout"} onClick={useSubmit}>
+                    <Link onClick={handlePayment}>
                         Finalizar Compra
                     </Link>
                 </div>
             </form>
         </div>
     );
+
 };
 
 export default CreditCardForm;

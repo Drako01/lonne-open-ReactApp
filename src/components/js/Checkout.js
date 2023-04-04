@@ -1,17 +1,15 @@
-import { Link } from 'react-router-dom';
-import donald from '../assets/icons/donald.gif'
+import CreditCardForm from './CreditCard';
 
 const Checkout = () => {
     return (
-        <section className='Checkout'>
+        <div className='Checkout'>
             <h1 className='Mini'>
-                Compra finalizada con exito.!
+                Payment
             </h1>
-            <img src={donald} alt='Donald' />
-            <div className='ComprarFinal'>
-                <Link to={'/'} className='VolverFinal'>Volver</Link>
-            </div>
-        </section>
+            <section className='Checkout__'>
+            <CreditCardForm />
+            </section>            
+        </div>
     )
 }
 

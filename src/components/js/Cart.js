@@ -55,7 +55,7 @@ const Cart = () => {
 
     const Comprar = () => {
         const handleOnClick = () => {
-            navigate('/payment');
+            navigate('/checkout');
         };
         const total = totalPrice;
 
