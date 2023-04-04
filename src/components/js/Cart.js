@@ -15,8 +15,8 @@ const Cart = () => {
             title: '¿Estás seguro de vaciar el carrito?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: 'var(--first)',
+            cancelButtonColor: 'var(--brick)',
             confirmButtonText: 'Vaciar',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
@@ -37,8 +37,8 @@ const Cart = () => {
             title: '¿Estás seguro de eliminar este producto?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: 'var(--first)',
+            cancelButtonColor: 'var(--brick)',
             confirmButtonText: 'Eliminar',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
@@ -64,8 +64,8 @@ const Cart = () => {
             html: `El valor total de tu compra es de $${total}.<br>¿Desea continuar?`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: 'var(--first)',
+            cancelButtonColor: 'var(--brick)',
             confirmButtonText: 'Confirmar',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
