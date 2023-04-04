@@ -15,34 +15,27 @@ const CreditCardForm = () => {
     const [focus, setFocus] = useState("");
     const navigate = useNavigate();
     const { clearCart } = useCart()
-    const vaciarCarrito = () =>{
+    const vaciarCarrito = () => {
         return clearCart();
     }
-    
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
         switch (name) {
             case "number":
-                if (/^[0-9\s]{0,19}$/.test(value)) {
-                    setNumber(value);
-                }
+                if (/^[0-9\s]{0,19}$/.test(value))  setNumber(value)
                 break;
             case "name":
-                if (/^[a-zA-Z\s]{0,19}$/.test(value)) {
-                    setName(value);
-                }
+                if (/^[a-zA-Z\s]{0,19}$/.test(value)) setName(value)
                 break;
             case "expiry":
-
-                setExpiry(value);
-
+                // if (/^(0[1-9]|1[0-2])(2[3-9]|[3-9][0-9])$/.test(value)) 
+                setExpiry(value)                
                 break;
             case "cvc":
-                if (/^[0-9]{0,3}$/.test(value)) {
-                    setCvc(value);
-                }
+                if (/^[0-9]{0,3}$/.test(value))setCvc(value)
                 break;
             default:
                 break;
@@ -55,12 +48,12 @@ const CreditCardForm = () => {
             text: 'Gracias por tu compra',
             icon: 'success',
             didClose: () => {
-                vaciarCarrito(); 
+                vaciarCarrito();
                 navigate('/');
-            }            
+            }
         });
     }
-    
+
     return (
         <div>
             <Cards
@@ -79,7 +72,6 @@ const CreditCardForm = () => {
                     value={number}
                     onChange={handleInputChange}
                     onFocus={(e) => setFocus(e.target.name)}
-                    pattern="[0-9\s]{13,19}"
                     required
                 />
                 <input
@@ -90,7 +82,6 @@ const CreditCardForm = () => {
                     value={name}
                     onChange={handleInputChange}
                     onFocus={(e) => setFocus(e.target.name)}
-                    pattern="[a-zA-Z\s]+"
                     required
                 />
                 <div className="FinalDates">
@@ -102,7 +93,7 @@ const CreditCardForm = () => {
                         value={expiry}
                         onChange={handleInputChange}
                         onFocus={(e) => setFocus(e.target.name)}
-                        pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+                        pattern="^\d{2}\/\d{2}$"
                         required
                     />
                     <input
@@ -115,7 +106,6 @@ const CreditCardForm = () => {
                         value={cvc}
                         onChange={handleInputChange}
                         onFocus={(e) => setFocus(e.target.name)}
-                        pattern="[0-9]{3}"
                         required
                     />
                 </div>
