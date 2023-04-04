@@ -19,7 +19,8 @@ const Navbar = () => {
                     <NavLink to='/category/Zapatillas' className={'delay03'}><li>Zapatillas</li></NavLink>
                     <NavLink to='/category/Remeras' className={'delay04'}><li>Remeras</li></NavLink>
                     <NavLink to='/category/Munequeras' className={'delay05'}><li>Muñequeras</li></NavLink>
-                    <NavLink to='/category/Vinchas' className={'delay06'}><li>Vinchas</li></NavLink>                    
+                    <NavLink to='/category/Vinchas' className={'delay06'}><li>Vinchas</li></NavLink>   
+                    <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>                   
                 </nav>                
             </div>
             <CartWidget />
