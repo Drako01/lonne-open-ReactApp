@@ -7,7 +7,7 @@ const Checkout = () => {
                 Payment
             </h1>
             <section className='Checkout__'>
-            <CreditCardForm />
+                <CreditCardForm />
             </section>            
         </div>
     )
