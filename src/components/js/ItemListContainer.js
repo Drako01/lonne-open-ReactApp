@@ -4,7 +4,7 @@ import { getProducts, getProductsByCategory } from '../../asyncMock';
 import { useEffect, useState } from 'react';
 import logo  from '../assets/icons/logo.ico'
 import { Link } from 'react-router-dom';
-
+import swal from 'sweetalert';
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -20,7 +20,7 @@ const ItemListContainer = ({ greeting }) => {
                 setProducts(products)
             })
             .catch(error => {
-                console.log(error)
+                swal("Error", error.message, "error");
             })
     }, [categoryId])
 
