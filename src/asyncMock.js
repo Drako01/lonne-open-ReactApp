@@ -26,7 +26,7 @@ const products = [
         name: 'Wilson Combinada Mujer',
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Rosa y Blanco',
-        size: '38',
+        size: '37',
         price: 28500,
         image: `${route}zapa-wilson_3.png`,
         stock: 15
@@ -36,18 +36,18 @@ const products = [
         name: 'Wilson Combinada Mixta',
         category: 'Zapatillas',
         description: 'Zapatillas de tenis en Naranja',
-        size: '43',
+        size: '40',
         price: 27800,
         image: `${route}zapa-wilson_4.png`,
         stock: 20
     },
     {
         id: '5',
-        name: 'Tubo Head',
+        name: 'Tubo Head Pro',
         category: 'Tubos',
         description: 'Tubo de Pelotas x 3 Profesionales',
         size: '--',
-        price: 5800,
+        price: 8800,
         image: `${route}tubo_pelotas_1.png`,
         stock: 60
     },
@@ -65,8 +65,8 @@ const products = [
         id: '7',
         name: 'Raqueta De Tenis',
         category: 'Raquetas',
-        description: 'Raqueta De Tenis Babolat Pure Aero Grip 2 (4 1/4) Color:Amarillo',
-        size: '4 1/4',
+        description: 'Raqueta De Tenis Babolat Pure Aero Grip 2 (4 1/5) Color:Amarillo',
+        size: '4 1/5',
         price: 95299,
         image: `${route}raqueta01.png`,
         stock: 15
@@ -75,8 +75,8 @@ const products = [
         id: '8',
         name: 'Raqueta De Tenis',
         category: 'Raquetas',
-        description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
-        size: '4 3/8',
+        description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/16',
+        size: '4 3/16',
         price: 99999,
         image: `${route}raqueta02.png`,
         stock: 12
@@ -86,7 +86,7 @@ const products = [
         name: 'Remera Deportiva Hombre',
         category: 'Remeras',
         description: 'Camiseta Nike Dri-Fit Academy',
-        size: 'XL',
+        size: 'L',
         price: 8750,
         image: `${route}remera01.png`,
         stock: 52
@@ -96,7 +96,7 @@ const products = [
         name: 'Remera Deportiva Hombre',
         category: 'Remeras',
         description: 'Remera Deportiva Hombre Lycra Ejercicio Sport Premiun Import',
-        size: 'L',
+        size: 'XL',
         price: 5860,
         image: `${route}remera02.png`,
         stock: 0
@@ -203,7 +203,7 @@ const products = [
     },
     {
         id: '21',
-        name: 'Raqueta De Tenis',
+        name: 'Raqueta De Tenis Amarilla',
         category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
         size: '4 3/8',
@@ -213,7 +213,7 @@ const products = [
     },
     {
         id: '22',
-        name: 'Raqueta De Tenis',
+        name: 'Raqueta De Tenis Naranja',
         category: 'Raquetas',
         description: 'Raqueta De Tenis Babolat Pure Aero Rafa - Tamaño Del Grip:4 3/8',
         size: '4 3/8',
