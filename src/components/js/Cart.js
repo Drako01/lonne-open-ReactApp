@@ -84,6 +84,7 @@ const Cart = () => {
             <td className='NombreProducto'>{p.name}</td>
             <td className='PriceProducto'>{`$${p.price}.-`}</td>
             <td>{p.quantity}</td>
+            <td className='PriceProducto'>{`$${p.quantity * p.price}`}</td>
             <td className='EliminarItem'>
                 <button onClick={() => clickRemoveItem(p.id)}>
                     <img src={close} alt='Close' />
@@ -101,6 +102,7 @@ const Cart = () => {
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
+                        <th>Subtotal</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
