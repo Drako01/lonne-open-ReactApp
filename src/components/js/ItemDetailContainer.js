@@ -3,7 +3,7 @@ import { getProductById } from '../../asyncMock';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import close from '../assets/icons/close.png';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 const ItemDetailContainer = () => {
 
@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
                 setProduct(response);
             })
             .catch(error => {
-                swal("Error", error.message, "error");
+                Swal.fire("Error", error.message, "error");
             });
     }, [itemId]);
 

@@ -1,20 +1,83 @@
 import { useCart } from '../../context/CartContext';
 import close from '../assets/icons/close.png'
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const Cart = () => {
     const { totalPrice, cart, removeItem, totalQuantity } = useCart();
-
+    const navigate = useNavigate();
     const totalQuantityInCart = totalQuantity
     const { clearCart } = useCart();
 
-    const clear = clearCart;
+    const clear = () => {
+        Swal.fire({
+            title: '¿Estás seguro de vaciar el carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Vaciar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                clearCart();
+                Swal.fire(
+                    'Vacío',
+                    'El carrito ha quedado vacío.!',
+                    'success'
+                )
+            }
+        })
+    };
+
 
     const clickRemoveItem = (id) => {
-        removeItem(id);
+        Swal.fire({
+            title: '¿Estás seguro de eliminar este producto?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                removeItem(id);
+                Swal.fire(
+                    'Eliminado',
+                    'El producto ha sido eliminado del carrito',
+                    'success'
+                )
+            }
+        })
     }
+
+    const Comprar = () => {
+        const handleOnClick = () => {
+            navigate('/payment');
+        };
+        const total = totalPrice;
+
+        Swal.fire({
+            title: 'Confirmar compra',
+            html: `El valor total de tu compra es de $${total}.<br>¿Desea continuar?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                return handleOnClick()
+            }
+        })
+            .catch(error => {
+                Swal.fire("Error", error.message, "error");
+            });
+    }
+
 
     const cartItems = cart.map((p) => (
         <tr key={p.id}>
@@ -53,9 +116,9 @@ const Cart = () => {
                 ) : (
                     <div>
                         <h3 className='PrecioTotal'>{`Total: $${totalPrice}.-`}</h3>
-                        <div className='ComprarFinal FinalButtons'>  
+                        <div className='ComprarFinal FinalButtons'>
                             <Link onClick={clear} className='VaciarCarrito'>Vaciar Carrito</Link>
-                            <Link to='/payment'>Comprar</Link>
+                            <Link onClick={Comprar} >Comprar</Link>
                         </div>
                     </div>
 
