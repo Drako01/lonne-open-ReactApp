@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
-const ItemListContainer = ({ greeting }) => {
+const ItemList = ({ greeting }) => {
     const [products, setProducts] = useState([])
 
     const { categoryId } = useParams()
@@ -39,4 +39,4 @@ const ItemListContainer = ({ greeting }) => {
     )
 }
 
-export default ItemListContainer;
+export default ItemList;

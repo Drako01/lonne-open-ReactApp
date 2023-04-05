@@ -1,4 +1,4 @@
-import Item from './Item';
+import ItemDetail from './ItemDetail';
 import { getProductById } from '../../asyncMock';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
             <button onClick={handleOnClick} className='CloseItem'>
                 <img src={close} alt='Close' />
             </button>
-            {product ? <Item {...product} /> : <h3>Cargando...</h3>}
+            {product ? <ItemDetail {...product} /> : <h3>Cargando...</h3>}
         </div>
     );
 };
