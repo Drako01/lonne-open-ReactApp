@@ -45,7 +45,7 @@ const CreditCardForm = () => {
     const handlePayment = () => {
         Swal.fire({
             title: '¡Compra exitosa!',
-            text: 'Gracias por tu compra',
+            text: 'Gracias por comprar en Lonne Open',
             icon: 'success',
             didClose: () => {
                 vaciarCarrito();
