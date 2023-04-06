@@ -22,17 +22,17 @@ const Footer = () => {
                 <img src={logo} alt='Lonne Open' />
                 <section className='Links'>
                     <div>
-                    <NavLink to='/'><li>Inicio</li></NavLink>
-                    <NavLink to='/category/Raquetas' ><li>Raquetas</li></NavLink>
-                    <NavLink to='/category/Tubos' ><li>Tubos</li></NavLink>
-                    <NavLink to='/category/Zapatillas'><li>Zapatillas</li></NavLink>
+                        <NavLink to='/'><li>Inicio</li></NavLink>
+                        <NavLink to='/category/Raquetas' ><li>Raquetas</li></NavLink>
+                        <NavLink to='/category/Tubos' ><li>Tubos</li></NavLink>
+                        <NavLink to='/category/Zapatillas'><li>Zapatillas</li></NavLink>
                     </div>
                     <div>
-                    <NavLink to='/category/Remeras' ><li>Remeras</li></NavLink>
-                    <NavLink to='/category/Munequeras' ><li>Muñequeras</li></NavLink>
-                    <NavLink to='/category/Vinchas' ><li>Vinchas</li></NavLink>
-                    <NavLink to='/contact' ><li>Contactenos</li></NavLink>
-                    </div>     
+                        <NavLink to='/category/Remeras' ><li>Remeras</li></NavLink>
+                        <NavLink to='/category/Munequeras' ><li>Muñequeras</li></NavLink>
+                        <NavLink to='/category/Vinchas' ><li>Vinchas</li></NavLink>
+                        <NavLink to='/contact' ><li>Contactenos</li></NavLink>
+                    </div>
                 </section>
             </footer>
             <footer className='Bottom'>
