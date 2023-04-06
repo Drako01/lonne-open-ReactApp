@@ -4,6 +4,7 @@ import ItemDetailContainer from './ItemDetailContainer';
 import Cart from './Cart'
 import Payment from './Checkout'
 import Contact from './Contact';
+import Login from './Login';
 
 
 const Main = () => {
@@ -14,7 +15,8 @@ const Main = () => {
                 <Route path='/category/:categoryId' element={<ItemListContainer greeting={`Categoria: `} />}/>
                 <Route path='/:name/item/:itemId' element= {<ItemDetailContainer />}/>
                 <Route path='/cart' element= {<Cart />}/>
-                <Route path='/contact' element= {<Contact />}/>
+                <Route path='/login' element= {<Login  greeting={'Login'}/>}/>
+                <Route path='/contact' element= {<Contact  greeting={'Contactenos'}/>}/>
                 <Route path='/checkout' element= {<Payment />}/>
             </Routes>
         </main>

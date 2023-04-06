@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import CartWidget from './CartWidget'
+import LoginButton from './LoginButton';
 
 
 const Navbar = () => {
@@ -23,6 +24,7 @@ const Navbar = () => {
                     <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>                   
                 </nav>                
             </div>
+            <LoginButton />
             <CartWidget />
         </section>
     )

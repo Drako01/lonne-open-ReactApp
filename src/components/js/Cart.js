@@ -95,7 +95,7 @@ const Cart = () => {
 
     return (
         <section className='CarroDeCompras'>
-            <h1>Carro de Compras</h1>
+            <h1 className='Mini'>Carro de Compras</h1>
             <table>
                 <thead>
                     <tr>
