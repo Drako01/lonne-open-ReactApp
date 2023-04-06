@@ -1,26 +1,45 @@
 import ItemDetail from './ItemDetail';
-import { getProductById } from '../../asyncMock';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import close from '../assets/icons/close.png';
 import Swal from 'sweetalert2';
+import { getDoc, doc } from 'firebase/firestore'
+import { db } from '../services/Firebase/firebaseConfig' 
+
 
 const ItemDetailContainer = () => {
 
     const navigate = useNavigate();
-    const [product, setProduct] = useState(null);
+    const [product, setProduct] = useState();
+    const [loading, setLoading] = useState(true)
     const { itemId } = useParams();
 
     useEffect(() => {
-        getProductById(itemId)
-            .then(response => {
-                setProduct(response);
+        setLoading(true)
+
+        const productRef = doc(db, 'products', itemId)
+
+        getDoc(productRef)
+            .then(snapshot => {
+                const data = snapshot.data()
+                const productAdapted = { id: snapshot.id, ...data }
+                setProduct(productAdapted)
             })
             .catch(error => {
                 Swal.fire("Error", error.message, "error");
-            });
-    }, [itemId]);
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }, [itemId])
 
+    if (loading) {
+        return (
+            <div>
+                <h1>Cargando...</h1>
+            </div>
+        )
+    }
     const handleOnClick = () => {
         navigate('/');
     };
