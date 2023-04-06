@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import close from '../assets/icons/close.png';
 import Swal from 'sweetalert2';
 import { getDoc, doc } from 'firebase/firestore'
-import { db } from '../services/Firebase/firebaseConfig' 
+import { db } from '../../Firebase/firebaseConfig' 
 
 
 const ItemDetailContainer = () => {

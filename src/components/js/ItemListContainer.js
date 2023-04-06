@@ -5,7 +5,7 @@ import logo from '../assets/icons/logo.ico'
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { getDocs, collection, query, where } from 'firebase/firestore'
-import { db } from '../services/Firebase/firebaseConfig'
+import { db } from '../../Firebase/firebaseConfig'
 
 
 
