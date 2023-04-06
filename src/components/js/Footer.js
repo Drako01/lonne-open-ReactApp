@@ -32,9 +32,7 @@ const Footer = () => {
                     <NavLink to='/category/Munequeras' ><li>Muñequeras</li></NavLink>
                     <NavLink to='/category/Vinchas' ><li>Vinchas</li></NavLink>
                     <NavLink to='/contact' ><li>Contactenos</li></NavLink>
-                    </div>
-                    
-                    
+                    </div>     
                 </section>
             </footer>
             <footer className='Bottom'>
@@ -48,11 +46,7 @@ const Footer = () => {
                     <img src={instagram} alt="icono" onClick={mensajeInstagram} />
                     <img src={facebook} alt="icono" onClick={mensajeFacebook} />
                 </section>
-
-
-
             </footer>
-
             <WhatsAppButton />
         </div>
     )
