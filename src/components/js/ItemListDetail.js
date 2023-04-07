@@ -39,7 +39,7 @@ const ItemListDetail = () => {
                         const data = doc.data()
                         const productAdapted = { id: doc.id, ...data }
                         return productAdapted
-                    })
+                    }).sort((a, b) => a.category.localeCompare(b.category)) 
                     setProducts(productsData)
                 })
                 .catch(error => {
