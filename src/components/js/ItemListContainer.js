@@ -1,33 +1,42 @@
 import CardList from './CardList'
-import { useParams } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import logo from '../assets/icons/logo.ico'
-import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
 
 
-
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
+    const [selectedCategory, setSelectedCategory] = useState('Todas')
     const { categoryId } = useParams()
     const navigate = useNavigate();
+    const [categories, setCategories] = useState([]);
+
     useEffect(() => {
         setLoading(true)
 
-        const productsRef = categoryId
-            ? query(collection(db, 'products'), where('category', '==', categoryId))
-            : collection(db, 'products')
+        let productsRef = collection(db, 'products')
+        let productsQuery = productsRef;
 
-        getDocs(productsRef)
+        if (categoryId && categoryId !== 'Todas') {
+            productsQuery = query(productsRef, where('category', '==', categoryId))
+            setSelectedCategory(categoryId)
+        }
+
+        getDocs(productsQuery)
             .then(snapshot => {
                 const productsAdapted = snapshot.docs.map(doc => {
                     const data = doc.data()
                     return { id: doc.id, ...data }
                 })
                 setProducts(productsAdapted)
+
+                const allCategories = productsAdapted.map((product) => product.category);
+                const uniqueCategories = [...new Set(allCategories)];
+                setCategories(uniqueCategories);
             })
             .catch(error => {
                 Swal.fire("Error", error.message, "error");
@@ -37,6 +46,15 @@ const ItemListContainer = ({ greeting }) => {
             })
     }, [categoryId])
 
+    const handleCategoryChange = (event) => {
+        const category = event.target.value
+        if (category === 'Todas') {
+            navigate('/')
+        } else {
+            navigate(`/category/${category}`)
+        }
+    }
+
     if (loading) {
         return (
             <div className="loader-container">
@@ -45,9 +63,7 @@ const ItemListContainer = ({ greeting }) => {
             </div>
         )
     }
-    const handleOnClick = () => {
-        navigate('/itemlist');
-    };
+
     return (
         <div>
             <div className='Logo-Icono'>
@@ -56,10 +72,21 @@ const ItemListContainer = ({ greeting }) => {
                 </Link>
             </div>
 
-            <h1>{greeting} {categoryId}</h1>
+            <h1>{greeting} {categoryId === undefined ? '' : selectedCategory} </h1>
+
+            <div className='LonneInput CategorySelect'>
+                <label htmlFor='category'>Filtrar por categoría: </label>
+                <select id='category' value={selectedCategory} onChange={handleCategoryChange}>
+                    <option value="Todas">Todas</option>
+                    {categories.map((category, index) => (
+                        <option key={index} value={category}>{category}</option>
+                    ))}
+                </select>
+            </div>
+
             <CardList products={products} />
             <div className='ButtonItemListDetail Listado'>
-                <button onClick={handleOnClick} >
+                <button onClick={() => navigate('/itemlist')}>
                     Ver Listado Completo
                 </button>
             </div>
