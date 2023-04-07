@@ -16,7 +16,7 @@
 ## Desarrollo de un E-Commerce Funcional desde el FrontEnd utilizando la Librería REACT JS
 
 <p align="center">     
-    <a href="https://lonne-open-proshop.netlify.app/" target="_blank">
+    <a href="" target="_blank">
         <img src="https://lonneopen.com/img/logo.png" alt="CoderHouse"  height="300"/>
     </a>  
 </p>
@@ -26,9 +26,12 @@
 ---
 
 
-## Temas Incluidos por Entrega
 
-### 1er Entrega
+## Entrega Final
+
+---
+
+<br><br>
 
 ```ssh
  1. Instalación y configuración del entorno
@@ -36,25 +39,35 @@
  2. JSX y transpiling
 
  3. Componentes I
+
+ 4. Componentes II
+
+ 5. Promises, asincronía y MAP
+
+ 6. Consumiendo API's
+
+ 7. Routing y navegación
+
+ 8. Eventos
+
+ 9. Context
+
+ 10. Técnicas de rendering
+
+ 11. Firebase I
+
+ 12. Firebase II
+
+ 13. Workshop
 ```
-
-
-### 2da Entrega
-
-
-```ssh
- 1. Componentes II
-
- 2. Promises, asincronía y MAP
-
- 3. Consumiendo API's
-
- 4. Routing y navegación
-```
+<br><br>
 
 <p align="center"> 
     <img src="https://jobs.coderhouse.com/assets/logos_coderhouse.png" alt="CoderHouse"  height="100"/>
 </p>
+<br>
+
+
 
 ---
 
