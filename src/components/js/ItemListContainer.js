@@ -2,7 +2,7 @@ import CardList from './CardList'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import logo from '../assets/icons/logo.ico'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
@@ -13,6 +13,7 @@ const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const { categoryId } = useParams()
+    const navigate = useNavigate();
     useEffect(() => {
         setLoading(true)
 
@@ -43,7 +44,9 @@ const ItemListContainer = ({ greeting }) => {
             </div>
         )
     }
-
+    const handleOnClick = () => {
+        navigate('/itemlist');
+    };
     return (
         <div>
             <div className='Logo-Icono'>
@@ -54,7 +57,11 @@ const ItemListContainer = ({ greeting }) => {
 
             <h1>{greeting} {categoryId}</h1>
             <CardList products={products} />
-
+            <div className='ButtonItemListDetail Listado'>
+                <button onClick={handleOnClick} >
+                    Ver Listado Completo
+                </button>
+            </div>
         </div>
     )
 }

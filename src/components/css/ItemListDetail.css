@@ -1,0 +1,45 @@
+.ItemListDetail tbody tr td img {
+    width: 4rem;
+}
+
+.ItemListDetail th {
+    min-width: 7rem;
+}
+
+.ItemListDetail .RightItem {
+    text-align: right;
+}
+
+.ItemListDetail .LeftItem {
+    text-align: left;
+}
+
+.ItemListDetail tbody tr td {
+    padding: 0 .5rem;
+    background-color: white;
+}
+.ButtonItemListDetail{
+    display: flex;
+    justify-content: flex-end;
+}
+.ButtonItemListDetail button{
+    margin: .7rem;
+    padding: .25rem .8rem;
+    border-radius: .25rem;
+    border: 1px solid var(--fourth);
+    background-color: transparent;
+    min-width: 7rem;
+    min-height: 2.5rem;
+    font-size: 1rem;
+    color: var(--fourth);
+    float: right;
+}
+.ButtonItemListDetail button:hover{
+    cursor: pointer;
+    background-color: var(--fourth);
+    color: var(--light);
+}
+.Listado{
+    justify-content: center;
+    margin-bottom: 5rem;
+}
