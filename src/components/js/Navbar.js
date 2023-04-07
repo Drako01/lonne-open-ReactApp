@@ -1,15 +1,16 @@
 import { NavLink } from 'react-router-dom';
-import CartWidget from './CartWidget'
+import CartWidget from './CartWidget';
 import LoginButton from './LoginButton';
-
+import LogoutButton from './LogoutButton';
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
     const toggleMenu = () => {
         document.body.classList.toggle('open')
     }
-
+    const { currentUser } = useAuth(); 
+    
     return (
-
         <section>
             <button className='burguer' onClick={toggleMenu}></button>
             <div className='menu'>
@@ -23,8 +24,10 @@ const Navbar = () => {
                     <NavLink to='/category/Vinchas' className={'delay06'}><li>Vinchas</li></NavLink>   
                     <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>                   
                 </nav>                
-            </div>
-            <LoginButton />
+            </div>  
+            {currentUser ? 
+            <LogoutButton />
+            : <LoginButton />} 
             <CartWidget />
         </section>
     )
