@@ -1,3 +1,6 @@
+.ItemListDetail {
+    padding: 0 2rem;
+}
 .ItemListDetail tbody tr td img {
     width: 4rem;
 }
@@ -15,6 +18,7 @@
 }
 
 .ItemListDetail tbody tr td {
+    font-size: 1rem;
     padding: 0 .5rem;
     background-color: white;
 }
@@ -42,4 +46,56 @@
 .Listado{
     justify-content: center;
     margin-bottom: 5rem;
+}
+
+@media (width <= 1080px) {   
+
+    .ItemListDetail tbody tr td {
+        font-size: .8rem;
+        height: 3rem;
+    }
+
+}
+
+@media (width <= 800px) {   
+    .ItemListDetail {
+        padding: 0 1rem;
+    }
+    .ItemListDetail th {
+        min-width: 1rem;
+        font-size: .8rem;
+        
+    }
+    .ItemListDetail tbody tr td img {
+        width: 2rem;
+        padding: 0;        
+    }
+    .ButtonItemListDetail button{
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
+    .ItemListDetail tbody tr td{
+        font-size: .7rem;
+        
+    }
+
+}
+@media (width <= 640px) {    
+    .ItemListDetail th {
+        min-width: 1rem;
+        font-size: .6rem;
+    }
+    .ItemListDetail tbody tr td img {
+        width: 2.2rem;
+        padding: 0;
+    }
+    .ButtonItemListDetail button{
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }    
+    
+    .ItemListDetail tbody tr td {
+        font-size: .5rem;
+        height: 6rem;
+    }     
 }

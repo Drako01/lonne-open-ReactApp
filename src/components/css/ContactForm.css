@@ -9,7 +9,7 @@ h4.NoMargin {
 .LonneInput {
     display: flex;
     flex-direction: column;
-    min-width: 30rem;
+    width: 30rem;
 }
 
 .LonneInput label,
@@ -46,11 +46,22 @@ h4.NoMargin {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 .CategorySelect select{
-    min-width: 30rem;
+    width: 30rem;
     background-color: var(--second);  
     font-size: 1.2rem;  
     padding: .5rem;
     height: 3rem;
+}
+@media (width <= 640px) {
+    .CategorySelect select {
+        max-width: 280px;
+        font-size: 1rem;
+        height: 2.5rem;
+    }
+    .CategorySelect select option{
+        width: 340px;
+    }
 }
