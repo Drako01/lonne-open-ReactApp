@@ -25,17 +25,17 @@ const CreditCardForm = () => {
 
         switch (name) {
             case "number":
-                if (/^[0-9\s]{0,19}$/.test(value))  setNumber(value)
+                if (/^[0-9\s]{0,19}$/.test(value)) setNumber(value)
                 break;
             case "name":
                 if (/^[a-zA-Z\s]{0,19}$/.test(value)) setName(value)
                 break;
             case "expiry":
                 //if (/^\d{2}\d{2}$/.test(value)) 
-                setExpiry(value)                
+                setExpiry(value)
                 break;
             case "cvc":
-                if (/^[0-9]{0,3}$/.test(value))setCvc(value)
+                if (/^[0-9]{0,3}$/.test(value)) setCvc(value)
                 break;
             default:
                 break;
@@ -72,6 +72,7 @@ const CreditCardForm = () => {
                     value={number}
                     onChange={handleInputChange}
                     onFocus={(e) => setFocus(e.target.name)}
+                    required
                 />
                 <input
                     type="text"
@@ -81,6 +82,7 @@ const CreditCardForm = () => {
                     value={name}
                     onChange={handleInputChange}
                     onFocus={(e) => setFocus(e.target.name)}
+                    required
                 />
                 <div className="FinalDates">
                     <input
@@ -91,6 +93,7 @@ const CreditCardForm = () => {
                         value={expiry}
                         onChange={handleInputChange}
                         onFocus={(e) => setFocus(e.target.name)}
+                        required
                     />
                     <input
                         className="CVC"
@@ -102,6 +105,7 @@ const CreditCardForm = () => {
                         value={cvc}
                         onChange={handleInputChange}
                         onFocus={(e) => setFocus(e.target.name)}
+                        required
                     />
                 </div>
 
