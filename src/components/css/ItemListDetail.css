@@ -47,7 +47,21 @@
     justify-content: center;
     margin-bottom: 5rem;
 }
-
+img.CarritoList {
+    width: 24px !important;
+}
+.CarritoListButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CarritoListButton button{
+    margin: 0;
+    padding: .25rem;
+    min-width: 2rem;
+    min-height: 1rem;
+    width: 3rem;
+}
 @media (width <= 1080px) {   
 
     .ItemListDetail tbody tr td {
