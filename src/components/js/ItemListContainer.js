@@ -39,8 +39,9 @@ const ItemListContainer = ({ greeting }) => {
 
     if (loading) {
         return (
-            <div>
-                <h1>Cargando...</h1>
+            <div className="loader-container">
+                <div className="loader"></div>
+                <div className="loader2"></div>
             </div>
         )
     }

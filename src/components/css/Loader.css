@@ -1,0 +1,52 @@
+.loader-container {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem;
+}
+
+.loader-container .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: solid .5rem transparent;
+    border-top-color: var(--first);
+    border-left-color: var(--first);
+    border-radius: 50%;
+    animation: loader 1.4s linear infinite;
+}
+
+.loader-container .loader2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 70%;
+    border: solid .8rem transparent;
+    border-top-color: var(--brick);
+    border-left-color: var(--brick);
+    border-radius: 50%;
+    animation: loader2 1.2s linear infinite;
+}
+
+@keyframes loader {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes loader2 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}

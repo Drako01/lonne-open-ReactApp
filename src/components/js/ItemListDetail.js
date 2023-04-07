@@ -39,7 +39,7 @@ const ItemListDetail = () => {
                         const data = doc.data()
                         const productAdapted = { id: doc.id, ...data }
                         return productAdapted
-                    }).sort((a, b) => a.category.localeCompare(b.category)) 
+                    }).sort((a, b) => a.category.localeCompare(b.category))
                     setProducts(productsData)
                 })
                 .catch(error => {
@@ -58,7 +58,12 @@ const ItemListDetail = () => {
     return (
         <div>
 
-            {loading ? <h3>Cargando...</h3> :
+            {loading ?
+                <div className="loader-container">
+                    <div className="loader"></div>
+                    <div className="loader2"></div>
+                </div>
+                :
                 <section>
                     <div className='ButtonItemListDetail'>
                         <button onClick={handleOnClick} >
