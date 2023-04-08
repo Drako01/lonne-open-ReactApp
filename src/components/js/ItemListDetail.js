@@ -20,7 +20,7 @@ const ItemListDetail = () => {
 
     const handleOnAddToCart = (product) => {
         addItem({ ...product, quantity });
-        setQuantity(quantity);
+        setQuantity(product.quantity);
         Swal.fire(`El Producto ${product.name} fue agregado al carrito`, '', 'success');
     };
 
@@ -66,7 +66,7 @@ const ItemListDetail = () => {
     }, [itemId]);
 
     const handleOnAdd = (event) => {
-        const value = event.target.value;
+        const value = parseInt(event.target.value);
         setQuantity(value);
         console.log(value)
     }
@@ -115,12 +115,17 @@ const ItemListDetail = () => {
                                             type="number"
                                             min="1"
                                             max={product.stock}
-                                            value={quantity}
+                                            value={product.quantity}
                                             onChange={handleOnAdd}
                                         />
-                                        <button className="buttonAdd" onClick={() => handleOnAddToCart(product)}>
-                                            <img src={carrito} alt="carrito" />
-                                        </button>
+                                    </td>
+
+                                    <td>
+                                    <div className='ComprarFinal FinalButtons CarritoListButton'>
+                                            <button className="buttonAdd" onClick={() => handleOnAddToCart(product)}>
+                                            <img src={carrito} className="App-icono Car CarritoList" alt="icono" />
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
