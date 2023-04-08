@@ -22,6 +22,14 @@
     padding: 0 .5rem;
     background-color: white;
 }
+.ItemListDetail tbody tr td .InputCantidad{
+    width: 3rem;
+    color: var(--gold);
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid var(--fourth);
+}
+
 .ButtonItemListDetail{
     display: flex;
     justify-content: flex-end;

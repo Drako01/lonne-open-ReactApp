@@ -115,6 +115,7 @@ const ItemListDetail = () => {
                                     <td>{product.stock}</td>
                                     <td>
                                         <input
+                                            className='InputCantidad'
                                             type="number"
                                             min="1"
                                             max={product.stock}
