@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
-                timer: 1500,
+                timer: 1200,
                 timerProgressBar: true
             });
         } else {

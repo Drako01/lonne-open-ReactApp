@@ -14,14 +14,13 @@ const ItemListDetail = () => {
     const { addItem } = useCart();
     const [quantity, setQuantity] = useState(1);
 
-
     const handleOnClick = () => {
         navigate('/');
     };
 
     const handleOnAddToCart = (product) => {
         addItem({ ...product, quantity });
-        setQuantity(product.quantity);
+        setQuantity(quantity);
         Swal.fire(`El Producto ${product.name} fue agregado al carrito`, '', 'success');
     };
 
@@ -66,16 +65,11 @@ const ItemListDetail = () => {
         }
     }, [itemId]);
 
-    const handleOnQuantityChange = (e, productId) => {
-        const value = parseInt(e.target.value) || 1;
-        setProducts(prevState => prevState.map(product => {
-            if (product.id === productId) {
-                return { ...product, quantity: value };
-            } else {
-                return product;
-            }
-        }));
-    };
+    const handleOnAdd = (event) => {
+        const value = event.target.value;
+        setQuantity(value);
+        console.log(value)
+    }
 
     return (
         <div>
@@ -105,40 +99,31 @@ const ItemListDetail = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {Object.values(products).map((producto) => (
-                                <tr key={producto.id}>
-                                    <td className='LeftItem'>{producto.name}</td>
-                                    <td>{producto.category}</td>
-                                    <td>{producto.description}</td>
-                                    <td>${producto.price}</td>
-                                    <td>{producto.size}</td>
+                            {products.map((product) => (
+                                <tr key={product.id}>
+                                    <td className='LeftItem'>{product.name}</td>
+                                    <td>{product.category}</td>
+                                    <td>{product.description}</td>
+                                    <td>${product.price}</td>
+                                    <td>{product.size}</td>
                                     <td>
-                                        <img src={producto.image} alt={producto.title} />
+                                        <img src={product.image} alt={product.title} />
                                     </td>
-                                    <td>{producto.stock}</td>
+                                    <td>{product.stock}</td>
                                     <td>
                                         <input
                                             type="number"
                                             min="1"
-                                            max={producto.stock}
-                                            onChange={(e) => handleOnQuantityChange(e, producto.id)}
-                                            value={producto.quantity}
-
+                                            max={product.stock}
+                                            value={quantity}
+                                            onChange={handleOnAdd}
                                         />
-                                    </td>
-                                    <td>
-                                        <div className='ComprarFinal FinalButtons CarritoListButton'>
-                                            <button
-                                                type="submit"
-                                                onClick={() => handleOnAddToCart({ ...producto, quantity })}
-                                            >
-                                                <img src={carrito} className="App-icono Car CarritoList" alt="icono" />
-                                            </button>
-                                        </div>
+                                        <button className="buttonAdd" onClick={() => handleOnAddToCart(product)}>
+                                            <img src={carrito} alt="carrito" />
+                                        </button>
                                     </td>
                                 </tr>
                             ))}
-
                         </tbody>
                     </table>
                 </section>
@@ -146,5 +131,4 @@ const ItemListDetail = () => {
         </div>
     );
 };
-
 export default ItemListDetail;

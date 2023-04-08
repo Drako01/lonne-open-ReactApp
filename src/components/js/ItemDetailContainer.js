@@ -61,7 +61,13 @@ const ItemDetailContainer = () => {
             <button onClick={handleOnClick} className='CloseItem'>
                 <img src={close} alt='Close' />
             </button>
-            {product ? <ItemDetail {...product} /> : <h3>Cargando...</h3>}
+            {product ? 
+            <ItemDetail {...product} /> : 
+            <div className="loader-container">
+                <div className="loader"></div>
+                <div className="loader2"></div>
+            </div>
+            }
         </div>
     );
 };
