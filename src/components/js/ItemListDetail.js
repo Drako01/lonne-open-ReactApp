@@ -12,17 +12,22 @@ const ItemListDetail = () => {
     const [loading, setLoading] = useState(true);
     const { itemId } = useParams();
     const { addItem } = useCart();
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(0);
 
     const handleOnClick = () => {
         navigate('/');
     };
 
     const handleOnAddToCart = (product) => {
-        addItem({ ...product, quantity });
-        setQuantity(product.quantity);
-        Swal.fire(`El Producto ${product.name} fue agregado al carrito`, '', 'success');
+        if (quantity < 1) {
+            Swal.fire('Error', 'Debe ingresar una cantidad mayor a 0', 'error');
+        } else {
+            addItem({ ...product, quantity });
+            setQuantity(product.quantity);
+            Swal.fire(`El Producto ${product.name} fue agregado al carrito`, '', 'success');
+        }
     };
+    
 
     useEffect(() => {
         setLoading(true);
@@ -93,7 +98,7 @@ const ItemListDetail = () => {
                                 <th>Foto</th>
                                 <th>Stock</th>
                                 <th>Cantidad</th>
-                                <th>Acciones</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
