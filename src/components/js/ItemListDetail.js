@@ -20,7 +20,7 @@ const ItemListDetail = () => {
 
     const handleOnAddToCart = (product) => {
         if (quantity < 1) {
-            Swal.fire('Error', 'Debe ingresar una cantidad mayor a 0', 'error');
+            Swal.fire('Error', 'No ha Ingresado un Valor.!', 'error');
         } else {
             addItem({ ...product, quantity });
             setQuantity(product.quantity);
