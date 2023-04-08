@@ -113,7 +113,7 @@ const ItemListDetail = () => {
                                             type="number"
                                             min="1"
                                             max={product.stock}
-                                            placeholder='1'
+                                            placeholder='0'
                                             onChange={handleOnAdd}
                                         />
                                     </td>
