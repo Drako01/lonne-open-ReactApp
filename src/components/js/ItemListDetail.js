@@ -131,4 +131,5 @@ const ItemListDetail = () => {
         </div>
     );
 };
+
 export default ItemListDetail;
