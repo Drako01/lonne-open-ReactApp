@@ -66,10 +66,8 @@ const ItemListDetail = () => {
     }, [itemId]);
 
     const handleOnAdd = (event) => {
-        const value = parseInt(event.target.value);
-        setQuantity(value);
-        console.log(value)
-    }
+        setQuantity(parseInt(event.target.value));
+    };
 
     return (
         <div>
@@ -115,15 +113,15 @@ const ItemListDetail = () => {
                                             type="number"
                                             min="1"
                                             max={product.stock}
-                                            value={product.quantity}
+                                            placeholder='1'
                                             onChange={handleOnAdd}
                                         />
                                     </td>
 
                                     <td>
-                                    <div className='ComprarFinal FinalButtons CarritoListButton'>
+                                        <div className='ComprarFinal FinalButtons CarritoListButton'>
                                             <button className="buttonAdd" onClick={() => handleOnAddToCart(product)}>
-                                            <img src={carrito} className="App-icono Car CarritoList" alt="icono" />
+                                                <img src={carrito} className="App-icono Car CarritoList" alt="icono" />
                                             </button>
                                         </div>
                                     </td>
