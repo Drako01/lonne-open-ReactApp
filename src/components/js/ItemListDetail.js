@@ -11,7 +11,7 @@ const ItemListDetail = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const { itemId } = useParams();
-    const { addItem } = useCart();
+    const { addItem, isInCart, getItemCount } = useCart()
     const [quantity, setQuantity] = useState(0);
 
     const handleOnClick = () => {
@@ -19,15 +19,19 @@ const ItemListDetail = () => {
     };
 
     const handleOnAddToCart = (product) => {
-        if (quantity < 1) {
-            Swal.fire('Error', 'No ha Ingresado un Valor.!', 'error');
+        if (quantity <= 0) { 
+            Swal.fire('Error', 'Ingrese una cantidad válida', 'error');
+        } else if (quantity > product.stock) {
+            Swal.fire('Error', `No hay suficiente stock del producto ${product.name}`, 'error');
         } else {
             addItem({ ...product, quantity });
-            setQuantity(product.quantity);
+            setQuantity(0);
             Swal.fire(`El Producto ${product.name} fue agregado al carrito`, '', 'success');
         }
     };
     
+    
+
 
     useEffect(() => {
         setLoading(true);
@@ -90,11 +94,11 @@ const ItemListDetail = () => {
                     <table className="ItemListDetail">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Categoria</th>
+                                <th className='Responsive'>Nombre</th>
+                                <th className='Responsive'>Categoria</th>
                                 <th>Descripcion</th>
                                 <th>Precio</th>
-                                <th>Size</th>
+                                <th className='Responsive'>Size</th>
                                 <th>Foto</th>
                                 <th>Stock</th>
                                 <th>Cantidad</th>
@@ -104,24 +108,34 @@ const ItemListDetail = () => {
                         <tbody>
                             {products.map((product) => (
                                 <tr key={product.id}>
-                                    <td className='LeftItem'>{product.name}</td>
-                                    <td>{product.category}</td>
+                                    <td className='LeftItem Responsive'>{product.name}</td>
+                                    <td className='Responsive'>{product.category}</td>
                                     <td>{product.description}</td>
                                     <td>${product.price}</td>
-                                    <td>{product.size}</td>
+                                    <td className='Responsive'>{product.size}</td>
                                     <td>
                                         <img src={product.image} alt={product.title} />
                                     </td>
                                     <td>{product.stock}</td>
                                     <td>
-                                        <input
-                                            className='InputCantidad'
-                                            type="number"
-                                            min="1"
-                                            max={product.stock}
-                                            placeholder='0'
-                                            onChange={handleOnAdd}
-                                        />
+                                        {
+                                            isInCart(product.id) ? (
+                                                <div className='ComprarFinal FinalButtons IsInCart'>
+                                                    <button>{getItemCount(product.id)} in <img src={carrito} className="App-icono Car CarritoList " alt="icono" /></button>
+                                                </div>
+
+                                            ) : (
+                                                <input
+                                                    className='InputCantidad'
+                                                    type="number"
+                                                    min="1"
+                                                    max={product.stock}
+                                                    placeholder='0'
+                                                    onChange={handleOnAdd}
+                                                />
+                                            )
+                                        }
+
                                     </td>
 
                                     <td>

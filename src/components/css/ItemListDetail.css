@@ -6,7 +6,7 @@
 }
 
 .ItemListDetail th {
-    min-width: 8rem;
+    min-width: 5rem;
 }
 
 .ItemListDetail .RightItem {
@@ -70,6 +70,15 @@ img.CarritoList {
     min-height: 1rem;
     width: 3rem;
 }
+.IsInCart>button{
+    margin: 0;
+    padding: 0;
+    min-height: 2.3rem;
+    min-width: 4rem !important;
+}
+.IsInCart>button>img{
+    width: 1rem !important;
+}
 @media (width <= 1080px) {   
 
     .ItemListDetail tbody tr td {
@@ -100,6 +109,9 @@ img.CarritoList {
         font-size: .7rem;
         
     }
+    .Responsive{
+        display: none;
+    }
 
 }
 @media (width <= 640px) {    
@@ -118,6 +130,6 @@ img.CarritoList {
     
     .ItemListDetail tbody tr td {
         font-size: .5rem;
-        height: 6rem;
     }     
+    
 }

@@ -36,7 +36,7 @@ const Checkout = () => {
     return (
         <div>
             <h1 className="Mini">Checkout</h1>
-            <div>
+            <div className='CheckOutDiv'>
                 <h3>Resumen de Compra</h3>
                 <table className="ItemListDetail">
                     <thead>
@@ -63,7 +63,7 @@ const Checkout = () => {
                     </tbody>
                 </table>
             </div>
-            <div className="checkout-payment">
+            <div className="checkout-payment CheckOutDiv">
                 <h3>Payment Details</h3>
                 <CreditCardForm handlePayment={handlePayment} />
                 <div className="ComprarFinal FinalButtons">

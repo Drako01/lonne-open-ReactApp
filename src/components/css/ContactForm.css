@@ -55,6 +55,13 @@ h4.NoMargin {
     padding: .5rem;
     height: 3rem;
 }
+.CheckOutDiv{
+    margin-bottom: 3rem;
+}
+.CheckOutDiv h3{
+    text-align: center;
+    padding-bottom: 2rem;
+}
 @media (width <= 640px) {
     .CategorySelect select {
         max-width: 280px;
