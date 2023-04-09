@@ -19,18 +19,17 @@ class OrderConfirmation extends React.Component {
         const getLastCheckout = async () => {
             const q = query(collection(db, 'history'), orderBy('date', 'desc'), limit(1));
             const querySnapshot = await getDocs(q);
-            const lastCheckout = querySnapshot.docs[0].data()            
-            return lastCheckout;
+            const lastCheckout = querySnapshot.docs[0].data(); 
+            const lastDocId = querySnapshot.docs[0].id; // Agregar esta línea
+            return { lastCheckout, lastDocId }; // Devolver un objeto con ambos valores
         };
 
-        getLastCheckout().then((lastCheckout) => {
+        getLastCheckout().then(({ lastCheckout, lastDocId }) => { // Desestructurar el objeto
             this.setState({
-                id: lastCheckout.id,
+                id: lastDocId, // Usar la variable en lugar de querySnapshot
                 buyer: lastCheckout.buyer,
                 products: lastCheckout.products,
                 total: lastCheckout.total
-
-                
             });
         });
     }
