@@ -5,6 +5,7 @@ const CartContext = createContext('Inicio')
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
+    const [purchaseHistory, setPurchaseHistory] = useState([]);
 
     const addItem = (productToAdd) => {
         if (!isInCart(productToAdd.id)) {
@@ -71,8 +72,12 @@ export const CartProvider = ({ children }) => {
         setCart([])
     }
 
+    const addToPurchaseHistory = (purchase) => {
+        setPurchaseHistory(prev => [...prev, purchase]);
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addItem, totalQuantity, getItemCount, totalPrice, removeItem, isInCart, clearCart }}>
+        <CartContext.Provider value={{ cart, addItem, totalQuantity, purchaseHistory, addToPurchaseHistory, getItemCount, totalPrice, removeItem, isInCart, clearCart }}>
             {children}
         </CartContext.Provider>
     )
