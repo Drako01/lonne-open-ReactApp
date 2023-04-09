@@ -26,12 +26,14 @@ const Footer = () => {
                         <NavLink to='/category/Raquetas' ><li>Raquetas</li></NavLink>
                         <NavLink to='/category/Tubos' ><li>Tubos</li></NavLink>
                         <NavLink to='/category/Zapatillas'><li>Zapatillas</li></NavLink>
+                        <NavLink to='/category/Remeras' ><li>Remeras</li></NavLink>
                     </div>
                     <div>
-                        <NavLink to='/category/Remeras' ><li>Remeras</li></NavLink>
+                        <NavLink to='/itemlist' ><li>Listado de Productos</li></NavLink>
                         <NavLink to='/category/Munequeras' ><li>Muñequeras</li></NavLink>
                         <NavLink to='/category/Vinchas' ><li>Vinchas</li></NavLink>
-                        <NavLink to='/contact' ><li>Contactenos</li></NavLink>
+                        <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
+                        <NavLink to='/contact' ><li>Contactenos</li></NavLink>                        
                     </div>
                 </section>
             </footer>
