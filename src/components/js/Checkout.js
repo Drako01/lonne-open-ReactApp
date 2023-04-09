@@ -70,7 +70,7 @@ const Checkout = () => {
                 if (/^[0-9\s]{0,19}$/.test(value)) setNumber(value)
                 break;
             case "name":
-                if (/^[a-zA-Z\s]{0,19}$/.test(value)) setName(value)
+                if (/^[a-zA-Z\s]{0,23}$/.test(value)) setName(value)
                 break;
             case "expiry":
                 setExpiry(value)
