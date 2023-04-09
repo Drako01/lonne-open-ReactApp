@@ -43,10 +43,11 @@ h4.NoMargin {
 }
 .CategorySelect{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    flex-wrap: wrap;
 }
 .CategorySelect select{
     width: 30rem;
