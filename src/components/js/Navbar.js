@@ -3,8 +3,19 @@ import CartWidget from './CartWidget'
 
 const Navbar = () => {
     const toggleMenu = () => {
-        document.body.classList.toggle('open')
-    }
+        const liElements = document.querySelectorAll('.menu li');
+        const nonNavLinkElements = Array.from(liElements).filter(
+            (li) => !li.querySelector('a')
+        );
+        document.body.classList.toggle('open');
+        nonNavLinkElements.forEach((elem) =>
+            elem.addEventListener('click', () => {
+                document.body.classList.remove('open');
+            })
+        );
+    };
+
+
 
     return (
         <section>
