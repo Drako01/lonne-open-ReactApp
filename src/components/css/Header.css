@@ -42,3 +42,6 @@ li a.CartWidget{
 .CartWidget .Login{
     margin-left: .5rem;
 }
+.None{
+    display: none !important;
+}
