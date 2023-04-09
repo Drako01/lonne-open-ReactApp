@@ -44,7 +44,7 @@ const Checkout = () => {
                 icon: 'success',
                 didClose: () => {
                     vaciarCarrito();
-                    navigate('/');
+                    navigate('/orderconfirmation');
                 }
             });
         } catch (error) {
