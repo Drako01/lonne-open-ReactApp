@@ -35,7 +35,8 @@ const History = () => {
                         date: data.date ? data.date.toDate().toLocaleDateString() : '',
                         products: products,
                         total: data.total,
-                        buyer: data.buyer
+                        buyer: data.buyer,
+                        email: data.email
                     };
 
                     return historyAdapted;
@@ -101,6 +102,7 @@ const History = () => {
                         <tr>
                             <th>Fecha</th>
                             <th>Comprador</th>
+                            <th>E Mail</th>
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Precio Unitario</th>
@@ -114,6 +116,7 @@ const History = () => {
                                 <tr key={item.id + '_' + index}>
                                     {index === 0 && <td rowSpan={item.products.length}>{item.date}</td>}
                                     {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.buyer}</td>}
+                                    {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.email}</td>}
                                     <td className="LeftItem">{product.name}</td>
                                     <td>{product.quantity}</td>
                                     <td className='PriceProducto RightItem'>${product.price}.-</td>

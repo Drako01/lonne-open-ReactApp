@@ -18,6 +18,9 @@ const Checkout = () => {
     const [expiry, setExpiry] = useState("");
     const [cvc, setCvc] = useState("");
     const [focus, setFocus] = useState("");
+    const [email, setEmail] = useState('');
+    const [reEmail, setReEmail] = useState('');
+    const [emailError, setEmailError] = useState('');
 
     const vaciarCarrito = () => {
         clearCart();
@@ -30,6 +33,7 @@ const Checkout = () => {
             products: cart,
             card: number,
             buyer: name,
+            email: email,
         };
 
         try {
@@ -83,6 +87,28 @@ const Checkout = () => {
         }
     };
 
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleReEmailChange = (e) => {
+        setReEmail(e.target.value);
+    };
+
+    const handleReEmailBlur = () => {
+        if (email !== reEmail) {
+            setEmailError()
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Los correos electrónicos no coinciden',
+                    text: 'Por favor, ingrese el mismo correo electrónico en ambos campos',
+                });
+        } else {
+            setEmailError('');
+        }
+    };
+
+
     return (
         <div>
             <h1 className="Mini">Checkout</h1>
@@ -114,6 +140,28 @@ const Checkout = () => {
                 </table>
             </div>
             <div className="checkout-payment CheckOutDiv">
+                <h3>Datos del Comprador</h3>
+                <div>
+                    <form className="CreditCardForm">
+                        <div className="LonneInput">
+                            <label htmlFor="username">Nombre:</label>
+                            <input type="text" name="username" required />
+                        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="username">Apellido:</label>
+                            <input type="text" name="lastname" required />
+                        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="username">Email:</label>
+                            <input type="email" name="email" value={email} onChange={handleEmailChange} required />
+                        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="username">Repita su Email:</label>
+                            <input type="email" name="reEmail" value={reEmail} onChange={handleReEmailChange} onBlur={handleReEmailBlur} required />
+                            {emailError && <span style={{ color: 'red' }}>{emailError}</span>}
+                        </div>
+                    </form>
+                </div>
 
                 <h3>Payment Details</h3>
                 <div>
@@ -129,7 +177,7 @@ const Checkout = () => {
                             type="tel"
                             name="number"
                             maxLength="16"
-                            placeholder="Número de Tarjeta"
+                            placeholder="Número del Titular de la Tarjeta"
                             value={number}
                             onChange={handleInputChange}
                             onFocus={(e) => setFocus(e.target.name)}
