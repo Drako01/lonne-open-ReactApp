@@ -53,7 +53,7 @@ table>tbody>tr>td {
 }
 
 .EliminarItem {
-    background-color: var(--brick);
+    background-color: var(--brick) !important;
 }
 
 .EliminarItem button {

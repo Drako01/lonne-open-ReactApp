@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { db } from '../../Firebase/firebaseConfig';
-import { collection, query, getDocs } from 'firebase/firestore';
+import { collection, query, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import close from '../assets/icons/close.png'
+
 
 const History = () => {
     const [history, setHistory] = useState([]);
@@ -51,15 +53,7 @@ const History = () => {
         fetchHistory();
     }, [historyId]);
 
-    if (loading) {
-        return (
-            <div className="loader-container">
-                <div className="loader"></div>
-                <div className="loader2"></div>
-            </div>
-        );
-    }
-    const handleDelete = (index) => {
+    const handleDelete = async (id) => {
         Swal.fire({
             title: '¿Estás seguro?',
             text: 'Esta acción no se puede deshacer.',
@@ -68,20 +62,31 @@ const History = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Sí, eliminar'
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                const newHistory = [...history];
-                newHistory.splice(index, 1);
-                setHistory(newHistory);
+                try {
+                    await deleteDoc(doc(db, "history", id));
+                    const newHistory = history.filter((item) => item.id !== id);
+                    setHistory(newHistory);
+                } catch (error) {
+                    Swal.fire('Error', error.message, 'error');
+                }
             }
         });
     };
 
-
+    if (loading) {
+        return (
+            <div className="loader-container">
+                <div className="loader"></div>
+                <div className="loader2"></div>
+            </div>
+        );
+    }
 
     return (
-        <div className="checkout-payment CheckOutDiv">
-            <h1>Historial de Compras</h1>
+        <div className="checkout-payment CarroDeCompras CheckOutDiv">
+            <h1 className='Mini'>Historial de Compras</h1>
             {history.length > 0 ? (
                 <table className="ItemListDetail">
                     <thead>
@@ -94,27 +99,27 @@ const History = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {history.map((item, index) => (
-                            <tr key={index}>
+                        {history.map((item) => (
+                            <tr key={item.id}>
                                 <td>{item.date}</td>
                                 <td className="LeftItem">{item.name}</td>
                                 <td>{item.quantity}</td>
                                 <td>{item.price}</td>
-                                <td><div className='ComprarFinal FinalButtons'>
-                                    <button onClick={() => handleDelete(index)}>Eliminar</button>
-                                </div>
+                                <td className='EliminarItem'>
+                                    <div className='HistoryDeleteButton '>
+                                        <button onClick={() => handleDelete(item.id)}>
+                                            <img src={close} alt='Close' />
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
-
                 </table>
             ) : (
-                <p>No se encontró historial de compras.</p>
+                <p>No hay historial de compras.</p>
             )}
-
         </div>
     );
 };
-
 export default History;
