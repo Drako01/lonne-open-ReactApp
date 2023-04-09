@@ -94,7 +94,8 @@ const History = () => {
                             <th>Fecha</th>
                             <th>Producto</th>
                             <th>Cantidad</th>
-                            <th>Precio</th>
+                            <th>Precio Unitario</th>
+                            <th>Precio Total</th>
                             <th>Eliminar</th>
                         </tr>
                     </thead>
@@ -105,6 +106,7 @@ const History = () => {
                                 <td className="LeftItem">{item.name}</td>
                                 <td>{item.quantity}</td>
                                 <td className='PriceProducto RightItem'>${item.price}.-</td>
+                                <td className='PriceProducto RightItem'> ${(item.price*item.quantity)}.-</td>
                                 <td className='EliminarItem'>
                                     <div className='HistoryDeleteButton '>
                                         <button onClick={() => handleDelete(item.id)}>
