@@ -20,13 +20,13 @@ class OrderConfirmation extends React.Component {
             const q = query(collection(db, 'history'), orderBy('date', 'desc'), limit(1));
             const querySnapshot = await getDocs(q);
             const lastCheckout = querySnapshot.docs[0].data(); 
-            const lastDocId = querySnapshot.docs[0].id; // Agregar esta línea
-            return { lastCheckout, lastDocId }; // Devolver un objeto con ambos valores
+            const lastDocId = querySnapshot.docs[0].id; 
+            return { lastCheckout, lastDocId }; 
         };
 
-        getLastCheckout().then(({ lastCheckout, lastDocId }) => { // Desestructurar el objeto
+        getLastCheckout().then(({ lastCheckout, lastDocId }) => { 
             this.setState({
-                id: lastDocId, // Usar la variable en lugar de querySnapshot
+                id: lastDocId, 
                 buyer: lastCheckout.buyer,
                 products: lastCheckout.products,
                 total: lastCheckout.total
