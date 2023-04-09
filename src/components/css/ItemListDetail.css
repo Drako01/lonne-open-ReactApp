@@ -96,6 +96,22 @@ td>.OutStock p{
     margin: 0;
     font-size: .8rem;
 }
+.OrderFinal h2{
+    color: var(--fourth);
+    text-align: center;
+}
+.OrderFinal h3{
+    text-align: center;
+    margin-top: 1rem;
+}
+.OrderFinalButton {
+    justify-content: flex-end;
+}
+.OrderPriceFinal{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
 @media (width <= 1080px) {   
 
     .ItemListDetail tbody tr td {

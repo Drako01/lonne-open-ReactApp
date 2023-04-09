@@ -19,14 +19,14 @@ class OrderConfirmation extends React.Component {
         const getLastCheckout = async () => {
             const q = query(collection(db, 'history'), orderBy('date', 'desc'), limit(1));
             const querySnapshot = await getDocs(q);
-            const lastCheckout = querySnapshot.docs[0].data(); 
-            const lastDocId = querySnapshot.docs[0].id; 
-            return { lastCheckout, lastDocId }; 
+            const lastCheckout = querySnapshot.docs[0].data();
+            const lastDocId = querySnapshot.docs[0].id;
+            return { lastCheckout, lastDocId };
         };
 
-        getLastCheckout().then(({ lastCheckout, lastDocId }) => { 
+        getLastCheckout().then(({ lastCheckout, lastDocId }) => {
             this.setState({
-                id: lastDocId, 
+                id: lastDocId,
                 buyer: lastCheckout.buyer,
                 products: lastCheckout.products,
                 total: lastCheckout.total
@@ -36,9 +36,9 @@ class OrderConfirmation extends React.Component {
 
     render() {
         const { id, buyer, products, total } = this.state;
-        
+
         return (
-            <div className='OutStock'>
+            <div className='OutStock OrderFinal'>
                 <h2>Orden de Compra # {id}</h2>
                 <h3>Nombre del comprador: {buyer}</h3>
                 <table className="ItemListDetail">
@@ -47,6 +47,7 @@ class OrderConfirmation extends React.Component {
                             <th>Producto</th>
                             <th>Precio</th>
                             <th>Cantidad</th>
+                            <th>Subtotal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,13 +56,24 @@ class OrderConfirmation extends React.Component {
                                 <td className='LeftItem'>{product.name}</td>
                                 <td className='PriceProducto'>${product.price}.-</td>
                                 <td>{product.quantity}</td>
+                                <td className='PriceProducto'>${product.price * product.quantity}.-</td>
                             </tr>
                         ))}
+                        <tr>
+                            <td colSpan="4">
+                                <div className='OrderPriceFinal'>
+                                    <span>
+                                        Precio Total:
+                                    </span>
+                                    <span className='PriceProducto'>${total}.-</span>
+                                </div>
+
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
-                <div className='ComprarFinal'>
-                    <p>Precio Total: <span className='PriceProducto'>${total}.-</span></p>
+                <div className='ComprarFinal OrderFinalButton'>
                     <Link to='/' className=''>Volver</Link>
                 </div>
             </div>
