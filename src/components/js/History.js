@@ -23,17 +23,24 @@ const History = () => {
 
                 const historyData = snapshot.docs.map((doc) => {
                     const data = doc.data();
+                    const products = data.products.map((product) => {
+                        return {
+                            name: product.name,
+                            quantity: product.quantity,
+                            price: product.price
+                        };
+                    });
                     const historyAdapted = {
                         id: doc.id,
                         date: data.date ? data.date.toDate().toLocaleDateString() : '',
-                        name: data.products[1] ? data.products[1].name : '',
-                        quantity: data.products[1] ? data.products[1].quantity : '',
-                        price: data.products[1] ? data.products[1].price : '',
-                        total: data.total
+                        products: products,
+                        total: data.total,
+                        buyer: data.buyer
                     };
 
                     return historyAdapted;
                 });
+
 
                 if (historyId) {
                     const selectedHistory = historyData.find(
@@ -93,6 +100,7 @@ const History = () => {
                     <thead>
                         <tr>
                             <th>Fecha</th>
+                            <th>Comprador</th>
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Precio Unitario</th>
@@ -101,26 +109,32 @@ const History = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {history.map((item) => (
-                            <tr key={item.id}>
-                                <td>{item.date}</td>                                
-                                <td className="LeftItem">{item.name}</td>
-                                <td>{item.quantity}</td>
-                                <td className='PriceProducto RightItem'>${item.price}.-</td>
-                                <td className='PriceProducto RightItem'> ${(item.price*item.quantity)}.-</td>
-                                <td className='EliminarItem'>
-                                    <div className='HistoryDeleteButton '>
-                                        <button onClick={() => handleDelete(item.id)}>
-                                            <img src={close} alt='Close' />
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
+                        {history.map((item) =>
+                            item.products.map((product, index) =>
+                                <tr key={item.id + '_' + index}>
+                                    {index === 0 && <td rowSpan={item.products.length}>{item.date}</td>}
+                                    {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.buyer}</td>}
+                                    <td className="LeftItem">{product.name}</td>
+                                    <td>{product.quantity}</td>
+                                    <td className='PriceProducto RightItem'>${product.price}.-</td>
+                                    {index === 0 && <td className='PriceProducto RightItem' rowSpan={item.products.length}>${item.total}.-</td>}
+                                    {index === 0 &&
+                                        <td rowSpan={item.products.length} className='EliminarItem'>
+                                            <div className='HistoryDeleteButton '>
+                                                <button onClick={() => handleDelete(item.id)}>
+                                                    <img src={close} alt='Close' />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    }
+                                </tr>
+                            )
+                        )}
                     </tbody>
+
                 </table>
             ) : (
-                <p>No hay historial de compras.</p>
+                <h3>No hay historial de compras.</h3>
             )}
         </div>
     );

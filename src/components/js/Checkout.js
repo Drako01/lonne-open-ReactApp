@@ -29,7 +29,7 @@ const Checkout = () => {
             total: totalPrice,
             products: cart,
             card: number,
-            name: name,
+            buyer: name,
         };
 
         try {
@@ -138,7 +138,7 @@ const Checkout = () => {
                         <input
                             type="text"
                             name="name"
-                            maxLength="19"
+                            maxLength="22"
                             placeholder="Nombre y Apellido"
                             value={name}
                             onChange={handleInputChange}
