@@ -4,13 +4,13 @@ import { useCart } from '../../context/CartContext'
 
 
 
-const Cards = ({ id, name, price, size, image, stock }) => {
+const Cards = ({ id, name, price, category, description, size, image, stock }) => {
 
     const { addItem, getItemCount, isInCart } = useCart()
 
     const handleOnAdd = (quantity) => {
         const productToAdd = {
-            id, name, price, quantity
+            id, name, price, category, description, size, image, stock, quantity
         }
         addItem(productToAdd)
     }
