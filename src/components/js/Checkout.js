@@ -8,6 +8,8 @@ import 'firebase/firestore';
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
 
+
+
 const Checkout = () => {
     const { cart, totalPrice, clearCart } = useCart();
     const navigate = useNavigate();
@@ -45,9 +47,17 @@ const Checkout = () => {
     }
 
     const handleOnClick = () => {
-        guardarCompraEnHistorial();
-
-
+        if (cart.length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No hay ningún producto en el carrito!',
+            }).then(() => {
+                navigate('/');
+            });
+        } else {
+            guardarCompraEnHistorial();
+        }
     };
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -115,7 +125,7 @@ const Checkout = () => {
                         <input
                             type="tel"
                             name="number"
-                            maxLength="16"                            
+                            maxLength="16"
                             placeholder="Número de Tarjeta"
                             value={number}
                             onChange={handleInputChange}
@@ -124,8 +134,8 @@ const Checkout = () => {
                         />
                         <input
                             type="text"
-                            name="name"   
-                            maxLength="19"                          
+                            name="name"
+                            maxLength="19"
                             placeholder="Nombre y Apellido"
                             value={name}
                             onChange={handleInputChange}
@@ -161,7 +171,8 @@ const Checkout = () => {
                         <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
                     </div>
                 </div>
-            </div> </div>
+            </div>
+        </div>
     );
 };
 
