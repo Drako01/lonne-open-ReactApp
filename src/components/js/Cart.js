@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
+
 const Cart = () => {
     const { totalPrice, cart, removeItem, totalQuantity } = useCart();
     const navigate = useNavigate();

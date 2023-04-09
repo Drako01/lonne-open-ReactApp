@@ -15,7 +15,6 @@ const CartWidget = () => {
                         <img src={carrito} className="App-icono Cart" alt="icono" /> <h4>{totalQuantity}</h4>
                     </Link>
                     :
-
                     <Link to={'/cart'} className="delay09 CartWidget">
                         <img src={carrito} className="App-icono Cart" alt="icono" /> <h4>{totalQuantity}</h4>
                     </Link>

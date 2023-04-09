@@ -28,6 +28,8 @@ const Checkout = () => {
             date: new Date(),
             total: totalPrice,
             products: cart,
+            card: number,
+            name: name,
         };
 
         try {
@@ -52,6 +54,7 @@ const Checkout = () => {
                 icon: 'error',
                 title: 'Lo siento.!',
                 text: 'No hay ningún producto en el carrito!',
+                confirmButtonColor: 'var(--brick)',
             }).then(() => {
                 navigate('/');
             });

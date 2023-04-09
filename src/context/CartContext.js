@@ -24,7 +24,8 @@ export const CartProvider = ({ children }) => {
                 title: 'Error al agregar producto',
                 text: 'Producto no agregado.!',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: 'var(--brick)'
             });
         }
     }

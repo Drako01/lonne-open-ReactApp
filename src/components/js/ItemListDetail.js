@@ -19,7 +19,7 @@ const ItemListDetail = () => {
     };
 
     const handleOnAddToCart = (product) => {
-        if (quantity <= 0) { 
+        if (quantity <= 0) {
             Swal.fire('Error', 'Ingrese una cantidad válida', 'error');
         } else if (quantity > product.stock) {
             Swal.fire('Error', `No hay suficiente stock del producto ${product.name}`, 'error');
@@ -37,8 +37,6 @@ const ItemListDetail = () => {
             });
         }
     };
-    
-    
 
 
     useEffect(() => {
@@ -98,7 +96,6 @@ const ItemListDetail = () => {
                     <div className="ButtonItemListDetail">
                         <button onClick={handleOnClick}>Volver</button>
                     </div>
-
                     <table className="ItemListDetail">
                         <thead>
                             <tr>
@@ -126,29 +123,38 @@ const ItemListDetail = () => {
                                     </td>
                                     <td>{product.stock}</td>
                                     <td>
-                                        {
-                                            isInCart(product.id) ? (
-                                                <div className='ComprarFinal FinalButtons IsInCart'>
-                                                    <button>{getItemCount(product.id)} in <img src={carrito} className="App-icono Car CarritoList " alt="icono" /></button>
-                                                </div>
+                                        {product.stock === 0 ? (
+                                            <div className='OutStock'>
+                                                <p>Producto</p><p>Agotado</p>
+                                            </div>
 
-                                            ) : (
-                                                <input
-                                                    className='InputCantidad'
-                                                    type="number"
-                                                    min="1"
-                                                    max={product.stock}
-                                                    placeholder='0'
-                                                    onChange={handleOnAdd}
-                                                />
-                                            )
-                                        }
+                                        ) : (
+                                            <>
+                                                {
+                                                    isInCart(product.id) ? (
+                                                        <div className='ComprarFinal FinalButtons IsInCart'>
+                                                            <button>{getItemCount(product.id)} in <img src={carrito} className="App-icono Car CarritoList " alt="icono" /></button>
+                                                        </div>
+
+                                                    ) : (
+                                                        <input
+                                                            className='InputCantidad'
+                                                            type="number"
+                                                            min="1"
+                                                            max={product.stock}
+                                                            placeholder='0'
+                                                            onChange={handleOnAdd}
+                                                        />
+                                                    )
+                                                }
+                                            </>
+                                        )}
 
                                     </td>
 
                                     <td>
-                                        <div className='ComprarFinal FinalButtons CarritoListButton'>
-                                            <button className="buttonAdd" onClick={() => handleOnAddToCart(product)}>
+                                        <div className={`ComprarFinal FinalButtons CarritoListButton ${product.stock === 0 ? 'Disabled' : ''}`}>
+                                            <button className="buttonAdd" onClick={product.stock !== 0 ? () => handleOnAddToCart(product) : undefined} disabled={product.stock === 0}>
                                                 <img src={carrito} className="App-icono Car CarritoList" alt="icono" />
                                             </button>
                                         </div>

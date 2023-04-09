@@ -26,13 +26,22 @@ const ItemDetailContainer = () => {
                     return productAdapted;
                 });
 
-                if (itemId) {
-                    const selectedProduct = productsData.find(
-                        (product) => product.id === itemId
-                    );
+                const selectedProduct = productsData.find(
+                    (product) => product.id === itemId
+                );
+
+                if (selectedProduct) {
                     setProduct(selectedProduct);
                 } else {
-                    setProduct(productsData[0]);
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Producto no encontrado',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: 'var(--brick)',
+                    }).then(() => {
+                        navigate('/');
+                    });
                 }
             })
             .catch((error) => {
@@ -41,7 +50,9 @@ const ItemDetailContainer = () => {
             .finally(() => {
                 setLoading(false);
             });
-    }, [itemId]);
+    }, [itemId, navigate]);
+
+
 
     if (loading) {
         return (
@@ -61,12 +72,12 @@ const ItemDetailContainer = () => {
             <button onClick={handleOnClick} className='CloseItem'>
                 <img src={close} alt='Close' />
             </button>
-            {product ? 
-            <ItemDetail {...product} /> : 
-            <div className="loader-container">
-                <div className="loader"></div>
-                <div className="loader2"></div>
-            </div>
+            {product ?
+                <ItemDetail {...product} /> :
+                <div className="loader-container">
+                    <div className="loader"></div>
+                    <div className="loader2"></div>
+                </div>
             }
         </div>
     );

@@ -87,6 +87,7 @@ const History = () => {
     return (
         <div className="checkout-payment CarroDeCompras CheckOutDiv">
             <h1 className='Mini'>Historial de Compras</h1>
+
             {history.length > 0 ? (
                 <table className="ItemListDetail">
                     <thead>
@@ -102,7 +103,7 @@ const History = () => {
                     <tbody>
                         {history.map((item) => (
                             <tr key={item.id}>
-                                <td>{item.date}</td>
+                                <td>{item.date}</td>                                
                                 <td className="LeftItem">{item.name}</td>
                                 <td>{item.quantity}</td>
                                 <td className='PriceProducto RightItem'>${item.price}.-</td>

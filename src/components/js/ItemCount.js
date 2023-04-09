@@ -37,7 +37,7 @@ const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
                 </>
             ) : (
                 <div className='Controls'>
-                    <h2>Sin Stock</h2>
+                    <h2>Producto Agotado</h2>
                 </div>
             )}
         </div>

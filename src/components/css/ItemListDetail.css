@@ -76,8 +76,25 @@ img.CarritoList {
     min-height: 2.3rem;
     min-width: 4rem !important;
 }
+.Disabled>button{
+    background-color: var(--sweetdark);
+}
+.Disabled>button:hover{
+    cursor: not-allowed;
+}
 .IsInCart>button>img{
     width: 1rem !important;
+}
+td>.OutStock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--brick);
+}
+td>.OutStock p{
+    margin: 0;
+    font-size: .8rem;
 }
 @media (width <= 1080px) {   
 
