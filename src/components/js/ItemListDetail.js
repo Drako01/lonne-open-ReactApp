@@ -26,7 +26,15 @@ const ItemListDetail = () => {
         } else {
             addItem({ ...product, quantity });
             setQuantity(0);
-            Swal.fire(`El Producto ${product.name} fue agregado al carrito`, '', 'success');
+            Swal.fire({
+                title: 'Producto agregado al carrito',
+                icon: 'success',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1200,
+                timerProgressBar: true
+            });
         }
     };
     
@@ -110,7 +118,7 @@ const ItemListDetail = () => {
                                 <tr key={product.id}>
                                     <td className='LeftItem Responsive'>{product.name}</td>
                                     <td className='Responsive'>{product.category}</td>
-                                    <td>{product.description}</td>
+                                    <td className='LeftItem'>{product.description}</td>
                                     <td>${product.price}</td>
                                     <td className='Responsive'>{product.size}</td>
                                     <td>
