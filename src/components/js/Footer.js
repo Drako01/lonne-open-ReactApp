@@ -17,8 +17,8 @@ const Footer = () => {
     }
 
     return (
-        <div className="Footer">
-            <footer className='Top'>
+        <div className="Footer oculto-impresion">
+            <footer className='Top oculto-impresion'>
                 <img src={logo} alt='Lonne Open' />
                 <section className='Links'>
                     <div>

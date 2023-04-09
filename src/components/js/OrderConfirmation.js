@@ -14,7 +14,9 @@ class OrderConfirmation extends React.Component {
             total: '',
         };
     }
-
+    handlePrint = () => {
+        window.print();
+    }
     componentDidMount() {
         const getLastCheckout = async () => {
             const q = query(collection(db, 'history'), orderBy('date', 'desc'), limit(1));
@@ -73,7 +75,8 @@ class OrderConfirmation extends React.Component {
                     </tbody>
                 </table>
 
-                <div className='ComprarFinal OrderFinalButton'>
+                <div className='ComprarFinal OrderFinalButton oculto-impresion'>
+                    <button onClick={this.handlePrint}>Imprimir</button>
                     <Link to='/' className=''>Volver</Link>
                 </div>
             </div>

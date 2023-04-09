@@ -2,7 +2,7 @@ import Navbar from './Navbar'
 
 const Header = () => {
     return (
-        <header className="App-header">           
+        <header className="App-header oculto-impresion">           
             <Navbar />    
         </header>
     )

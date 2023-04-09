@@ -1,6 +1,7 @@
 .ItemListDetail {
     padding: 0 2rem;
 }
+
 .ItemListDetail tbody tr td img {
     width: 4rem;
 }
@@ -22,7 +23,8 @@
     padding: 0 .5rem;
     background-color: white;
 }
-.ItemListDetail tbody tr td .InputCantidad{
+
+.ItemListDetail tbody tr td .InputCantidad {
     width: 3rem;
     color: var(--gold);
     font-size: 1rem;
@@ -30,11 +32,12 @@
     border-bottom: 1px solid var(--fourth);
 }
 
-.ButtonItemListDetail{
+.ButtonItemListDetail {
     display: flex;
     justify-content: flex-end;
 }
-.ButtonItemListDetail button{
+
+.ButtonItemListDetail button {
     margin: .7rem;
     padding: .25rem .8rem;
     border-radius: .25rem;
@@ -46,73 +49,97 @@
     color: var(--fourth);
     float: right;
 }
-.ButtonItemListDetail button:hover{
+
+.ButtonItemListDetail button:hover {
     cursor: pointer;
     background-color: var(--fourth);
     color: var(--light);
 }
-.Listado{
+
+.Listado {
     justify-content: center;
     margin-bottom: 5rem;
 }
+
 img.CarritoList {
     width: 24px !important;
 }
-.CarritoListButton{
+
+.CarritoListButton {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.CarritoListButton button{
+
+.CarritoListButton button {
     margin: 0;
     padding: .25rem;
     min-width: 2rem;
     min-height: 1rem;
     width: 3rem;
 }
-.IsInCart>button{
+
+.IsInCart>button {
     margin: 0;
     padding: 0;
     min-height: 2.3rem;
     min-width: 4rem !important;
 }
-.Disabled>button{
+
+.Disabled>button {
     background-color: var(--sweetdark);
 }
-.Disabled>button:hover{
+
+.Disabled>button:hover {
     cursor: not-allowed;
 }
-.IsInCart>button>img{
+
+.IsInCart>button>img {
     width: 1rem !important;
 }
-td>.OutStock{
+
+td>.OutStock {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--brick);
 }
-td>.OutStock p{
+
+td>.OutStock p {
     margin: 0;
     font-size: .8rem;
 }
-.OrderFinal h2{
+
+.OrderFinal h2 {
     color: var(--fourth);
     text-align: center;
 }
-.OrderFinal h3{
+
+.OrderFinal h3 {
     text-align: center;
     margin-top: 1rem;
 }
+
 .OrderFinalButton {
-    justify-content: flex-end;
+    justify-content: space-between;
 }
-.OrderPriceFinal{
+
+.OrderPriceFinal {
     display: flex;
     justify-content: space-between;
     margin: 0 1rem;
 }
-@media (width <= 1080px) {   
+
+@media print {
+    .oculto-impresion,
+    .oculto-impresion * {
+        display: none !important;
+        visibility: hidden;
+    }
+}
+
+@media (width <=1080px) {
 
     .ItemListDetail tbody tr td {
         font-size: .8rem;
@@ -121,48 +148,56 @@ td>.OutStock p{
 
 }
 
-@media (width <= 800px) {   
+@media (width <=800px) {
     .ItemListDetail {
         padding: 0 1rem;
     }
+
     .ItemListDetail th {
         min-width: 1rem;
         font-size: .8rem;
-        
+
     }
+
     .ItemListDetail tbody tr td img {
         width: 2rem;
-        padding: 0;        
+        padding: 0;
     }
-    .ButtonItemListDetail button{
+
+    .ButtonItemListDetail button {
         margin-right: 1rem;
         margin-top: 1rem;
     }
-    .ItemListDetail tbody tr td{
+
+    .ItemListDetail tbody tr td {
         font-size: .7rem;
-        
+
     }
-    .Responsive{
+
+    .Responsive {
         display: none;
     }
 
 }
-@media (width <= 640px) {    
+
+@media (width <=640px) {
     .ItemListDetail th {
         min-width: 1rem;
         font-size: .6rem;
     }
+
     .ItemListDetail tbody tr td img {
         width: 2.2rem;
         padding: 0;
     }
-    .ButtonItemListDetail button{
+
+    .ButtonItemListDetail button {
         margin-right: 1rem;
         margin-top: 1rem;
-    }    
-    
+    }
+
     .ItemListDetail tbody tr td {
         font-size: .5rem;
-    }     
-    
+    }
+
 }
