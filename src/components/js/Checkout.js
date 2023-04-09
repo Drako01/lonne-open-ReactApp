@@ -62,7 +62,14 @@ const Checkout = () => {
             }).then(() => {
                 navigate('/');
             });
-        } else {
+        } else if (email.length === 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Lo siento.!',
+                text: 'Debe completar todos los Datos',
+                confirmButtonColor: 'var(--brick)',
+            })
+        }else{
             guardarCompraEnHistorial();
         }
     };
