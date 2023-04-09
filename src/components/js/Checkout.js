@@ -50,7 +50,7 @@ const Checkout = () => {
         if (cart.length === 0) {
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
+                title: 'Lo siento.!',
                 text: 'No hay ningún producto en el carrito!',
             }).then(() => {
                 navigate('/');
