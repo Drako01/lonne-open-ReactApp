@@ -28,7 +28,7 @@ const Contact = ({ greeting }) => {
             setLoading(true);
             const contactsCollection = collection(db, "contacts");
             await addDoc(contactsCollection, contacto);
-            console.log("Datos guardados en Firestore");
+            
             Swal.fire('Éxito', 'Datos guardados en Firestore', 'success');
         } catch (error) {
             Swal.fire('Error', error.message, 'error');
