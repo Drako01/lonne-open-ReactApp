@@ -4,6 +4,7 @@ import ItemDetailContainer from './ItemDetailContainer';
 import Cart from './Cart'
 import Payment from './Checkout'
 import Contact from './Contact';
+import History from './History';
 import ItemListDetail from './ItemListDetail'
 
 
@@ -18,6 +19,7 @@ const Main = () => {
                 <Route path='/itemlist' element= {<ItemListDetail />}/>
                 <Route path='/contact' element= {<Contact  greeting={'Contactenos'}/>}/>
                 <Route path='/checkout' element= {<Payment />}/>
+                <Route path='/history' element= {<History />}/>
             </Routes>
         </main>
     )
