@@ -65,7 +65,7 @@ const OrderConfirmationDetail = () => {
     return (        
         <div className='OrderConfirmation OutStock OrderFinal'>
             <section>
-                <h2>Orden de Compra con ID#:</h2>
+                <h2>Recibo de Compra con ID#:</h2>
                 <h3>{orderId}</h3>
                 <h6>Nombre del comprador:</h6>
                 <h3>{buyer}</h3>

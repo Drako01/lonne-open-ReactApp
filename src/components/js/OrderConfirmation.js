@@ -42,7 +42,7 @@ class OrderConfirmation extends React.Component {
         return (
             <div className='OrderConfirmation OutStock OrderFinal'>
                 <section>
-                <h2>Orden de Compra con ID#:</h2><h3>  {id}</h3>
+                <h2>Recibo de Compra con ID#:</h2><h3>  {id}</h3>
                 <h6>Nombre del comprador:</h6><h3> {buyer}</h3>
                 <table className="ItemListDetail OrderConfirmationTable">
                     <thead>
