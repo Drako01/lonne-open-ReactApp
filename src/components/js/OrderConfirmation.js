@@ -40,9 +40,10 @@ class OrderConfirmation extends React.Component {
         const { id, buyer, products, total } = this.state;
 
         return (
-            <div className='OutStock OrderFinal'>
-                <h2>Orden de Compra # {id}</h2>
-                <h3>Nombre del comprador: {buyer}</h3>
+            <div className='OrderConfirmation OutStock OrderFinal'>
+                <section>
+                <h2>Orden de Compra</h2><h3> # {id}</h3>
+                <h6>Nombre del comprador:</h6><h3> {buyer}</h3>
                 <table className="ItemListDetail">
                     <thead>
                         <tr>
@@ -73,8 +74,8 @@ class OrderConfirmation extends React.Component {
                             </td>
                         </tr>
                     </tbody>
-                </table>
-
+                </table>                    
+                </section>
                 <div className='ComprarFinal OrderFinalButton oculto-impresion'>
                     <button onClick={this.handlePrint}>Imprimir</button>
                     <Link to='/' className=''>Volver</Link>

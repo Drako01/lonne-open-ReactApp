@@ -1,0 +1,39 @@
+.OrderConfirmation{
+    background-color: var(--white);
+    height: 90vh;
+    padding: 6rem 8rem;
+    margin: 3rem;
+    border-radius: 0 2rem;
+    box-shadow: .25rem .25rem .5rem grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.OrderConfirmation td, th {
+    border: 1px solid var(--fourth);
+}
+.OrderFinal h2 {
+    color: var(--fourth);
+    text-align: center;
+}
+
+
+.OrderFinal h3 {
+    text-align: center;
+    margin-top: 1rem;
+}
+.OrderFinal h6{
+    color: var(--third);
+    text-align: center;
+    margin: 1rem;
+}
+.OrderFinalButton {
+    justify-content: space-between;   
+}
+
+.OrderPriceFinal {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+

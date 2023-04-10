@@ -111,25 +111,7 @@ td>.OutStock p {
     font-size: .8rem;
 }
 
-.OrderFinal h2 {
-    color: var(--fourth);
-    text-align: center;
-}
 
-.OrderFinal h3 {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.OrderFinalButton {
-    justify-content: space-between;
-}
-
-.OrderPriceFinal {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 1rem;
-}
 
 @media print {
     .oculto-impresion,
