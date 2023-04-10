@@ -64,12 +64,11 @@ const History = () => {
 
     const handleDelete = async (id) => {
         const correctPass = 'Admin123';
-        let inputPass = '';
         let numTries = 0;
         const maxTries = 3;
 
         while (numTries < maxTries) {
-            await Swal.fire({
+            let { value: password } = await Swal.fire({
                 title: 'Ingresa la contraseña',
                 input: 'password',
                 inputPlaceholder: 'Ingresa la contraseña aquí...',
@@ -79,13 +78,10 @@ const History = () => {
                 showCancelButton: true,
                 confirmButtonText: 'Confirmar',
                 showLoaderOnConfirm: true,
-                preConfirm: (password) => {
-                    inputPass = password;
-                },
                 allowOutsideClick: () => !Swal.isLoading()
             });
 
-            if (inputPass === correctPass) {
+            if (password === correctPass) {
                 await Swal.fire({
                     title: '¿Estás seguro?',
                     text: 'Esta acción no se puede deshacer.',
@@ -107,7 +103,7 @@ const History = () => {
                 });
 
                 return;
-            } else if (inputPass !== '') {
+            } else if (password !== '') {
                 numTries++;
                 const triesRemaining = maxTries - numTries;
 
@@ -127,6 +123,7 @@ const History = () => {
             }
         }
     };
+
 
 
 
