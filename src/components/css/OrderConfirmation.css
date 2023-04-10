@@ -1,7 +1,7 @@
 .OrderConfirmation{
     background-color: var(--white);
     height: 90vh;
-    padding: 6rem 8rem;
+    padding: 3rem 8rem;
     margin: 3rem;
     border-radius: 0 2rem;
     box-shadow: .25rem .25rem .5rem grey;
@@ -36,4 +36,14 @@
     justify-content: space-between;
     margin: 0 1rem;
 }
+.OrderConfirmationTable{
+    padding: 0;
+}
+@media (width <=1080px) {
 
+    .OrderConfirmation{        
+        padding: 3rem 3rem;
+        
+    }
+
+}

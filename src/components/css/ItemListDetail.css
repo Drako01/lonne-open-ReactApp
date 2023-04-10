@@ -117,15 +117,20 @@ td>.OutStock p {
     .oculto-impresion,
     .oculto-impresion * {
         display: none !important;
-        visibility: hidden;
+    }
+    .OrderConfirmation {
+        width: 90%;
+    }
+    .ItemListDetail tbody tr td,
+    .PriceProducto {
+        font-size: 1.2rem !important;        
     }
 }
 
 @media (width <=1080px) {
 
     .ItemListDetail tbody tr td {
-        font-size: .8rem;
-        height: 3rem;
+        height: 2.5rem;
     }
 
 }
