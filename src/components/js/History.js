@@ -63,26 +63,72 @@ const History = () => {
     }, [historyId]);
 
     const handleDelete = async (id) => {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: 'Esta acción no se puede deshacer.',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: 'var(--first)',
-            cancelButtonColor: 'var(--brick)',
-            confirmButtonText: 'Sí, eliminar'
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                try {
-                    await deleteDoc(doc(db, "history", id));
-                    const newHistory = history.filter((item) => item.id !== id);
-                    setHistory(newHistory);
-                } catch (error) {
-                    Swal.fire('Error', error.message, 'error');
+        const correctPass = 'Admin123';
+        let inputPass = '';
+        let numTries = 0;
+        const maxTries = 3;
+
+        while (numTries < maxTries) {
+            await Swal.fire({
+                title: 'Ingresa la contraseña',
+                input: 'password',
+                inputPlaceholder: 'Ingresa la contraseña aquí...',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Confirmar',
+                showLoaderOnConfirm: true,
+                preConfirm: (password) => {
+                    inputPass = password;
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            });
+
+            if (inputPass === correctPass) {
+                await Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: 'Esta acción no se puede deshacer.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: 'var(--first)',
+                    cancelButtonColor: 'var(--brick)',
+                    confirmButtonText: 'Sí, eliminar'
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        try {
+                            await deleteDoc(doc(db, "history", id));
+                            const newHistory = history.filter((item) => item.id !== id);
+                            setHistory(newHistory);
+                        } catch (error) {
+                            Swal.fire('Error', error.message, 'error');
+                        }
+                    }
+                });
+
+                return;
+            } else if (inputPass !== '') {
+                numTries++;
+                const triesRemaining = maxTries - numTries;
+
+                if (triesRemaining > 0) {
+                    await Swal.fire({
+                        title: 'Contraseña incorrecta',
+                        text: `Te quedan ${triesRemaining} intentos. Por favor, ingresa la contraseña correcta.`,
+                        icon: 'error',
+                    });
+                } else {
+                    await Swal.fire({
+                        title: 'Número máximo de intentos alcanzado',
+                        text: 'Has alcanzado el número máximo de intentos permitidos. No se puede continuar.',
+                        icon: 'error',
+                    });
                 }
             }
-        });
+        }
     };
+
+
 
     if (loading) {
         return (
@@ -107,7 +153,7 @@ const History = () => {
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Precio Unitario</th>
-                            <th>Precio Total</th>                            
+                            <th>Precio Total</th>
                             <th>Orden</th>
                             <th>Eliminar</th>
                         </tr>
@@ -123,7 +169,7 @@ const History = () => {
                                     <td>{product.quantity}</td>
                                     <td className='PriceProducto RightItem'>${product.price}.-</td>
                                     {index === 0 && <td className='PriceProducto RightItem' rowSpan={item.products.length}>${item.total}.-</td>}
-                                    
+
                                     {index === 0 && <td rowSpan={item.products.length} >
                                         <div className='ComprarFinal FinalButtons SearchButton'>
                                             <Link to={`/orderconfirmationdetail/${item.id}`}>
