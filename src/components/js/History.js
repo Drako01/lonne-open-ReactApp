@@ -4,6 +4,7 @@ import { collection, query, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { useParams, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import close from '../assets/icons/close.png'
+import buscar from '../assets/icons/search.png';
 
 
 const History = () => {
@@ -132,8 +133,10 @@ const History = () => {
                                         </td>
                                     }
                                     {index === 0 && <td rowSpan={item.products.length} >
-                                        <div className='ComprarFinal FinalButtons'>
-                                            <Link to={`/orderconfirmationdetail/${item.id}`}>Ver</Link>
+                                        <div className='ComprarFinal FinalButtons SearchButton'>
+                                            <Link to={`/orderconfirmationdetail/${item.id}`}>
+                                                <img src={buscar} className="App-icono Car CarritoList" alt="icono" />
+                                            </Link>
                                         </div>
                                     </td>}
                                 </tr>

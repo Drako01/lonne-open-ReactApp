@@ -4,6 +4,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
+
 const OrderConfirmationDetail = () => {
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);

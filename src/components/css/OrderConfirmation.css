@@ -16,8 +16,6 @@
     color: var(--fourth);
     text-align: center;
 }
-
-
 .OrderFinal h3 {
     text-align: center;
     margin-top: 1rem;
@@ -30,7 +28,6 @@
 .OrderFinalButton {
     justify-content: space-between;   
 }
-
 .OrderPriceFinal {
     display: flex;
     justify-content: space-between;
@@ -38,6 +35,15 @@
 }
 .OrderConfirmationTable{
     padding: 0;
+}
+.SearchButton a{
+    min-width: 2rem !important;
+    background-color: transparent;
+    border: solid 1px white;
+}
+.SearchButton a:hover{
+    border: solid 1px var(--fourth);
+    background-color: transparent;
 }
 @media (width <=1080px) {
 
