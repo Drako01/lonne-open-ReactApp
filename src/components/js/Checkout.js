@@ -62,14 +62,14 @@ const Checkout = () => {
             }).then(() => {
                 navigate('/');
             });
-        } else if (email.length === 0){
+        } else if (email.length === 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Lo siento.!',
                 text: 'Debe completar todos los Datos',
                 confirmButtonColor: 'var(--brick)',
             })
-        }else{
+        } else {
             guardarCompraEnHistorial();
         }
     };
@@ -105,11 +105,11 @@ const Checkout = () => {
     const handleReEmailBlur = () => {
         if (email !== reEmail) {
             setEmailError()
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Los correos electrónicos no coinciden',
-                    text: 'Por favor, ingrese el mismo correo electrónico en ambos campos',
-                });
+            Swal.fire({
+                icon: 'error',
+                title: 'Los correos electrónicos no coinciden',
+                text: 'Por favor, ingrese el mismo correo electrónico en ambos campos',
+            });
         } else {
             setEmailError('');
         }
@@ -225,7 +225,7 @@ const Checkout = () => {
                             />
                         </div>
                     </form>
-                    <div className="ComprarFinal FinalButtons">
+                    <div className={`ComprarFinal FinalButtons ${email.length === 0 || email !== reEmail ? 'Disabled' : ''}`}>
                         <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
                     </div>
                 </div>
