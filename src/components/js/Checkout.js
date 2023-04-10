@@ -62,7 +62,7 @@ const Checkout = () => {
             }).then(() => {
                 navigate('/');
             });
-        } else if (email.length === 0) {
+        } else if (email.length === 0 || name.length === 0 ) {
             Swal.fire({
                 icon: 'error',
                 title: 'Lo siento.!',

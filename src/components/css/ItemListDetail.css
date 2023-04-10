@@ -120,6 +120,7 @@ td>.OutStock p {
     }
     .OrderConfirmation {
         width: 90%;
+        height: auto;
     }
     .ItemListDetail tbody tr td,
     .PriceProducto {
