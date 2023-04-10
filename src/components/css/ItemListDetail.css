@@ -114,6 +114,10 @@ td>.OutStock p {
 
 
 @media print {
+    body,
+    .App-main{
+        background-color: white;
+    }
     .oculto-impresion,
     .oculto-impresion * {
         display: none !important;
