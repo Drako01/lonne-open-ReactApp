@@ -62,10 +62,12 @@ const History = () => {
         fetchHistory();
     }, [historyId]);
 
-    const handleDelete = async (id) => {
-        const correctPass = 'Admin123';
-        let numTries = 0;
+
+    
+
+    const handleDelete = async (id, numTries = 0) => {
         const maxTries = 3;
+        const correctPass = 'Admin123';
 
         const { value: password, dismiss: cancel } = await Swal.fire({
             title: 'Ingresa la contraseña',
@@ -111,24 +113,27 @@ const History = () => {
                 }
             });
         } else if (password !== '') {
-            Swal.fire({
-                title: 'Contraseña incorrecta',
-                text: `Te quedan ${maxTries - numTries - 1} intentos. Por favor, ingresa la contraseña correcta.`,
-                icon: 'error',
-            }).then(() => {
-                numTries++;
-                if (numTries < maxTries) {
-                    handleDelete(id);
-                } else {
-                    Swal.fire({
-                        title: 'Número máximo de intentos alcanzado',
-                        text: 'Has alcanzado el número máximo de intentos permitidos. No se puede continuar.',
-                        icon: 'error',
-                    });
-                }
-            });
+            numTries++;
+            if (numTries < maxTries) {
+                Swal.fire({
+                    title: 'Contraseña incorrecta',
+                    text: `Te quedan ${maxTries - numTries} intentos. Por favor, ingresa la contraseña correcta.`,
+                    icon: 'error',
+                }).then(() => {
+                    handleDelete(id, numTries);
+                });
+            } else {
+                Swal.fire({
+                    title: 'Número máximo de intentos alcanzado',
+                    text: 'Has alcanzado el número máximo de intentos permitidos. No se puede continuar.',
+                    icon: 'error',
+                });
+            }
         }
     };
+
+
+
 
 
     if (loading) {
@@ -156,7 +161,7 @@ const History = () => {
                             <th>Precio Unitario</th>
                             <th>Precio Total</th>
                             <th>Orden</th>
-                            <th>Eliminar</th>                            
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -187,7 +192,7 @@ const History = () => {
                                             </div>
                                         </td>
                                     }
-                                    
+
                                 </tr>
                             )
                         )}
