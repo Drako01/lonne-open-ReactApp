@@ -133,9 +133,6 @@ const History = () => {
     };
 
 
-
-
-
     if (loading) {
         return (
             <div className="loader-container">
