@@ -1,11 +1,29 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 import Swal from 'sweetalert2';
 
 const CartContext = createContext('Inicio')
 
+const getCartFromLocalStorage = () => {
+    const cartString = localStorage.getItem("cart");
+    if (cartString) {
+        return JSON.parse(cartString);
+    } else {
+        return [];
+    }
+};
+
+const getPurchaseHistoryFromLocalStorage = () => {
+    const purchaseHistoryString = localStorage.getItem("purchaseHistory");
+    if (purchaseHistoryString) {
+        return JSON.parse(purchaseHistoryString);
+    } else {
+        return [];
+    }
+};
+
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([])
-    const [purchaseHistory, setPurchaseHistory] = useState([]);
+    const [cart, setCart] = useState(getCartFromLocalStorage());
+    const [purchaseHistory, setPurchaseHistory] = useState(getPurchaseHistoryFromLocalStorage());
 
     const addItem = (productToAdd) => {
         if (!isInCart(productToAdd.id)) {
@@ -77,8 +95,27 @@ export const CartProvider = ({ children }) => {
         setPurchaseHistory(prev => [...prev, purchase]);
     }
 
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+
+    useEffect(() => {
+        localStorage.setItem("purchaseHistory", JSON.stringify(purchaseHistory));
+    }, [purchaseHistory]);
+
     return (
-        <CartContext.Provider value={{ cart, addItem, totalQuantity, purchaseHistory, addToPurchaseHistory, getItemCount, totalPrice, removeItem, isInCart, clearCart }}>
+        <CartContext.Provider value={{
+            cart,
+            addItem,
+            totalQuantity,
+            purchaseHistory,
+            addToPurchaseHistory,
+            getItemCount,
+            totalPrice,
+            removeItem,
+            isInCart,
+            clearCart
+        }}>
             {children}
         </CartContext.Provider>
     )
