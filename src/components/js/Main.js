@@ -7,6 +7,7 @@ import Contact from './Contact';
 import History from './History';
 import ItemListDetail from './ItemListDetail'
 import OrderConfirmation from './OrderConfirmation'
+import OrderConfirmationDetail from './OrderConfirmationDetail'
 
 
 const Main = () => {
@@ -22,6 +23,7 @@ const Main = () => {
                 <Route path='/checkout' element= {<Payment />}/>
                 <Route path='/history' element= {<History />}/>
                 <Route path='/orderconfirmation' element= {<OrderConfirmation />}/>
+                <Route path='/orderconfirmationdetail/:orderId' element= {<OrderConfirmationDetail />}/>
             </Routes>
         </main>
     )

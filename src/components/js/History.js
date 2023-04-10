@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { db } from '../../Firebase/firebaseConfig';
 import { collection, query, getDocs, deleteDoc, doc } from 'firebase/firestore';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import close from '../assets/icons/close.png'
 
@@ -108,6 +108,7 @@ const History = () => {
                             <th>Precio Unitario</th>
                             <th>Precio Total</th>
                             <th>Eliminar</th>
+                            <th>Orden</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,6 +131,11 @@ const History = () => {
                                             </div>
                                         </td>
                                     }
+                                    {index === 0 && <td rowSpan={item.products.length} >
+                                        <div className='ComprarFinal FinalButtons'>
+                                            <Link to={`/orderconfirmationdetail/${item.id}`}>Ver</Link>
+                                        </div>
+                                    </td>}
                                 </tr>
                             )
                         )}
