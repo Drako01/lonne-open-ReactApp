@@ -45,6 +45,16 @@
     border: solid 1px var(--fourth);
     background-color: transparent;
 }
+
+.swal2-popup.swal2-toast .swal2-actions {
+    justify-content: center !important;    
+}
+.swal2-styled.swal2-confirm {
+    background-color: var(--brick) !important;    
+}
+.swal2-styled.swal2-cancel {    
+    background-color: var(--fourth) !important;    
+}
 @media (width <=1080px) {
 
     .OrderConfirmation{        
