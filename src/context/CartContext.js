@@ -102,7 +102,7 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             const elapsed = Date.now() - lastActivity;
-            if (elapsed >= 60000) {
+            if (elapsed >= 300000) {
                 Swal.fire({
                     title: '¿Todavía estás interesado en estos productos?',
                     text: 'Tu carrito todavía tiene productos. ¿Deseas continuar comprando?',
@@ -117,7 +117,7 @@ export const CartProvider = ({ children }) => {
                     }
                 });
             }
-        }, 60000 - (Date.now() - lastActivity));
+        }, 300000 - (Date.now() - lastActivity));
 
         return () => clearTimeout(timer);
     }, [lastActivity]);
