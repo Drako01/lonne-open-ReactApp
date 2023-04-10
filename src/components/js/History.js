@@ -107,9 +107,9 @@ const History = () => {
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Precio Unitario</th>
-                            <th>Precio Total</th>
-                            <th>Eliminar</th>
+                            <th>Precio Total</th>                            
                             <th>Orden</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -123,6 +123,15 @@ const History = () => {
                                     <td>{product.quantity}</td>
                                     <td className='PriceProducto RightItem'>${product.price}.-</td>
                                     {index === 0 && <td className='PriceProducto RightItem' rowSpan={item.products.length}>${item.total}.-</td>}
+                                    
+                                    {index === 0 && <td rowSpan={item.products.length} >
+                                        <div className='ComprarFinal FinalButtons SearchButton'>
+                                            <Link to={`/orderconfirmationdetail/${item.id}`}>
+                                                <img src={buscar} className="App-icono Car CarritoList" alt="icono" />
+                                            </Link>
+                                        </div>
+                                    </td>
+                                    }
                                     {index === 0 &&
                                         <td rowSpan={item.products.length} className='EliminarItem'>
                                             <div className='HistoryDeleteButton '>
@@ -132,13 +141,6 @@ const History = () => {
                                             </div>
                                         </td>
                                     }
-                                    {index === 0 && <td rowSpan={item.products.length} >
-                                        <div className='ComprarFinal FinalButtons SearchButton'>
-                                            <Link to={`/orderconfirmationdetail/${item.id}`}>
-                                                <img src={buscar} className="App-icono Car CarritoList" alt="icono" />
-                                            </Link>
-                                        </div>
-                                    </td>}
                                 </tr>
                             )
                         )}
