@@ -4,6 +4,10 @@ import facebook from '../assets/icons/facebook.svg';
 import WhatsAppButton from './WhatsAppButton';
 import logo from '../assets/icons/logo.ico'
 import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../Firebase/firebaseConfig';
+
 
 const Footer = () => {
     const mensajeWhatsApp = () => {
@@ -15,6 +19,22 @@ const Footer = () => {
     const mensajeFacebook = () => {
         window.open("https://www.facebook.com/people/Lonn%C3%A9-Open-Tenis/100063638766614/?locale=es_LA")
     }
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const categoriesArray = [];
+            const querySnapshot = await getDocs(collection(db, 'products'));
+            querySnapshot.forEach((doc) => {
+                const category = doc.data().category;
+                if (!categoriesArray.includes(category)) {
+                    categoriesArray.push(category);
+                }
+            });
+            setCategories(categoriesArray);
+        };
+        fetchCategories();
+    }, []);
 
     return (
         <div className="Footer oculto-impresion">
@@ -23,17 +43,14 @@ const Footer = () => {
                 <section className='Links'>
                     <div>
                         <NavLink to='/'><li>Inicio</li></NavLink>
-                        <NavLink to='/category/Raquetas' ><li>Raquetas</li></NavLink>
-                        <NavLink to='/category/Tubos' ><li>Tubos</li></NavLink>
-                        <NavLink to='/category/Zapatillas'><li>Zapatillas</li></NavLink>
-                        <NavLink to='/category/Remeras' ><li>Remeras</li></NavLink>
-                    </div>
-                    <div>                        
-                        <NavLink to='/category/Munequeras' ><li>Muñequeras</li></NavLink>
-                        <NavLink to='/category/Vinchas' ><li>Vinchas</li></NavLink>
                         <NavLink to='/itemlist' ><li>Listado de Productos</li></NavLink>
                         <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
-                        <NavLink to='/contact' ><li>Contactenos</li></NavLink>                        
+                        <NavLink to='/contact' ><li>Contactenos</li></NavLink>
+                    </div>
+                    <div>
+                        {categories.map((category, index) => (
+                            <NavLink key={index} to={`/category/${category}`} className={`delay${index + 1}`}><li>{category}</li></NavLink>
+                        ))}
                     </div>
                 </section>
             </footer>
