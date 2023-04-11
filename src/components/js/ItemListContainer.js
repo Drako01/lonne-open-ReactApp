@@ -91,6 +91,8 @@ const ItemListContainer = ({ greeting }) => {
     }
     const currentPath = window.location.pathname;
     const hideOnOtherPaths = currentPath !== "/";
+
+    
     return (
         <div>
             <div className={`hide-on-other-paths ${hideOnOtherPaths ? 'hidden' : ''}`}>
