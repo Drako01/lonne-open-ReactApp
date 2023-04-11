@@ -12,6 +12,8 @@ import OrderConfirmationDetail from './OrderConfirmationDetail'
 import ProductCharge from './ProductCharge'
 import ItemDetailAdmin from './ItemDetailAdmin'
 import Login from './Login';
+import Signup from './Signup';
+
 
 
 const Main = () => {
@@ -23,6 +25,7 @@ const Main = () => {
                 <Route path='/:name/item/:itemId' element= {<ItemDetailContainer />}/>
                 <Route path='/cart' element= {<Cart />}/>
                 <Route path='/login' element= {<Login />}/>
+                <Route path='/signup' element= {<Signup />}/>
                 <Route path='/itemlist' element= {<ItemListDetail />}/>
                 <Route path='/admin/itemlist' element= {<ItemList />}/>
                 <Route path='/:name/admin/item/:itemId' element= {<ItemDetailAdmin />}/>

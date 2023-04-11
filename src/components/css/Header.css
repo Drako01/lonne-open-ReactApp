@@ -45,3 +45,7 @@ li a.CartWidget{
 .None{
     display: none !important;
 }
+.Signup{
+    font-size: 1rem;
+    text-align: right;
+}

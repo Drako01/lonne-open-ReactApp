@@ -9,7 +9,7 @@ h4.NoMargin {
 .LonneInput {
     display: flex;
     flex-direction: column;
-    width: 30rem;
+    min-width: 30rem;
     padding-bottom: 1rem;
 }
 .Line{

@@ -1,46 +1,53 @@
 import React, { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from 'sweetalert2';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Signup = () => {
     const auth = getAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [rePassword, setRePassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleEmailChange = (event) => setEmail(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value);
+    const handleRePasswordChange = (event) => setRePassword(event.target.value);
 
-    const handleLogin = (event) => {
+    const handleSignup = (event) => {
         event.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
+        if (password !== rePassword) {
+            setError("Las contraseñas no coinciden");
+            return;
+        }
+
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 localStorage.setItem("user", JSON.stringify(user));
                 Swal.fire({
-                    title: `Bienvenido ${user.email}`,
-                    html: `Gracias entrar a nuestro Pro-Shop`,
+                    title: `Cuenta creada para ${user.email}`,
+                    html: `Gracias por registrarse en nuestro Pro-Shop`,
                     icon: 'success',
                     didClose: () => {
                         navigate('/');
                     }
                 });
             })
-            .catch(() => {
-                setError()
-                Swal.fire('Error', 'Usuario o Contraseña Incorrectos', 'error');
+            .catch((error) => {
+                setError(error.message);
+                Swal.fire('Error', error.message, 'error');
             });
     };
 
     return (
         <div>
-            <h1>Login</h1>
+            <h1>Crear cuenta</h1>
             {error &&
                 <p>{error}</p>
             }
-            <form onSubmit={handleLogin} className="ContactForm">
+            <form onSubmit={handleSignup} className="ContactForm">
 
                 <div className="LonneInput">
                     <label htmlFor="email">Ingrese su Email</label>
@@ -55,7 +62,7 @@ const Login = () => {
                 </div>
 
                 <div className="LonneInput">
-                    <label htmlFor="email">Ingrese su Password</label>
+                    <label htmlFor="password">Ingrese su Password</label>
                 </div>
                 <div className="LonneInput">
                     <input
@@ -66,16 +73,24 @@ const Login = () => {
                     />
                 </div>
 
+                <div className="LonneInput">
+                    <label htmlFor="rePassword">Confirme su Password</label>
+                </div>
+                <div className="LonneInput">
+                    <input
+                        type="password"
+                        value={rePassword}
+                        name="rePassword"
+                        onChange={handleRePasswordChange}
+                    />
+                </div>
+
                 <div className='ComprarFinal FinalButtons'>
-                    <button type="submit">Iniciar sesión</button>
+                    <button type="submit">Crear cuenta</button>
                 </div>
-                <div className="Signup">
-                    <Link to={'/signup'}>No tienes cuenta? Crea una.!</Link>
-                </div>
-                
             </form>
         </div>
     );
 };
 
-export default Login;
+export default Signup;
