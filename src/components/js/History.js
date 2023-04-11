@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { db } from '../../Firebase/firebaseConfig';
-import { collection, query, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { collection, query, getDocs, deleteDoc, doc, orderBy } from 'firebase/firestore';
 import { useParams, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import close from '../assets/icons/close.png'
@@ -19,7 +19,7 @@ const History = () => {
         const fetchHistory = async () => {
             try {
                 const historyRef = collection(db, 'history');
-                const historyQuery = query(historyRef);
+                const historyQuery = query(historyRef, orderBy('date', 'asc'));                
 
                 const snapshot = await getDocs(historyQuery);
 
