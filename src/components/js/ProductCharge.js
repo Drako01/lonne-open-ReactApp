@@ -2,13 +2,13 @@ import { db } from '../../Firebase/firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore';
 import { useState } from "react";
 import Swal from 'sweetalert2';
-import LoginPage from './LoginPage'
-
+import LoginPage from './LoginPage';
 
 <LoginPage />
 const ProductCharge = ({ greeting }) => {
     const [loading, setLoading] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
+
 
     const handleLogin = () => {
         setLoggedIn(true);
@@ -29,7 +29,6 @@ const ProductCharge = ({ greeting }) => {
         const imagenName = event.target.imagenName.value;
         const stock = event.target.stock.value;
 
-
         const products = {
             name,
             description,
@@ -44,8 +43,8 @@ const ProductCharge = ({ greeting }) => {
             setLoading(true);
             const productsCollection = collection(db, "products");
             await addDoc(productsCollection, products);
-
             Swal.fire('Éxito', 'Datos guardados en Firestore', 'success');
+
         } catch (error) {
             Swal.fire('Error', error.message, 'error');
         } finally {

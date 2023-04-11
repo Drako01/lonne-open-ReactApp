@@ -14,7 +14,7 @@ const History = () => {
     const [history, setHistory] = useState([]);
     const [loading, setLoading] = useState(true);
     const { historyId } = useParams();
-    
+
 
     useEffect(() => {
         setLoading(true);
@@ -75,7 +75,7 @@ const History = () => {
     if (!loggedIn) {
         return <LoginPage onLogin={handleLogin} />;
     }
-    
+
 
     const handleDelete = async (id, numTries = 0) => {
         const maxTries = 3;

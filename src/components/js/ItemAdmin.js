@@ -1,15 +1,17 @@
 import { db } from '../../Firebase/firebaseConfig';
 import { doc, updateDoc } from 'firebase/firestore';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const ItemAdmin = ({ id, name, category, description, image , size, price, stock }) => {
+const ItemAdmin = ({ id, name, category, description, image, size, price, stock }) => {
     const [newName, setName] = useState(name);
     const [newCategory, setCategory] = useState(category);
     const [newDescription, setDescription] = useState(description);
     const [newPrice, setPrice] = useState(price);
     const [newSize, setSize] = useState(size);
     const [newStock, setStock] = useState(stock);
+    const navigate = useNavigate();
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -46,6 +48,7 @@ const ItemAdmin = ({ id, name, category, description, image , size, price, stock
         try {
             await updateDoc(productRef, updatedProduct);
             Swal.fire('Éxito', 'Datos guardados en Firestore', 'success');
+            navigate('/admin/itemlist');
         } catch (error) {
             Swal.fire('Error', error.message, 'error');
         }

@@ -15,7 +15,7 @@ const ItemList = () => {
     const [loading, setLoading] = useState(true);
     const { itemId } = useParams();
     const [product, setProduct] = useState([]);
-    
+
 
     const handleOnClick = () => {
         navigate('/');
@@ -184,16 +184,16 @@ const ItemList = () => {
 
                                     <td>
                                         <div className='ComprarFinal FinalButtons '>
-                                        <Link to={`/${product.name}/admin/item/${product.id}`}>Editar</Link>
+                                            <Link to={`/${product.name}/admin/item/${product.id}`}>Editar</Link>
                                         </div>
                                     </td>
-                                    <td  className='EliminarItem'>
-                                            <div className='HistoryDeleteButton '>
-                                                <button onClick={() => handleDelete(product.id)}>
-                                                    <img src={close} alt='Close' />
-                                                </button>
-                                            </div>
-                                        </td>
+                                    <td className='EliminarItem'>
+                                        <div className='HistoryDeleteButton '>
+                                            <button onClick={() => handleDelete(product.id)}>
+                                                <img src={close} alt='Close' />
+                                            </button>
+                                        </div>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
