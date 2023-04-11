@@ -12,6 +12,7 @@ class OrderConfirmation extends React.Component {
             buyer: '',
             products: [],
             total: '',
+            date: '',
         };
     }
     handlePrint = () => {
@@ -25,25 +26,29 @@ class OrderConfirmation extends React.Component {
             const lastDocId = querySnapshot.docs[0].id;
             return { lastCheckout, lastDocId };
         };
-
+    
         getLastCheckout().then(({ lastCheckout, lastDocId }) => {
+            const date = lastCheckout.date.toDate().toLocaleDateString('es-AR'); 
             this.setState({
                 id: lastDocId,
                 buyer: lastCheckout.buyer,
                 products: lastCheckout.products,
-                total: lastCheckout.total
+                total: lastCheckout.total,
+                date: date
             });
-        });
+        });        
     }
+    
 
     render() {
-        const { id, buyer, products, total } = this.state;
-
+        const { id, buyer, products, total, date } = this.state;
+        
         return (
             <div className='OrderConfirmation OutStock OrderFinal'>
                 <section>
                 <h2>Recibo de Compra con ID#:</h2><h3>  {id}</h3>
                 <h6>Nombre del comprador:</h6><h3> {buyer}</h3>
+                <p>{date}</p>
                 <table className="ItemListDetail OrderConfirmationTable">
                     <thead>
                         <tr>

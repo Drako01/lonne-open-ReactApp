@@ -60,7 +60,8 @@ const OrderConfirmationDetail = () => {
     }
     
 
-    const { buyer, products, total } = product;
+    const { buyer, products, total, date } = product;
+    const formattedDate = new Date(date.toDate()).toLocaleDateString();
 
     return (        
         <div className='OrderConfirmation OutStock OrderFinal'>
@@ -69,6 +70,7 @@ const OrderConfirmationDetail = () => {
                 <h3>{orderId}</h3>
                 <h6>Nombre del comprador:</h6>
                 <h3>{buyer}</h3>
+                <p>{formattedDate}</p>
                 <table className="ItemListDetail OrderConfirmationTable">
                     <thead>
                         <tr>
