@@ -23,7 +23,9 @@
     align-items: center;
     margin-top: 3rem;
 }
-
+.hidden {
+    display: none;
+  }
 @media (width <= 840px) {
     .App-main h1{
         font-size: 3rem;

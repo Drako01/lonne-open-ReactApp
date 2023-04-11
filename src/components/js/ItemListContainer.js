@@ -86,32 +86,35 @@ const ItemListContainer = ({ greeting }) => {
             </div>
         );
     }
-
+    const currentPath = window.location.pathname;
+    const hideOnOtherPaths = currentPath !== "/";
     return (
         <div>
-            <div className="Logo-Icono">
-                <Link to={`/`}>
-                    <img src={logo} alt="Lonne Open" />
-                </Link>
-            </div>
-            <section className="LoginName">
-                {user ? (
-                    <div>
-                        <h2>Bienvenido {user.email}</h2>
-                        <div className='ComprarFinal FinalButtons'>
-                            <button onClick={handleLogout}>Logout</button>
+            <div className={`hide-on-other-paths ${hideOnOtherPaths ? 'hidden' : ''}`}>
+                <div className="Logo-Icono">
+                    <Link to={`/`}>
+                        <img src={logo} alt="Lonne Open" />
+                    </Link>
+                </div>
+                <section className="LoginName">
+                    {user ? (
+                        <div>
+                            <h2>Bienvenido {user.email}</h2>
+                            <div className='ComprarFinal FinalButtons'>
+                                <button onClick={handleLogout}>Logout</button>
+                            </div>
                         </div>
-                    </div>
-                ) : (
-                    <div className='ComprarFinal FinalButtons'>
-                        <Link to={`/login`}
-                            className="btn btn-secondary"
-                        >
-                            Login
-                        </Link>
-                    </div>
-                )}
-            </section>
+                    ) : (
+                        <div className='ComprarFinal FinalButtons'>
+                            <Link to={`/login`}
+                                className="btn btn-secondary"
+                            >
+                                Login
+                            </Link>
+                        </div>
+                    )}
+                </section>
+            </div>
             <h1>{greeting} {categoryId === undefined ? '' : selectedCategory} </h1>
 
             <div className='LonneInput CategorySelect'>
