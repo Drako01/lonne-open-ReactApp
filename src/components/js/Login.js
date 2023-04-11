@@ -28,11 +28,9 @@ const Login = () => {
                     }
                 });
             })
-            .catch((error) => {
-
-                const errorMessage = error.message;
-                setError(errorMessage);
-                Swal.fire('Error', errorMessage, 'error');
+            .catch(() => {       
+                setError()         
+                Swal.fire('Error', 'Usuario o Contraseña Incorrectos', 'error');
             });
     };
 
