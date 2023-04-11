@@ -39,7 +39,7 @@ const Footer = () => {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user) {
+            if (user && user.email === "admin@mail.com") {
                 setAuthenticated(true);
             } else {
                 setAuthenticated(false);
