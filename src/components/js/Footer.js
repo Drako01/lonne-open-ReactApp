@@ -38,17 +38,22 @@ const Footer = () => {
 
     return (
         <div className="Footer oculto-impresion">
-            <footer className='Top oculto-impresion'>
+            <footer className='Top'>
                 <img src={logo} alt='Lonne Open' />
                 <section className='Links'>
                     <div>
                         <NavLink to='/'><li>Inicio</li></NavLink>
                         <NavLink to='/itemlist' ><li>Listado de Productos</li></NavLink>
                         <NavLink to='/contact' ><li>Contactenos</li></NavLink>
-                        <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>                        
+                        <div className='Line'>
+                            <NavLink>
+                                <li>Administración</li>
+                            </NavLink>
+                        </div>
+                        <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
                         <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>
                         <NavLink to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
-                        
+
                     </div>
                     <div>
                         {categories.map((category, index) => (

@@ -9,10 +9,12 @@ h4.NoMargin {
 .LonneInput {
     display: flex;
     flex-direction: column;
-    max-width: 30rem;
+    width: 30rem;
     padding-bottom: 1rem;
 }
-
+.Line{
+    border-bottom: 2px solid var(--light);
+}
 .LonneInput label,
 .LonneInput input {
     font-size: 1.2rem;
