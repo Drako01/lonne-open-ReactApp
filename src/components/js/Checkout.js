@@ -157,17 +157,9 @@ const Checkout = () => {
                 </table>
             </div>
             <div className="checkout-payment CheckOutDiv">
-                <h3>Datos del Comprador</h3>
+                <h3>Confirme su E Mail</h3>
                 <div>
-                    <form className="CreditCardForm">
-                        <div className="LonneInput">
-                            <label htmlFor="username">Nombre:</label>
-                            <input type="text" name="username" required />
-                        </div>
-                        <div className="LonneInput">
-                            <label htmlFor="username">Apellido:</label>
-                            <input type="text" name="lastname" required />
-                        </div>
+                    <form className="CreditCardForm">                        
                         <div className="LonneInput">
                             <label htmlFor="username">Email:</label>
                             <input type="email" name="email" value={email} onChange={handleEmailChange} required />
