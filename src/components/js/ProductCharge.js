@@ -2,10 +2,21 @@ import { db } from '../../Firebase/firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore';
 import { useState } from "react";
 import Swal from 'sweetalert2';
+import LoginPage from './LoginPage'
 
 
+<LoginPage />
 const ProductCharge = ({ greeting }) => {
     const [loading, setLoading] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const handleLogin = () => {
+        setLoggedIn(true);
+    };
+
+    if (!loggedIn) {
+        return <LoginPage onLogin={handleLogin} />;
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -18,7 +29,7 @@ const ProductCharge = ({ greeting }) => {
         const imagenName = event.target.imagenName.value;
         const stock = event.target.stock.value;
 
-        
+
         const products = {
             name,
             description,
@@ -33,7 +44,7 @@ const ProductCharge = ({ greeting }) => {
             setLoading(true);
             const productsCollection = collection(db, "products");
             await addDoc(productsCollection, products);
-            
+
             Swal.fire('Éxito', 'Datos guardados en Firestore', 'success');
         } catch (error) {
             Swal.fire('Error', error.message, 'error');
@@ -41,7 +52,7 @@ const ProductCharge = ({ greeting }) => {
             setLoading(false);
         }
     };
-    
+
     if (loading) {
         return (
             <div className="loader-container">
@@ -72,11 +83,11 @@ const ProductCharge = ({ greeting }) => {
                 </div>
                 <div className="LonneInput">
                     <label htmlFor="description">Descripción:</label>
-                    <textarea                        
+                    <textarea
                         name="description"
                         required
                     />
-                </div>                
+                </div>
                 <div className="LonneInput">
                     <label htmlFor="password">Precio:</label>
                     <input
@@ -85,7 +96,7 @@ const ProductCharge = ({ greeting }) => {
                         required
                     />
                 </div>
-                
+
                 <div className="LonneInput">
                     <label htmlFor="password">Direccón de la Imágen:</label>
                     <input

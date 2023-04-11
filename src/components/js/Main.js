@@ -23,7 +23,7 @@ const Main = () => {
                 <Route path='/contact' element= {<Contact  greeting={'Contactenos'}/>}/>
                 <Route path='/checkout' element= {<Payment />}/>
                 <Route path='/history' element= {<History />}/>
-                <Route path='/charge/products' element= {<ProductCharge />}/>
+                <Route path='/charge/products' element= {<ProductCharge  greeting={'Carga de Productos'}/>}/>
                 <Route path='/orderconfirmation' element= {<OrderConfirmation />}/>
                 <Route path='/orderconfirmationdetail/:orderId' element= {<OrderConfirmationDetail />}/>
             </Routes>
