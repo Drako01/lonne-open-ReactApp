@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -7,7 +7,7 @@ import "react-credit-cards/es/styles-compiled.css";
 import 'firebase/firestore';
 import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
-
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 
 const Checkout = () => {
@@ -21,6 +21,7 @@ const Checkout = () => {
     const [email, setEmail] = useState('');
     const [reEmail, setReEmail] = useState('');
     const [emailError, setEmailError] = useState('');
+    const [user, setUser] = useState(null);
 
     const vaciarCarrito = () => {
         clearCart();
@@ -35,10 +36,10 @@ const Checkout = () => {
             buyer: name,
             email: email,
         };
-    
+
         try {
             await addDoc(collection(db, "history"), purchase);
-    
+
             await Promise.all(cart.map(async (product) => {
                 const productDocRef = doc(db, "products", product.id);
                 const productDoc = await getDoc(productDocRef);
@@ -47,7 +48,7 @@ const Checkout = () => {
                 const newQuantity = currentQuantity - purchasedQuantity;
                 await updateDoc(productDocRef, { stock: newQuantity });
             }));
-    
+
             Swal.fire({
                 title: '¡Compra exitosa!',
                 html: `Gracias por comprar en Lonne Open`,
@@ -60,7 +61,7 @@ const Checkout = () => {
         } catch (error) {
             Swal.fire("Error", error.message, "error");
         }
-    }     
+    }
 
     const handleOnClick = () => {
         if (cart.length === 0) {
@@ -72,7 +73,7 @@ const Checkout = () => {
             }).then(() => {
                 navigate('/');
             });
-        } else if (email.length === 0 || name.length === 0 ) {
+        } else if (email.length === 0 || name.length === 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Lo siento.!',
@@ -112,6 +113,19 @@ const Checkout = () => {
         setReEmail(e.target.value);
     };
 
+
+    useEffect(() => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, user => {
+            if (user) {
+                setUser(user);
+            } else {
+                setUser(null);
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
     const handleReEmailBlur = () => {
         if (email !== reEmail) {
             setEmailError()
@@ -124,8 +138,6 @@ const Checkout = () => {
             setEmailError('');
         }
     };
-
-
     return (
         <div>
             <h1 className="Mini">Checkout</h1>
@@ -159,16 +171,26 @@ const Checkout = () => {
             <div className="checkout-payment CheckOutDiv">
                 <h3>Confirme su E Mail</h3>
                 <div>
-                    <form className="CreditCardForm">                        
-                        <div className="LonneInput">
-                            <label htmlFor="username">Email:</label>
-                            <input type="email" name="email" value={email} onChange={handleEmailChange} required />
-                        </div>
-                        <div className="LonneInput">
-                            <label htmlFor="username">Repita su Email:</label>
-                            <input type="email" name="reEmail" value={reEmail} onChange={handleReEmailChange} onBlur={handleReEmailBlur} required />
-                            {emailError && <span style={{ color: 'red' }}>{emailError}</span>}
-                        </div>
+                    <form className="CreditCardForm">
+                        {user ? (
+                            <div className="LonneInput">
+                                <label htmlFor="username">Email:</label>
+                                <input type="email" name="email" value={user.email} onChange={handleEmailChange} required />
+                            </div>
+                        ) : (
+                            <div>
+                                <div className="LonneInput">
+                                    <label htmlFor="username">Email:</label>
+                                    <input type="email" name="email" value={email} onChange={handleEmailChange} required />
+                                </div>
+                                <div className="LonneInput">
+                                    <label htmlFor="username">Repita su Email:</label>
+                                    <input type="email" name="reEmail" value={reEmail} onChange={handleReEmailChange} onBlur={handleReEmailBlur} required />
+                                    {emailError && <span style={{ color: 'red' }}>{emailError}</span>}
+                                </div>
+                            </div>
+                        )}
+
                     </form>
                 </div>
 
@@ -227,12 +249,19 @@ const Checkout = () => {
                             />
                         </div>
                     </form>
-                    <div className={`ComprarFinal FinalButtons ${email.length === 0 || email !== reEmail ? 'Disabled' : ''}`}>
-                        <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
-                    </div>
+                    {user ?
+                        (
+                            <div className={`ComprarFinal FinalButtons`}>
+                                <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
+                            </div>
+                        ) : (
+                            <div className={`ComprarFinal FinalButtons ${email.length === 0 || email !== reEmail ? 'Disabled' : ''}`}>
+                                <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
+                            </div>
+                        )}
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
