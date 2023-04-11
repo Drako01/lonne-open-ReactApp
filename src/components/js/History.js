@@ -19,7 +19,7 @@ const History = () => {
         const fetchHistory = async () => {
             try {
                 const historyRef = collection(db, 'history');
-                const historyQuery = query(historyRef, orderBy('date', 'asc'));                
+                const historyQuery = query(historyRef, orderBy('date', 'desc'));                
 
                 const snapshot = await getDocs(historyQuery);
 
