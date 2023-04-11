@@ -111,24 +111,42 @@ td>.OutStock p {
     font-size: .8rem;
 }
 
+.DatesAdmin {
+    display: flex;
+    flex-direction: column;
+}
 
+.BotonAdmin button {
+    background-color: var(--first);
+    border: solid 1px var(--first);
+    color: var(--light);
+}
+
+.BotonAdmin button:hover {
+    background-color: transparent;
+    color: var(--first);
+}
 
 @media print {
+
     body,
-    .App-main{
+    .App-main {
         background-color: white;
     }
+
     .oculto-impresion,
     .oculto-impresion * {
         display: none !important;
     }
+
     .OrderConfirmation {
         width: 90%;
         height: auto;
     }
+
     .ItemListDetail tbody tr td,
     .PriceProducto {
-        font-size: 1.2rem !important;        
+        font-size: 1.2rem !important;
     }
 }
 

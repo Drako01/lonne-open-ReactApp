@@ -6,9 +6,11 @@ import Payment from './Checkout'
 import Contact from './Contact';
 import History from './History';
 import ItemListDetail from './ItemListDetail'
+import ItemList from './ItemList'
 import OrderConfirmation from './OrderConfirmation'
 import OrderConfirmationDetail from './OrderConfirmationDetail'
 import ProductCharge from './ProductCharge'
+import ItemDetailAdmin from './ItemDetailAdmin'
 
 
 const Main = () => {
@@ -20,6 +22,8 @@ const Main = () => {
                 <Route path='/:name/item/:itemId' element= {<ItemDetailContainer />}/>
                 <Route path='/cart' element= {<Cart />}/>
                 <Route path='/itemlist' element= {<ItemListDetail />}/>
+                <Route path='/admin/itemlist' element= {<ItemList />}/>
+                <Route path='/:name/admin/item/:itemId' element= {<ItemDetailAdmin />}/>
                 <Route path='/contact' element= {<Contact  greeting={'Contactenos'}/>}/>
                 <Route path='/checkout' element= {<Payment />}/>
                 <Route path='/history' element= {<History />}/>

@@ -237,6 +237,12 @@ h4.Number{
     flex-direction: column;
     align-items: center;
 }
+.CardAdmin{
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: max-content;
+}
 @media (width <= 878px) {
     .CardDetail {
         display: flex;
