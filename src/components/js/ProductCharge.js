@@ -2,22 +2,11 @@ import { db } from '../../Firebase/firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore';
 import { useState } from "react";
 import Swal from 'sweetalert2';
-import LoginPage from './LoginPage';
 
-<LoginPage />
+
 const ProductCharge = ({ greeting }) => {
     const [loading, setLoading] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
-
-
-    const handleLogin = () => {
-        setLoggedIn(true);
-    };
-
-    if (!loggedIn) {
-        return <LoginPage onLogin={handleLogin} />;
-    }
-
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
 

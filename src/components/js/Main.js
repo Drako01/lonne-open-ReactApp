@@ -11,6 +11,7 @@ import OrderConfirmation from './OrderConfirmation'
 import OrderConfirmationDetail from './OrderConfirmationDetail'
 import ProductCharge from './ProductCharge'
 import ItemDetailAdmin from './ItemDetailAdmin'
+import Login from './Login';
 
 
 const Main = () => {
@@ -21,6 +22,7 @@ const Main = () => {
                 <Route path='/category/:categoryId' element={<ItemListContainer greeting={`Categoria: `} />}/>
                 <Route path='/:name/item/:itemId' element= {<ItemDetailContainer />}/>
                 <Route path='/cart' element= {<Cart />}/>
+                <Route path='/login' element= {<Login />}/>
                 <Route path='/itemlist' element= {<ItemListDetail />}/>
                 <Route path='/admin/itemlist' element= {<ItemList />}/>
                 <Route path='/:name/admin/item/:itemId' element= {<ItemDetailAdmin />}/>

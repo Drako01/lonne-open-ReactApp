@@ -3,10 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { getDoc, doc, collection, getDocs, deleteDoc } from 'firebase/firestore';
 import { db } from '../../Firebase/firebaseConfig';
-import LoginPage from './LoginPage';
 import close from '../assets/icons/close.png'
 
-<LoginPage />
 
 
 const ItemList = () => {
@@ -62,17 +60,6 @@ const ItemList = () => {
                 });
         }
     }, [itemId]);
-
-
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    const handleLogin = () => {
-        setLoggedIn(true);
-    };
-
-    if (!loggedIn) {
-        return <LoginPage onLogin={handleLogin} />;
-    }
 
 
     const handleDelete = async (id, numTries = 0) => {

@@ -154,7 +154,15 @@ body.open .background{
 .CartImg {
     margin-right: 1rem;
 }
-
+.LoginName{
+    display: flex;
+    justify-content: center;
+}
+.LoginName h3{
+    color: var(--brick);
+    font-size: 1.5rem;
+    
+}
 @media (width <= 740px) {
 
     .menu{

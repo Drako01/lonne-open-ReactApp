@@ -5,10 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import close from '../assets/icons/close.png'
 import buscar from '../assets/icons/search.png';
-import LoginPage from './LoginPage';
 
-
-<LoginPage />
 
 const History = () => {
     const [history, setHistory] = useState([]);
@@ -66,16 +63,7 @@ const History = () => {
         fetchHistory();
     }, [historyId]);
 
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    const handleLogin = () => {
-        setLoggedIn(true);
-    };
-
-    if (!loggedIn) {
-        return <LoginPage onLogin={handleLogin} />;
-    }
-
+    
 
     const handleDelete = async (id, numTries = 0) => {
         const maxTries = 3;
