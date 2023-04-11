@@ -1,11 +1,11 @@
+import React, { useState } from "react";
 import { useCart } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-import React, { useState } from "react";
 import 'firebase/firestore';
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
 
 
@@ -35,9 +35,19 @@ const Checkout = () => {
             buyer: name,
             email: email,
         };
-
+    
         try {
             await addDoc(collection(db, "history"), purchase);
+    
+            await Promise.all(cart.map(async (product) => {
+                const productDocRef = doc(db, "products", product.id);
+                const productDoc = await getDoc(productDocRef);
+                const currentQuantity = productDoc.data().stock;
+                const purchasedQuantity = product.quantity;
+                const newQuantity = currentQuantity - purchasedQuantity;
+                await updateDoc(productDocRef, { stock: newQuantity });
+            }));
+    
             Swal.fire({
                 title: '¡Compra exitosa!',
                 html: `Gracias por comprar en Lonne Open`,
@@ -51,6 +61,8 @@ const Checkout = () => {
             Swal.fire("Error", error.message, "error");
         }
     }
+    
+    
 
     const handleOnClick = () => {
         if (cart.length === 0) {
