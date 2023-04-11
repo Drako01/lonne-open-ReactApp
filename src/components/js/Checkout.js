@@ -60,9 +60,7 @@ const Checkout = () => {
         } catch (error) {
             Swal.fire("Error", error.message, "error");
         }
-    }
-    
-    
+    }     
 
     const handleOnClick = () => {
         if (cart.length === 0) {
