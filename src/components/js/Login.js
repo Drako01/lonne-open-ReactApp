@@ -18,9 +18,9 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                localStorage.setItem("user", JSON.stringify(user));               
+                localStorage.setItem("user", JSON.stringify(user));
                 Swal.fire({
-                    title: `Bienvenido ${user.email}` ,
+                    title: `Bienvenido ${user.email}`,
                     html: `Gracias entrar a nuestro Pro-Shop`,
                     icon: 'success',
                     didClose: () => {
@@ -28,8 +28,8 @@ const Login = () => {
                     }
                 });
             })
-            .catch(() => {       
-                setError()         
+            .catch(() => {
+                setError()
                 Swal.fire('Error', 'Usuario o Contraseña Incorrectos', 'error');
             });
     };
@@ -37,8 +37,8 @@ const Login = () => {
     return (
         <div>
             <h1>Login</h1>
-            {error && 
-            <p>{error}</p>
+            {error &&
+                <p>{error}</p>
             }
             <form onSubmit={handleLogin} className="ContactForm">
 
@@ -46,7 +46,12 @@ const Login = () => {
                     <label htmlFor="email">Ingrese su Email</label>
                 </div>
                 <div className="LonneInput">
-                    <input type="email" value={email} name="email" onChange={handleEmailChange} />
+                    <input
+                        type="email"
+                        value={email}
+                        name="email"
+                        onChange={handleEmailChange}
+                    />
                 </div>
 
                 <div className="LonneInput">
