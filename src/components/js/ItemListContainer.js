@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { db } from '../../Firebase/firebaseConfig';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { useCart } from '../../context/CartContext';
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
@@ -15,6 +16,7 @@ const ItemListContainer = ({ greeting }) => {
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
     const [user, setUser] = useState(null);
+    const { clearCart } = useCart();
 
     useEffect(() => {
         setLoading(true);
@@ -72,6 +74,7 @@ const ItemListContainer = ({ greeting }) => {
     const handleLogout = () => {
         const auth = getAuth();
         signOut(auth).then(() => {
+            clearCart([])
             setUser(null);
         }).catch(error => {
             Swal.fire('Error', error.message, 'error');
