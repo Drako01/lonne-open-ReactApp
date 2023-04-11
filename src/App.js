@@ -3,17 +3,20 @@ import Main from './components/js/Main'
 import Footer from './components/js/Footer'
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
     <div>
-      <CartProvider>     
-        <BrowserRouter>
-          <Header />
-          <Main />
-          <Footer />
-        </BrowserRouter>
-      </CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <Header />
+            <Main />
+            <Footer />
+          </BrowserRouter>
+        </CartProvider>
+      </AuthProvider>
     </div>
   );
 }
