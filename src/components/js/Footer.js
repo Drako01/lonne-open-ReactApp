@@ -60,8 +60,23 @@ const Footer = () => {
     const handleLogout = () => {
         const auth = getAuth();
         signOut(auth).then(() => {
-            clearCart([])
-            setUser(null);
+            Swal.fire({
+                title: "¿Estás seguro?",
+                text: "¿Deseas cerrar sesión?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "var(--first)",
+                cancelButtonColor: "var(--brick)",
+                confirmButtonText: "Sí, cerrar sesión",
+                cancelButtonText: "Cancelar",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    auth.signOut();
+                    clearCart([])
+                    setUser(null);
+                }
+            });
+
         }).catch(error => {
             Swal.fire('Error', error.message, 'error');
         });
@@ -79,7 +94,7 @@ const Footer = () => {
                         <div className='Line'></div>
 
                         {authenticated ? (
-                            <>                               
+                            <>
                                 <NavLink className='Gold'>Bienvenido <span>{user.email}</span></NavLink>
                                 <NavLink onClick={handleLogout}>Logout</NavLink>
                                 <div className='Line'></div>
