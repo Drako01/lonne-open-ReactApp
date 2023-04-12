@@ -44,7 +44,7 @@ const Footer = () => {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authenticatedUser) => {
-            if (authenticatedUser && authenticatedUser.email === "admin@mail.com") {
+            if (authenticatedUser) {
                 setAuthenticated(true);
                 setUser(authenticatedUser);
             } else {
@@ -98,9 +98,13 @@ const Footer = () => {
                                 <NavLink className='Gold'>Bienvenido <span>{user.email}</span></NavLink>
                                 <NavLink onClick={handleLogout}>Logout</NavLink>
                                 <div className='Line'></div>
-                                <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
-                                <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>
-                                <NavLink to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
+                                {authenticated && user.email === "admin@mail.com" && (
+                                    <>
+                                        <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
+                                        <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>
+                                        <NavLink to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
+                                    </>
+                                )}
                             </>
                         ) : (
                             <>
