@@ -62,10 +62,9 @@ const Navbar = () => {
                     <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>
                     {authenticated && (
                         <>
-                            <div className='Line'></div>
-                            <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
-                            <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>
-                            <NavLink to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
+                            <NavLink className='AdminList delay08' to='/history' ><li>Historial de Compras</li></NavLink>
+                            <NavLink className='AdminList delay08' to='/charge/products' ><li>Cargar Productos</li></NavLink>
+                            <NavLink className='AdminList delay08' to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
                         </>
                     )}
                 </nav>

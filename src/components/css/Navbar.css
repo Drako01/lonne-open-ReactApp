@@ -163,6 +163,10 @@ body.open .background{
     font-size: 1.5rem;
     
 }
+.AdminList li{
+    color: var(--gold);
+    text-shadow: .1rem .1rem .25rem var(--dark);
+}
 @media (width <= 740px) {
 
     .menu{
