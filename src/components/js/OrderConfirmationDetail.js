@@ -3,12 +3,16 @@ import { db } from '../../Firebase/firebaseConfig';
 import { doc, getDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { auth } from '../../Firebase/firebaseConfig';
 
 
 const OrderConfirmationDetail = () => {
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [authenticated, setAuthenticated] = useState(false);
+    const [user, setUser] = useState(null);
+
     const { orderId } = useParams();
 
     useEffect(() => {
@@ -36,6 +40,19 @@ const OrderConfirmationDetail = () => {
     const handlePrint = () => {
         window.print();
     };
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authenticatedUser) => {
+            if (authenticatedUser) {
+                setAuthenticated(true);
+                setUser(authenticatedUser);
+            } else {
+                setAuthenticated(false);
+                setUser(null);
+            }
+        });
+        return unsubscribe;
+    }, []);
+
 
     if (loading) {
         return (
@@ -58,12 +75,12 @@ const OrderConfirmationDetail = () => {
         });
         return null;
     }
-    
+
 
     const { buyer, products, total, date } = product;
     const formattedDate = new Date(date.toDate()).toLocaleDateString();
 
-    return (        
+    return (
         <div className='OrderConfirmation OutStock OrderFinal'>
             <section>
                 <h2>Recibo de Compra con ID#:</h2>
@@ -100,11 +117,15 @@ const OrderConfirmationDetail = () => {
                             </td>
                         </tr>
                     </tbody>
-                </table>                    
+                </table>
             </section>
             <div className='ComprarFinal OrderFinalButton oculto-impresion'>
                 <button onClick={handlePrint}>Imprimir</button>
-                <Link to='/history'>Volver</Link>
+                {authenticated && user.email === "admin@mail.com" ? (
+                    <Link to='/history'>Volver</Link>
+                ) : (
+                    <Link to='/myhistory'>Volver</Link>
+                )}
             </div>
         </div>
     );

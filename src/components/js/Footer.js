@@ -96,6 +96,7 @@ const Footer = () => {
                         {authenticated ? (
                             <>
                                 <NavLink className='Gold'>Bienvenido <span>{user.email}</span></NavLink>
+                                <NavLink to='/myhistory' className={'delay08'}><li>Mi Historial de Compras</li></NavLink>
                                 <NavLink onClick={handleLogout}>Logout</NavLink>
                                 <div className='Line'></div>
                                 {authenticated && user.email === "admin@mail.com" && (

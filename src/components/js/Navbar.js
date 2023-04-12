@@ -59,6 +59,7 @@ const Navbar = () => {
                         <NavLink key={index} to={`/category/${category}`} className={`delay${index + 1}`}><li>{category}</li></NavLink>
                     ))}
                     <NavLink to='/itemlist' ><li>Listado de Productos</li></NavLink>
+                    <NavLink to='/myhistory' className={'delay08'}><li>Mi Historial de Compras</li></NavLink>
                     <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>
                     {authenticated && (
                         <>
