@@ -2,11 +2,12 @@ import { NavLink } from 'react-router-dom';
 import CartWidget from './CartWidget'
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../Firebase/firebaseConfig';
+import { db,auth } from '../../Firebase/firebaseConfig';
 
 
 const Navbar = () => {
     const [categories, setCategories] = useState([]);
+    const [authenticated, setAuthenticated] = useState(false);
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -23,6 +24,16 @@ const Navbar = () => {
         fetchCategories();
     }, []);
 
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user && user.email === "admin@mail.com") {
+                setAuthenticated(true);
+            } else {
+                setAuthenticated(false);
+            }
+        });
+        return unsubscribe;
+    }, []);
 
     const toggleMenu = () => {
         const liElements = document.querySelectorAll('.menu li');
@@ -47,7 +58,15 @@ const Navbar = () => {
                     {categories.map((category, index) => (
                         <NavLink key={index} to={`/category/${category}`} className={`delay${index + 1}`}><li>{category}</li></NavLink>
                     ))}
-                    <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>                    
+                    <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>
+                    {authenticated && (
+                        <>
+                            <div className='Line'></div>
+                            <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
+                            <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>
+                            <NavLink to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
+                        </>
+                    )}
                 </nav>
             </div>
             <CartWidget />
