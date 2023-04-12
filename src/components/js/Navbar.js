@@ -47,8 +47,7 @@ const Navbar = () => {
                     {categories.map((category, index) => (
                         <NavLink key={index} to={`/category/${category}`} className={`delay${index + 1}`}><li>{category}</li></NavLink>
                     ))}
-                    <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>
-                    <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
+                    <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>                    
                 </nav>
             </div>
             <CartWidget />
