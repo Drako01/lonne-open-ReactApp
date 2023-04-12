@@ -65,7 +65,9 @@ footer.Bottom .Links{
     display: flex;
     gap: 1rem;
 }
-
+.Gold span{
+    color: var(--brick);
+}
 @media (width <= 980px) {
     .Footer p{
         font-size: 1rem;

@@ -6,7 +6,10 @@ import logo from '../assets/icons/logo.ico'
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
+import { getAuth, signOut } from 'firebase/auth';
 import { db, auth } from '../../Firebase/firebaseConfig';
+import Swal from 'sweetalert2';
+import { useCart } from '../../context/CartContext';
 
 
 const Footer = () => {
@@ -21,6 +24,8 @@ const Footer = () => {
     }
     const [categories, setCategories] = useState([]);
     const [authenticated, setAuthenticated] = useState(false);
+    const [user, setUser] = useState(null);
+    const { clearCart } = useCart();
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -38,15 +43,29 @@ const Footer = () => {
     }, []);
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user && user.email === "admin@mail.com") {
+        const unsubscribe = auth.onAuthStateChanged((authenticatedUser) => {
+            if (authenticatedUser && authenticatedUser.email === "admin@mail.com") {
                 setAuthenticated(true);
+                setUser(authenticatedUser);
             } else {
                 setAuthenticated(false);
+                setUser(null);
             }
         });
         return unsubscribe;
     }, []);
+
+
+
+    const handleLogout = () => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            clearCart([])
+            setUser(null);
+        }).catch(error => {
+            Swal.fire('Error', error.message, 'error');
+        });
+    };
 
     return (
         <div className="Footer oculto-impresion">
@@ -57,18 +76,25 @@ const Footer = () => {
                         <NavLink to='/'><li>Inicio</li></NavLink>
                         <NavLink to='/itemlist' ><li>Listado de Productos</li></NavLink>
                         <NavLink to='/contact' ><li>Contactenos</li></NavLink>
-                        <NavLink to='/login'>
-                            <li>Administración</li>
-                        </NavLink>
+                        <div className='Line'></div>
 
-                        {authenticated && (
-                            <>
+                        {authenticated ? (
+                            <>                               
+                                <NavLink className='Gold'>Bienvenido <span>{user.email}</span></NavLink>
+                                <NavLink onClick={handleLogout}>Logout</NavLink>
                                 <div className='Line'></div>
                                 <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
                                 <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>
                                 <NavLink to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
                             </>
+                        ) : (
+                            <>
+                                <NavLink to='/login'>
+                                    <li>Login</li>
+                                </NavLink>
+                            </>
                         )}
+
                     </div>
                     <div>
                         {categories.map((category, index) => (
