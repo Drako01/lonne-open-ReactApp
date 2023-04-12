@@ -60,7 +60,7 @@ li{
 .IconosMenu{
     position: relative;
     color: var(--light);
-    font-size: 1.5rem;
+    font-size: min( calc(.5rem + 1vw), 2rem);
     padding: 20px 0;
     width: 300px;
     text-decoration: none;
@@ -174,9 +174,7 @@ body.open .background{
         padding-top: 4rem;
         align-items: start;
     }
-    .menu nav a{
-        font-size: 1.2rem;
-    }
+    
     .menu a, .IconosMenu a li{
         padding: 1rem 0;
     }
