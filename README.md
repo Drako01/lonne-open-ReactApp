@@ -16,7 +16,7 @@
 ## Desarrollo de un E-Commerce Funcional desde el FrontEnd utilizando la Librería REACT JS
 
 <p align="center"> 
-    <a href="https://lonne-open-proshop.netlify.app/" target="_blank">
+    <a href="https://lonne-open-proshop.vercel.app/" target="_blank">
         <img src="https://lonneopen.com/img/logo.png" alt="CoderHouse"  height="300"/>
     </a>
 </p>
