@@ -4,12 +4,12 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAI8fIhRosqtbuo7JIquCj_pYhFBYmE0b8",
-    authDomain: "backend-lonne-open-reactapp.firebaseapp.com",
-    projectId: "backend-lonne-open-reactapp",
-    storageBucket: "backend-lonne-open-reactapp.appspot.com",
-    messagingSenderId: "995648902023",
-    appId: "1:995648902023:web:d5fbb68b3dcba19277f922"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
 };
 
 
