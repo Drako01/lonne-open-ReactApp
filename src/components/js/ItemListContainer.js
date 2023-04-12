@@ -86,6 +86,7 @@ const ItemListContainer = ({ greeting }) => {
             }).then((result) => {
                 if (result.isConfirmed) {
                     auth.signOut();
+                    localStorage.removeItem('user');
                     clearCart([])
                     setUser(null);
                 }

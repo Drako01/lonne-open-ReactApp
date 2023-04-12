@@ -73,6 +73,7 @@ const Footer = () => {
                 if (result.isConfirmed) {
                     auth.signOut();
                     clearCart([])
+                    localStorage.removeItem('user');
                     setUser(null);
                 }
             });
