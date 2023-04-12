@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { db } from '../../Firebase/firebaseConfig';
+import { db, auth } from '../../Firebase/firebaseConfig';
 import { collection, query, getDocs, deleteDoc, doc, orderBy } from 'firebase/firestore';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import close from '../assets/icons/close.png'
 import buscar from '../assets/icons/search.png';
@@ -11,7 +11,8 @@ const History = () => {
     const [history, setHistory] = useState([]);
     const [loading, setLoading] = useState(true);
     const { historyId } = useParams();
-
+    const [authenticated, setAuthenticated] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setLoading(true);
@@ -64,7 +65,16 @@ const History = () => {
         fetchHistory();
     }, [historyId]);
 
-
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user && user.email === "admin@mail.com") {
+                setAuthenticated(true);
+            } else {
+                setAuthenticated(false);
+            }
+        });
+        return unsubscribe;
+    }, []);
 
     const handleDelete = async (id) => {
         await Swal.fire({
@@ -97,64 +107,78 @@ const History = () => {
         );
     }
 
+    const handleOnClick = () => {
+        navigate('/');
+    };
+
     return (
-        <div className="checkout-payment CarroDeCompras CheckOutDiv">
-            <h1 className='Mini'>Historial de Compras</h1>
+        (authenticated) ? (
+            <>
+                <div className="checkout-payment CarroDeCompras CheckOutDiv">
+                    <h1 className='Mini'>Historial de Compras</h1>
 
-            {history.length > 0 ? (
-                <table className="ItemListDetail">
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Comprador</th>
-                            <th>E Mail</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario</th>
-                            <th>Precio Total</th>
-                            <th>Orden</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {history.map((item) =>
-                            item.products.map((product, index) =>
-                                <tr key={item.id + '_' + index}>
-                                    {index === 0 && <td rowSpan={item.products.length}>{item.date}</td>}
-                                    {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.buyer}</td>}
-                                    {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.email}</td>}
-                                    <td className="LeftItem">{product.name}</td>
-                                    <td>{product.quantity}</td>
-                                    <td className='PriceProducto RightItem'>${product.price}.-</td>
-                                    {index === 0 && <td className='PriceProducto RightItem' rowSpan={item.products.length}>${item.total}.-</td>}
-                                    {index === 0 && <td rowSpan={item.products.length} >
-                                        <div className='ComprarFinal FinalButtons SearchButton'>
-                                            <Link to={`/orderconfirmationdetail/${item.id}`}>
-                                                <img src={buscar} className="App-icono Car CarritoList" alt="icono" />
-                                            </Link>
-                                        </div>
-                                    </td>
-                                    }
-                                    {index === 0 &&
-                                        <td rowSpan={item.products.length} className='EliminarItem'>
-                                            <div className='HistoryDeleteButton '>
-                                                <button onClick={() => handleDelete(item.id)}>
-                                                    <img src={close} alt='Close' />
-                                                </button>
-                                            </div>
-                                        </td>
-                                    }
-
+                    {history.length > 0 ? (
+                        <table className="ItemListDetail">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Comprador</th>
+                                    <th>E Mail</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Precio Total</th>
+                                    <th>Orden</th>
+                                    <th>Eliminar</th>
                                 </tr>
-                            )
-                        )}
-                    </tbody>
+                            </thead>
+                            <tbody>
+                                {history.map((item) =>
+                                    item.products.map((product, index) =>
+                                        <tr key={item.id + '_' + index}>
+                                            {index === 0 && <td rowSpan={item.products.length}>{item.date}</td>}
+                                            {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.buyer}</td>}
+                                            {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.email}</td>}
+                                            <td className="LeftItem">{product.name}</td>
+                                            <td>{product.quantity}</td>
+                                            <td className='PriceProducto RightItem'>${product.price}.-</td>
+                                            {index === 0 && <td className='PriceProducto RightItem' rowSpan={item.products.length}>${item.total}.-</td>}
+                                            {index === 0 && <td rowSpan={item.products.length} >
+                                                <div className='ComprarFinal FinalButtons SearchButton'>
+                                                    <Link to={`/orderconfirmationdetail/${item.id}`}>
+                                                        <img src={buscar} className="App-icono Car CarritoList" alt="icono" />
+                                                    </Link>
+                                                </div>
+                                            </td>
+                                            }
+                                            {index === 0 &&
+                                                <td rowSpan={item.products.length} className='EliminarItem'>
+                                                    <div className='HistoryDeleteButton '>
+                                                        <button onClick={() => handleDelete(item.id)}>
+                                                            <img src={close} alt='Close' />
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            }
 
-                </table>
-            ) : (
-                <h3>No hay historial de compras.</h3>
-            )}
-        </div>
+                                        </tr>
+                                    )
+                                )}
+                            </tbody>
+
+                        </table>
+                    ) : (
+                        <h3>No hay historial de compras.</h3>
+                    )}
+                </div>
+            </>) : (
+            <>
+                <div className="ButtonItemListDetail">
+                    <button onClick={handleOnClick}>Volver</button>
+                </div>
+                <h3>No esta Autorizado para acceder a esta Página</h3>
+            </>
+        )
     );
 };
 export default History;

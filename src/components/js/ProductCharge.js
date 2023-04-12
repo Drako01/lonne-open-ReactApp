@@ -1,12 +1,29 @@
-import { db } from '../../Firebase/firebaseConfig';
+import { db, auth } from '../../Firebase/firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const ProductCharge = ({ greeting }) => {
     const [loading, setLoading] = useState(false);
-    
+    const [authenticated, setAuthenticated] = useState(false);
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user && user.email === "admin@mail.com") {
+                setAuthenticated(true);
+            } else {
+                setAuthenticated(false);
+            }
+        });
+        return unsubscribe;
+    }, []);
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -40,6 +57,9 @@ const ProductCharge = ({ greeting }) => {
             setLoading(false);
         }
     };
+    const handleOnClick = () => {
+        navigate('/');
+    };
 
     if (loading) {
         return (
@@ -50,74 +70,87 @@ const ProductCharge = ({ greeting }) => {
         );
     }
     return (
-        <div className="Contacto">
-            <h1 className='Mini'>{greeting}</h1>
-            <form className="ContactForm" onSubmit={handleSubmit}>
-                <div className="LonneInput">
-                    <label htmlFor="name">Nombre:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        required
-                    />
-                </div>
-                <div className="LonneInput">
-                    <label htmlFor="username">Categoría:</label>
-                    <input
-                        type="text"
-                        name="category"
-                        required
-                    />
-                </div>
-                <div className="LonneInput">
-                    <label htmlFor="description">Descripción:</label>
-                    <textarea
-                        name="description"
-                        required
-                    />
-                </div>
-                <div className="LonneInput">
-                    <label htmlFor="password">Precio:</label>
-                    <input
-                        type="number"
-                        name="price"
-                        required
-                    />
-                </div>
 
-                <div className="LonneInput">
-                    <label htmlFor="password">Direccón de la Imágen:</label>
-                    <input
-                        type="text"
-                        name="imagenName"
-                        required
-                    />
-                </div>
-                <div className="LonneInput">
-                    <label htmlFor="password">Talle:</label>
-                    <input
-                        type="text"
-                        name="size"
-                        required
-                    />
-                </div>
-                <div className="LonneInput">
-                    <label htmlFor="password">Stock:</label>
-                    <input
-                        type="number"
-                        name="stock"
-                        required
-                    />
-                </div>
-                <div className="ComprarFinal FinalButtons">
-                    <button
-                        type="submit">
-                        Cargar Producto
-                    </button>
-                </div>
-            </form>
+        (authenticated) ? (
+            <>
+                <div className="Contacto">
+                    <h1 className='Mini'>{greeting}</h1>
+                    <form className="ContactForm" onSubmit={handleSubmit}>
+                        <div className="LonneInput">
+                            <label htmlFor="name">Nombre:</label>
+                            <input
+                                type="text"
+                                name="name"
+                                required
+                            />
+                        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="username">Categoría:</label>
+                            <input
+                                type="text"
+                                name="category"
+                                required
+                            />
+                        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="description">Descripción:</label>
+                            <textarea
+                                name="description"
+                                required
+                            />
+                        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="password">Precio:</label>
+                            <input
+                                type="number"
+                                name="price"
+                                required
+                            />
+                        </div>
 
-        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="password">Direccón de la Imágen:</label>
+                            <input
+                                type="text"
+                                name="imagenName"
+                                required
+                            />
+                        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="password">Talle:</label>
+                            <input
+                                type="text"
+                                name="size"
+                                required
+                            />
+                        </div>
+                        <div className="LonneInput">
+                            <label htmlFor="password">Stock:</label>
+                            <input
+                                type="number"
+                                name="stock"
+                                required
+                            />
+                        </div>
+                        <div className="ComprarFinal FinalButtons">
+                            <button
+                                type="submit">
+                                Cargar Producto
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </>) : (
+            <>
+                <div className="ButtonItemListDetail">
+                    <button onClick={handleOnClick}>Volver</button>
+                </div>
+                <h3>No esta Autorizado para acceder a esta Página</h3>
+            </>
+        )
+
+
     );
 };
 
