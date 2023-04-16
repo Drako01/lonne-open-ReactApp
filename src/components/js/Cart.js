@@ -83,6 +83,9 @@ const Cart = () => {
     const cartItems = cart.map((p) => (
         <tr key={p.id}>
             <td className='NombreProducto'>{p.name}</td>
+            <td className='ImagenCart'>
+                <img src={p.image} alt={p.name} />
+            </td>
             <td className='PriceProducto'>{`$${p.price}.-`}</td>
             <td>{p.quantity}</td>
             <td className='PriceProducto'>{`$${p.quantity * p.price}`}</td>
@@ -101,6 +104,7 @@ const Cart = () => {
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Foto</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
                         <th>Subtotal</th>
