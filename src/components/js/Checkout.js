@@ -86,7 +86,7 @@ const Checkout = () => {
             }).then(() => {
                 navigate('/');
             });
-        } else if ( name.length === 0) {
+        } else if (name.length === 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Lo siento.!',
@@ -261,8 +261,13 @@ const Checkout = () => {
                         </div>
                     ) : (
                         <div className={`ComprarFinal FinalButtons ${email.length === 0 || email !== reEmail ? 'Disabled' : ''}`}>
-                            <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
+                            {email.length === 0 || email !== reEmail ? (
+                                <button disabled onClick={handleOnClick}>Pagar ${totalPrice}</button>
+                            ) : (
+                                <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
+                            )}
                         </div>
+
                     )}
 
                 </div>
