@@ -109,7 +109,7 @@ const ProductCharge = ({ greeting }) => {
                         </div>
 
                         <div className="LonneInput">
-                            <label htmlFor="password">Direccón de la Imágen:</label>
+                            <label htmlFor="password">Dirección de la Imágen:</label>
                             <input
                                 type="text"
                                 name="imagenName"
