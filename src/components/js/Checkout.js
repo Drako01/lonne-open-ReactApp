@@ -47,7 +47,7 @@ const Checkout = () => {
             products: cart,
             card: number,
             buyer: name,
-            email: email,
+            email: email  || user.email,
         };
 
         try {
