@@ -177,7 +177,7 @@ const Checkout = () => {
                             <form className="CreditCardForm">
                                 <div className="LonneInput">
                                     <label htmlFor="username">Email:</label>
-                                    <input type="email" name="email" value={user.email} onChange={handleEmailChange} required />
+                                    <input type="email" name="email" value={user.email} />
                                 </div>
                             </form>
                         </div>
