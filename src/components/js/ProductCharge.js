@@ -37,15 +37,9 @@ const ProductCharge = ({ greeting }) => {
         const stock = event.target.stock.value;
     
         try {
-            setLoading(true);
-    
-            // Create a storage reference with a unique filename
-            const storageRef = ref(storage, `img/${imageFile.name}`);
-    
-            // Upload the image file to Firebase Storage
-            const snapshot = await uploadBytes(storageRef, imageFile);
-    
-            // Get the download URL of the uploaded image
+            setLoading(true);    
+            const storageRef = ref(storage, `img/${imageFile.name}`);    
+            const snapshot = await uploadBytes(storageRef, imageFile);    
             const imageUrl = await getDownloadURL(snapshot.ref);
     
             const products = {
