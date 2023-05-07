@@ -164,7 +164,6 @@ body.open .background{
     
 }
 .AdminList li{
-    color: var(--gold);
     text-shadow: .1rem .1rem .25rem var(--dark);
 }
 @media (width <= 740px) {
