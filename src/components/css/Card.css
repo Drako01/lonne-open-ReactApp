@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 .Card h2{
-    font-size: 1.6rem;
+    font-size: 1.4rem;    
 }
 
 .Card h3{
@@ -58,7 +58,7 @@
     text-align: left;
 }
 .Dates h2{
-    color: var(--brick);
+    color: var(--third);
 }
 
 .Card .Btn {
@@ -69,9 +69,9 @@
 }
 
 .Card button{
-    border: solid 1px var(--brick);
+    border: solid 1px var(--third);
     background-color: transparent;
-    color: var(--brick);
+    color: var(--third);
     min-width: 230px;
 }
 
@@ -86,9 +86,9 @@
     border-radius: .25rem;
     min-height: 2.5rem;
     font-size: 1rem;
-    border: solid 1px var(--brick);
+    border: solid 1px var(--third);
     background-color: transparent;
-    color: var(--brick);
+    color: var(--third);
     min-width: 230px;
     text-decoration: none;
     text-align: center;
@@ -217,6 +217,7 @@
 }
 h4.Number{
     font-size: 1.5rem;
+    color: var(--third);
 }
 .Card a.ProductInCart{
     background-color: var(--fourth);
@@ -265,8 +266,7 @@ h4.Number{
         margin: 8rem 1.5rem;
         padding-top: 2rem;
         padding-left: 3.125rem;
-        padding-right: 3.125rem;
-        width: 90% ;
+        padding-right: 3.125rem;       
     }
     .Card .Dates{
         padding:  1rem 1.2rem 1rem 0;
@@ -305,11 +305,10 @@ h4.Number{
 @media (width <= 640px) {
     .Card,
     .CardDetail{
-        width: 95%;
         margin: 3rem 0;
     }
     .CardDetail{
-        margin: 8rem .5rem 3rem .5rem ;
+        margin: 8rem 0rem 3rem 0rem ;
     }
     .CardDetail .Dates h2 {
         font-size: 2rem;

@@ -74,5 +74,8 @@ h4.NoMargin {
     }
     .CategorySelect select option{
         width: 340px;
+    }    
+    .CategorySelect {
+        flex-direction: column;
     }
 }
