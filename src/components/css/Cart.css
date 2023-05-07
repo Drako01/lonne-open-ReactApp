@@ -45,13 +45,15 @@ td {
 }
 
 table>tbody>tr>td {
-    background-color: white;
+    background-color:  white !important;
     color: var(--fourth);
     font-size: 1.1rem;
     height: 2.5rem;
     text-align: center;
 }
-
+.SearchButton a {
+    border: solid 1px  var(--white) !important;
+}
 .EliminarItem {
     background-color: var(--brick) !important;
 }
