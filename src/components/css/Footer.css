@@ -33,7 +33,7 @@ footer{
 }
 footer.Top{
     border-bottom: 2px solid var(--light);
-    padding: 2rem;
+    padding: 2rem 0;
 }
 footer.Top a{
     color: var(--light);
