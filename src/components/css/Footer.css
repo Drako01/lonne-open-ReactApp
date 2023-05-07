@@ -37,6 +37,7 @@ footer.Top{
 }
 footer.Top a{
     color: var(--light);
+    font-size: 1rem;
 }
 footer.Top img{
     max-width: 4rem;

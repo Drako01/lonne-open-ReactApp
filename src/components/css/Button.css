@@ -16,7 +16,8 @@ button:hover {
 
 .ComprarFinal {
     display: flex; 
-    justify-content: center;  
+    justify-content: center; 
+    align-items: center; 
 }
 .FinalButtons{
     flex-direction: column;

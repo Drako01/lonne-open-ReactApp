@@ -7,6 +7,7 @@ import { getDocs, collection, query, where } from 'firebase/firestore';
 import { db } from '../../Firebase/firebaseConfig';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useCart } from '../../context/CartContext';
+import Pagination from './Pagination';
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
@@ -17,6 +18,15 @@ const ItemListContainer = ({ greeting }) => {
     const [categories, setCategories] = useState([]);
     const [user, setUser] = useState(null);
     const { clearCart } = useCart();
+
+    // Paginación
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 8;
+    const totalPages = Math.ceil(products.length / productsPerPage);
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
 
     useEffect(() => {
         setLoading(true);
@@ -64,12 +74,17 @@ const ItemListContainer = ({ greeting }) => {
 
     const handleCategoryChange = event => {
         const category = event.target.value;
+        setCurrentPage(1);
         if (category === 'Todas') {
             navigate('/');
         } else {
             navigate(`/category/${category}`);
         }
     };
+    const handlePageChange = page => {
+        setCurrentPage(page);
+    };
+
 
     const handleLogout = () => {
         const auth = getAuth();
@@ -108,7 +123,7 @@ const ItemListContainer = ({ greeting }) => {
     const currentPath = window.location.pathname;
     const hideOnOtherPaths = currentPath !== "/";
 
-    
+
     return (
         <div>
             <div className={`hide-on-other-paths ${hideOnOtherPaths ? 'hidden' : ''}`}>
@@ -150,7 +165,14 @@ const ItemListContainer = ({ greeting }) => {
 
             </div>
 
-            <CardList products={products} />
+            <CardList products={currentProducts} />
+
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
+
             <div className='ButtonItemListDetail Listado'>
                 <button onClick={() => navigate('/itemlist')}>
                     Ver Listado Completo
