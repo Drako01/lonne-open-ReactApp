@@ -61,6 +61,7 @@ const Navbar = () => {
                     <NavLink to='/itemlist' ><li>Listado de Productos</li></NavLink>
                     <NavLink to='/myhistory' className={'delay08'}><li>Mi Historial de Compras</li></NavLink>
                     <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>
+                    <NavLink to='https://lonneopen.com/' className={'delay07'}><li>Volver al Sitio</li></NavLink>
                     {authenticated && (
                         <>
                             <NavLink className='AdminList delay08' to='/history' ><li>Historial de Compras</li></NavLink>

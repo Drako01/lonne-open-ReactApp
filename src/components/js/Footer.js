@@ -4,7 +4,7 @@ import facebook from '../assets/icons/facebook.svg';
 import WhatsAppButton from './WhatsAppButton';
 import logo from '../assets/icons/logo.ico'
 import { NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { getAuth, signOut } from 'firebase/auth';
 import { db, auth } from '../../Firebase/firebaseConfig';
@@ -22,6 +22,7 @@ const Footer = () => {
     const mensajeFacebook = () => {
         window.open("https://www.facebook.com/people/Lonn%C3%A9-Open-Tenis/100063638766614/?locale=es_LA")
     }
+    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
     const [categories, setCategories] = useState([]);
     const [authenticated, setAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
@@ -55,7 +56,9 @@ const Footer = () => {
         return unsubscribe;
     }, []);
 
-
+    useEffect(() => {
+        setCurrentYear(new Date().getFullYear());
+    }, []);
 
     const handleLogout = () => {
         const auth = getAuth();
@@ -82,6 +85,8 @@ const Footer = () => {
             Swal.fire('Error', error.message, 'error');
         });
     };
+
+
 
     return (
         <div className="Footer oculto-impresion">
@@ -127,8 +132,10 @@ const Footer = () => {
             <footer className='Bottom'>
                 <div className='Legal'>
                     <p>
-                        &copy; Alejandro Di Stefano | Entrega Final | Curso de React en CoderHouse | Comisión #39610
+                        &copy; ArmoTuSitio.com | Todos los derechos reservados | Año {currentYear}
                     </p>
+
+
                 </div>
                 <section className='Iconos-social Links'>
                     <img src={whatsapp} alt="icono" onClick={mensajeWhatsApp} />

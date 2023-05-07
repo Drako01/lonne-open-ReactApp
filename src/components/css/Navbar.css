@@ -60,9 +60,10 @@ li{
 .IconosMenu{
     position: relative;
     color: var(--light);
-    font-size: min( calc(.5rem + 1vw), 1.4rem);
-    padding: 20px 0;
-    width: 300px;
+    font-size: min( calc(.8rem + 1vw), 1.6rem);
+    padding: min( calc(.3rem + 1vw), 1rem);
+    line-height: 1.5rem;
+    width: 400px;
     text-decoration: none;
     transition: 0.4s;
 }
