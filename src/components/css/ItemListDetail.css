@@ -22,6 +22,7 @@
     font-size: 1rem;
     padding: 0 .5rem;
     background-color: white;
+    border: solid 0.5px var(--sweetdark);
 }
 
 .ItemListDetail tbody tr td .InputCantidad {
