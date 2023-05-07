@@ -77,7 +77,7 @@ const ItemAdmin = ({ id, name, category, description, image, size, price, stock 
                     <img src={image} alt={name} />
                     <div className='DatesAdmin'>
                         <h3>Imagen:</h3>
-                        <input type="file" accept="image/*" onChange={handleImageChange} />
+                        <div className="LonneInput"><input type="file" accept="image/*" onChange={handleImageChange} /></div>
                         <h3>Nombre: </h3>
                         <div className="LonneInput"><input type='text' value={newName} onChange={handleNameChange} /></div>
                         <h3>Categoria: </h3>
