@@ -1,8 +1,9 @@
-import { db, auth } from '../../Firebase/firebaseConfig';
+import { db, auth, storage } from '../../Firebase/firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore';
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
 
@@ -26,37 +27,48 @@ const ProductCharge = ({ greeting }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
+        const imageFile = event.target.image.files[0];
         const name = event.target.name.value;
         const description = event.target.description.value;
         const category = event.target.category.value;
         const price = event.target.price.value;
         const size = event.target.size.value;
-        const imagenName = event.target.imagenName.value;
         const stock = event.target.stock.value;
-
-        const products = {
-            name,
-            description,
-            category,
-            price,
-            size,
-            image: `/img/${imagenName}`,
-            stock,
-        };
-
+    
         try {
             setLoading(true);
+    
+            // Create a storage reference with a unique filename
+            const storageRef = ref(storage, `img/${imageFile.name}`);
+    
+            // Upload the image file to Firebase Storage
+            const snapshot = await uploadBytes(storageRef, imageFile);
+    
+            // Get the download URL of the uploaded image
+            const imageUrl = await getDownloadURL(snapshot.ref);
+    
+            const products = {
+                name,
+                description,
+                category,
+                price,
+                size,
+                image: imageUrl,
+                stock,
+            };
+    
             const productsCollection = collection(db, "products");
             await addDoc(productsCollection, products);
             Swal.fire('Éxito', 'Datos guardados en Firestore', 'success');
-
         } catch (error) {
             Swal.fire('Error', error.message, 'error');
         } finally {
             setLoading(false);
         }
     };
+    
+
     const handleOnClick = () => {
         navigate('/');
     };
@@ -107,12 +119,12 @@ const ProductCharge = ({ greeting }) => {
                                 required
                             />
                         </div>
-
                         <div className="LonneInput">
-                            <label htmlFor="password">Dirección de la Imágen:</label>
+                            <label htmlFor="image">Imagen:</label>
                             <input
-                                type="text"
-                                name="imagenName"
+                                type="file"
+                                name="image"
+                                accept="image/*"
                                 required
                             />
                         </div>
