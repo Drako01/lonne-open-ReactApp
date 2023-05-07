@@ -59,7 +59,6 @@ const ItemAdmin = ({ id, name, category, description, image, size, price, stock 
                 const imageUrl = await getDownloadURL(snapshot.ref);
                 updatedProduct.image = imageUrl;
             } else {
-                // If no new image file is selected, keep the previous image
                 updatedProduct.image = image;
             }
 
