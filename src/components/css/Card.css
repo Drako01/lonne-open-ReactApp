@@ -146,11 +146,11 @@
 }
 .CardDetail img{
     margin: -100px 0 30px 0;
-    width: 32rem;
     max-width: 1000px;
     border-radius: 1rem;
     box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
     transition: transform .2s ease-in-out; 
+    object-fit: cover;
 }
 .CardDetail img.Donald{
     margin: 0;
