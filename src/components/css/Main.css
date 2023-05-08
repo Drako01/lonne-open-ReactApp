@@ -9,39 +9,44 @@
     color: var(--brick);
 }
 
-.App-main h1{
+.App-main h1 {
     font-family: var(--fontA);
-    font-size: min( calc(0.5rem + 5vw), 5rem);
+    font-size: min(calc(0.5rem + 5vw), 5rem);
     margin-bottom: 4rem;
     color: var(--first);
     text-shadow: .025rem .25rem 1.25rem var(--first);
     text-align: center;
 }
-.Logo-Icono{
+
+.Logo-Icono {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 3rem 0;
 }
+
 .hidden {
     display: none;
-  }
-@media (width <= 840px) {
-    .App-main h1{
+}
+
+@media (width <=840px) {
+    .App-main h1 {
         font-size: 3rem;
         margin-bottom: 3rem;
     }
 }
 
-@media (width <= 640px) {
-    .Logo-Icono{
+@media (width <=640px) {
+
+    /* .Logo-Icono{
         justify-content: flex-end;
         margin-right: 5rem;        
-    }
-    .Logo-Icono img{
+    } */
+    .Logo-Icono img {
         height: 5rem;
     }
-    .App-main h1{
+
+    .App-main h1 {
         font-size: 2rem;
     }
 }
