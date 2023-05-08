@@ -204,7 +204,25 @@
     justify-content: center;
     align-items: center;
 }
+.Controls h2{
+    font-size: 1.2rem;
+}
+.Controls button{
+    border: none;
+    color: var(--fourth);
+    font-size: 1.2rem;
+}
+.MuiTypography-h5 {
+    font-size: 1.2rem !important;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.334;
+    letter-spacing: 0em;
+}
 
+.MuiButton-textSecondary {
+    color: var(--fourth) !important;
+}
 .Card button.ButtonControls{
     border: none;
     min-width: 24px !important;
