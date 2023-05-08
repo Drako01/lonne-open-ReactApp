@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const auth = getAuth();
@@ -89,6 +89,9 @@ const Signup = () => {
                     <button type="submit">Crear cuenta</button>
                 </div>
             </form>
+            <div className="Signup">
+                <Link to={'/login'}>Ya tienes cuenta? Inicia Sesión.!</Link>
+            </div>
         </div>
     );
 };

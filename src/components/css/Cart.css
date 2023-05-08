@@ -51,9 +51,7 @@ table>tbody>tr>td {
     height: 2.5rem;
     text-align: center;
 }
-.SearchButton a {
-    border: solid 1px  var(--white) !important;
-}
+
 .EliminarItem {
     background-color: var(--brick) !important;
 }
