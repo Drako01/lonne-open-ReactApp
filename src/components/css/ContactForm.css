@@ -69,6 +69,11 @@ h4.NoMargin {
 
 p.MuiTypography-body1 {
     padding-top: 2rem;
+    
+}
+.MuiButton-containedPrimary {
+    color: #fff;
+    background-color: var(--fourth) !important;
 }
 @media (width <= 640px) {
     .CategorySelect select {

@@ -110,7 +110,9 @@ iframe {
     ul) a {
     text-decoration: none;
 }
-
+a{
+    color: var(--fourth);
+}
 :is(ul) li {    
     list-style: none;
 }
