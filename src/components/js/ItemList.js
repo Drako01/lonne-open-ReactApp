@@ -167,41 +167,49 @@ const ItemList = () => {
                                 <button onClick={handleOnClick}>Volver</button>
                             </div>
                             <section className='Precios'>
-                                <div className="ButtonItemListDetail Porcentaje">
-                                    <h5>Filtro por categorías </h5>                                    
-                                    <select id="category" value={selectedCategory} onChange={handleCategoryChange} className="InputPorcentaje">
-                                        <option value="all">Todos los Productos</option>
-                                        {[...new Set(products.map((product) => product.category))].map((category) => (
-                                            <option key={category} value={category}>{category}</option>
-                                        ))}
-                                    </select>                                    
+                                <div className='Precios_01'>
+                                    <div className="ButtonItemListDetail Porcentaje">
+                                        <h5>Filtro por categorías </h5>
+                                        <select id="category" value={selectedCategory} onChange={handleCategoryChange} className="InputPorcentaje">
+                                            <option value="all">Todos los Productos</option>
+                                            {[...new Set(products.map((product) => product.category))].map((category) => (
+                                                <option key={category} value={category}>{category}</option>
+                                            ))}
+                                        </select>
+
+                                    </div>
+                                    <div className="ButtonItemListDetail">
+                                        <button onClick={() => handlePriceUpdate(-10, selectedCategory)}>Aplicar un Descuento del 10% a Todos los Productos</button>
+                                    </div>
+
 
                                 </div>
-                                <div className="ButtonItemListDetail">
-                                    <button onClick={() => handlePriceUpdate(-10, selectedCategory)}>Aplicar un Descuento del 10% a Todos los Productos</button>
-                                </div>
-                                <div className="ButtonItemListDetail Porcentaje">
-                                    <input
-                                        className="InputPorcentaje"
-                                        type="number"
-                                        value={discountPercentage}
-                                        onChange={(e) => setDiscountPercentage(parseFloat(e.target.value))}
-                                        placeholder="Porcentaje de descuento"
-                                    />
-                                    <h5>%</h5>
-                                    <button onClick={() => handlePriceUpdate(-discountPercentage, selectedCategory)}>Aplicar Descuento de precios</button>
-                                </div>
+                                <div className='Precios_01'>
 
-                                <div className="ButtonItemListDetail Porcentaje">
-                                    <input
-                                        className="InputPorcentaje"
-                                        type="number"
-                                        value={increasePercentage}
-                                        onChange={(e) => setIncreasePercentage(parseFloat(e.target.value))}
-                                        placeholder="Porcentaje de aumento"
-                                    />
-                                    <h5>%</h5>
-                                    <button onClick={() => handlePriceUpdate(increasePercentage, selectedCategory)}>Aplicar Aumento de precios</button>
+                                    <div className="ButtonItemListDetail Porcentaje">
+                                        <input
+                                            className="InputPorcentaje"
+                                            type="number"
+                                            value={discountPercentage}
+                                            onChange={(e) => setDiscountPercentage(parseFloat(e.target.value))}
+                                            placeholder="Porcentaje de descuento"
+                                        />
+                                        <h5>%</h5>
+                                        <button onClick={() => handlePriceUpdate(-discountPercentage, selectedCategory)}>Aplicar Descuento de precios</button>
+                                    </div>
+
+                                    <div className="ButtonItemListDetail Porcentaje">
+                                        <input
+                                            className="InputPorcentaje"
+                                            type="number"
+                                            value={increasePercentage}
+                                            onChange={(e) => setIncreasePercentage(parseFloat(e.target.value))}
+                                            placeholder="Porcentaje de aumento"
+                                        />
+                                        <h5>%</h5>
+                                        <button onClick={() => handlePriceUpdate(increasePercentage, selectedCategory)}>Aplicar Aumento de precios</button>
+                                    </div>
+
                                 </div>
                             </section>
                             <table className="ItemListDetail">
