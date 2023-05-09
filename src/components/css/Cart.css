@@ -45,7 +45,7 @@ td {
 }
 
 table>tbody>tr>td {
-    background-color:  white !important;
+    background-color: white !important;
     color: var(--fourth);
     font-size: 1.1rem;
     height: 2.5rem;
@@ -81,21 +81,98 @@ td.EliminarItem {
     align-items: center;
     background-color: var(--brick);
 }
-a.CarroVacioBoton{
+
+a.CarroVacioBoton {
     background-color: var(--brick);
 }
-a.CarroVacioBoton:hover{
+
+a.CarroVacioBoton:hover {
     background-color: var(--light);
     color: var(--brick);
 }
+
 .CarritoVacio h3 {
     font-size: 1.8rem;
     color: var(--light);
     padding: .8rem;
 }
-.ImagenCart img{
+
+.ImagenCart img {
     width: 3rem;
 }
+
+td.Grey {
+    background-color: #ddd !important;   
+    
+}
+
+@media (max-width: 680px) {
+    .mobile-view {
+        padding: 1rem;
+    }
+
+    .mobile-view .MuiTableContainer-root {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .mobile-view .MuiTable {
+        width: 380px;
+    }
+
+    .mobile-view .MuiTableHead-root,
+    .mobile-view .MuiTableBody-root {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mobile-view .MuiTableCell-head {
+        display: none;
+    }
+
+    .mobile-view .MuiTableCell-body {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        word-break: break-word;
+        justify-content: space-evenly;
+        height: 5rem;
+        font-size: 1rem;
+
+    }
+
+    .mobile-view .css-1q1u3t4-MuiTableRow-root {
+        margin-bottom: 1rem;
+    }
+
+    .mobile-view .MuiTableCell-body img {
+        width: 4rem !important;
+        height: 4rem !important;
+    }
+
+    .mobile-view .MuiTableCell-body:nth-of-type(1) {
+        flex: 1;
+        font-weight: bold;
+    }
+
+    .mobile-view .MuiTableCell-body:nth-of-type(5) {
+        flex-basis: 100%;
+    }
+
+    .mobile-view .MuiIconButton-root {
+        padding: 8px;
+    }
+
+    .mobile-view .MuiCard {
+        margin-top: 1rem;
+    }
+
+    .css-1q1u3t4-MuiTableRow-root {
+        width: 100% !important;
+    }
+}
+
 @media (width <=640px) {
     .CarroDeCompras {
         width: 100%;
@@ -130,6 +207,7 @@ a.CarroVacioBoton:hover{
     .CarritoVacio h3 {
         font-size: 1.2rem;
     }
+
     .ComprarFinal a {
         min-width: 5rem;
         font-size: .8rem;

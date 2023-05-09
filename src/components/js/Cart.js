@@ -87,26 +87,21 @@ const Cart = () => {
         <TableRow key={p.id}>
             <TableCell>{p.name}</TableCell>
             <TableCell>
-                <img
-                    src={p.image}
-                    alt={p.name}
-                    style={{ width: '50px', height: '50px' }}
-                />
+                <img src={p.image} alt={p.name} style={{ width: '50px', height: '50px' }} />
             </TableCell>
             <TableCell>{`$${p.price}.-`}</TableCell>
             <TableCell>{p.quantity}</TableCell>
-            <TableCell>{`$${p.quantity * p.price}`}</TableCell>
-            <TableCell>
-                <IconButton onClick={() => clickRemoveItem(p.id)} aria-label="Eliminar">
-                    <DeleteIcon />
-                </IconButton>
-            </TableCell>
+            <TableCell>{`$${(p.quantity * p.price).toFixed(2)}`}</TableCell>            
+                <TableCell className='Grey'>
+                    <IconButton onClick={() => clickRemoveItem(p.id)} aria-label="Eliminar">
+                        <DeleteIcon />
+                    </IconButton>
+                </TableCell>           
         </TableRow>
     ));
 
-
     return (
-        <section className="CarroDeCompras">
+        <section className="CarroDeCompras mobile-view">
             <h1 className="Mini">Carro de Compras</h1>
             <Table>
                 <TableHead>
@@ -135,7 +130,7 @@ const Cart = () => {
             ) : (
                 <Card sx={{ mt: 4, p: 2 }}>
                     <CardContent>
-                        <Typography variant="h6">{`Total: $${totalPrice}.-`}</Typography>
+                        <Typography variant="h6">{`Total: $${totalPrice.toFixed(2)}.-`}</Typography>
                     </CardContent>
                     <CardActions>
                         <Button variant="outlined" color="error" onClick={clear}>
