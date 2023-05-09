@@ -16,6 +16,7 @@ const ItemList = () => {
     const [increasePercentage, setIncreasePercentage] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [, setCategories] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     const handleOnClick = () => {
         navigate('/');
@@ -59,8 +60,11 @@ const ItemList = () => {
 
 
     const handleCategoryChange = (e) => {
-        setSelectedCategory(e.target.value);
+        const category = e.target.value;
+        setSelectedCategory(category);
     };
+
+
 
 
     const fetchCategories = async () => {
@@ -105,6 +109,7 @@ const ItemList = () => {
                         return productAdapted;
                     }).sort((a, b) => a.category.localeCompare(b.category));
                     setProducts(productsData);
+                    setFilteredProducts(productsData);
                 })
                 .catch((error) => {
                     Swal.fire('Error', error.message, 'error');
@@ -114,6 +119,19 @@ const ItemList = () => {
                 });
         }
     }, [itemId]);
+
+    useEffect(() => {
+        const filterProductsByCategory = () => {
+            if (selectedCategory === 'all') {
+                setFilteredProducts(products);
+            } else {
+                const filtered = products.filter((product) => product.category === selectedCategory);
+                setFilteredProducts(filtered);
+            }
+        };
+
+        filterProductsByCategory();
+    }, [selectedCategory, products]);
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -148,6 +166,7 @@ const ItemList = () => {
         });
     };
 
+
     useEffect(() => {
         fetchCategories();
     }, []);
@@ -172,7 +191,7 @@ const ItemList = () => {
                                         <h5>Filtro por categorías </h5>
                                         <select id="category" value={selectedCategory} onChange={handleCategoryChange} className="InputPorcentaje">
                                             <option value="all">Todos los Productos</option>
-                                            {[...new Set(products.map((product) => product.category))].map((category) => (
+                                            {[...new Set(filteredProducts.map((product) => product.category))].map((category) => (
                                                 <option key={category} value={category}>{category}</option>
                                             ))}
                                         </select>
@@ -227,7 +246,7 @@ const ItemList = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products.map((product) => (
+                                    {filteredProducts.map((product) => (
                                         <tr key={product.id}>
                                             <td className="LeftItem Responsive">{product.name}</td>
                                             <td className="Responsive">{product.category}</td>
@@ -238,7 +257,6 @@ const ItemList = () => {
                                                 <img src={product.image} alt={product.title} />
                                             </td>
                                             <td>{product.stock}</td>
-
                                             <td>
                                                 <div className="ComprarFinal FinalButtons ">
                                                     <Link to={`/${product.name}/admin/item/${product.id}`}>Editar</Link>
@@ -254,6 +272,7 @@ const ItemList = () => {
                                         </tr>
                                     ))}
                                 </tbody>
+
                             </table>
                         </>
                     ) : (
