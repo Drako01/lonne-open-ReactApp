@@ -150,18 +150,18 @@ const ItemAdmin = ({
 
             Swal.fire({
                 icon: 'success',
-                title: 'Product updated successfully',
+                title: 'Producto Modificado con éxito',
                 showConfirmButton: false,
                 timer: 1500,
             });
 
-            navigate('/admin/products');
+            navigate('/admin/itemlist');
         } catch (error) {
-            console.error('Error updating product:', error);
+            console.error('Error modificando el producto:', error);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'An error occurred while updating the product',
+                text: 'Error modificando el producto',
             });
         }
     };
