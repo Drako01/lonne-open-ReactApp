@@ -99,4 +99,12 @@ p.MuiTypography-body1 {
         align-items: center;
         min-width: auto;
     }
+    .makeStyles-cardAdmin-19,
+    .makeStyles-cardDetail-13,
+    .makeStyles-cardAdmin-5,
+    .makeStyles-cardAdmin-1{
+        margin-top: 8rem !important;
+        margin-bottom: 5rem !important;
+        width: 380px !important;
+    }
 }
