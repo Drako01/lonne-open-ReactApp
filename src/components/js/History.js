@@ -168,7 +168,7 @@ const History = () => {
 
                         </table>
                     ) : (
-                        <h3>No hay historial de compras.</h3>
+                        <h3>¡Aún no has hecho ninguna Compra.!</h3>
                     )}
                 </div>
             </>) : (

@@ -50,6 +50,8 @@ const Cards = ({ id, name, price, category, description, size, image, stock }) =
     const { addItem, getItemCount, isInCart } = useCart();
     const classes = useStyles();
 
+    const roundedPrice = parseFloat(price).toFixed(2); 
+
     const handleOnAdd = (quantity) => {
         const productToAdd = {
             id,
@@ -78,7 +80,7 @@ const Cards = ({ id, name, price, category, description, size, image, stock }) =
                             Talle: {size}
                         </Typography>
                         <Typography variant="h5" color="textSecondary">
-                            Precio: $ {price}.-
+                            Precio: $ {roundedPrice}.- {/* Mostrar el precio redondeado */}
                         </Typography>
                     </div>
                     <div className={classes.buttonContainer}>
@@ -107,5 +109,6 @@ const Cards = ({ id, name, price, category, description, size, image, stock }) =
         </ThemeProvider>
     );
 };
+
 
 export default Cards;

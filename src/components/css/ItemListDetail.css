@@ -127,6 +127,20 @@ td>.OutStock p {
     background-color: transparent;
     color: var(--first);
 }
+.Porcentaje{
+    display: flex;
+    align-items: center;
+}
+.Porcentaje h5{
+    color: var(--fourth);
+    font-weight: 100;
+}
+.InputPorcentaje{
+    height: 2.5rem;
+    width: 4rem;
+    font-size: 1rem;
+    color: var(--fourth);
+}
 
 @media print {
 
