@@ -105,7 +105,10 @@ td.Grey {
     background-color: #ddd !important;   
     
 }
-
+.css-1ex1afd-MuiTableCell-root img{
+    width: 5rem !important;
+    height: auto !important;
+}
 @media (max-width: 680px) {
     .mobile-view {
         padding: 1rem;
