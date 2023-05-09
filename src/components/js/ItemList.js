@@ -21,6 +21,8 @@ const ItemList = () => {
         navigate('/');
     };
 
+
+
     const handlePriceUpdate = async (percentage, category) => {
         try {
             const productsRef = collection(db, 'products');
@@ -166,13 +168,14 @@ const ItemList = () => {
                             </div>
                             <section className='Precios'>
                                 <div className="ButtonItemListDetail Porcentaje">
-                                    <h5>Filtro por categorías </h5>
+                                    <h5>Filtro por categorías </h5>                                    
                                     <select id="category" value={selectedCategory} onChange={handleCategoryChange} className="InputPorcentaje">
                                         <option value="all">Todos los Productos</option>
-                                        {products.map((product) => (
-                                            <option key={product.id} value={product.category}>{product.category}</option>
+                                        {[...new Set(products.map((product) => product.category))].map((category) => (
+                                            <option key={category} value={category}>{category}</option>
                                         ))}
-                                    </select>
+                                    </select>                                    
+
                                 </div>
                                 <div className="ButtonItemListDetail">
                                     <button onClick={() => handlePriceUpdate(-10, selectedCategory)}>Aplicar un Descuento del 10% a Todos los Productos</button>
