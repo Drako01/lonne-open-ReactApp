@@ -85,7 +85,7 @@ const ItemListDetail = () => {
     };
 
     return (
-        <div>
+        <div className="OcultoParaCelu">
             {loading ? (
                 <div className="loader-container">
                     <div className="loader"></div>

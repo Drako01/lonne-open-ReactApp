@@ -113,8 +113,8 @@ const History = () => {
 
     return (
         (authenticated) ? (
-            <>
-                <div className="checkout-payment CarroDeCompras CheckOutDiv">
+            < >
+                <div className="checkout-payment CarroDeCompras CheckOutDiv OcultoParaCelu">
                     <h1 className='Mini'>Historial de Compras</h1>
 
                     {history.length > 0 ? (
@@ -173,7 +173,7 @@ const History = () => {
                 </div>
             </>) : (
             <>
-                <div className="ButtonItemListDetail">
+                <div className="ButtonItemListDetail OcultoParaCelu">
                     <button onClick={handleOnClick}>Volver</button>
                 </div>
                 <h3>No esta Autorizado para acceder a esta Página</h3>

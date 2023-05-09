@@ -1,7 +1,7 @@
 /* Variables */
 :root {
     /* Colores */
-    --first:  #90A755; 
+    --first: #90A755;
     --second: #f5f5f5;
     --third: #3d4b19;
     --fourth: #7d895d;
@@ -10,7 +10,7 @@
     --dark: #333;
     --white: #eee;
     --sweetdark: #cdcdcd;
-    --brick: #c93c20 ;
+    --brick: #c93c20;
     /* Tamaños */
     --small: 200px;
     --medium: 400px;
@@ -35,12 +35,14 @@
     font-style: normal;
     font-weight: bold;
 }
+
 @font-face {
     font-family: "Anastas";
     src: url('../assets/font/ANASTAS.TTF') format('truetype');
     font-style: normal;
     font-weight: normal;
 }
+
 @font-face {
     font-family: "Arual";
     src: url('../assets/font/Arual.ttf') format('truetype');
@@ -56,7 +58,7 @@
 }
 
 /* Reglas de Utilidad */
-* {    
+* {
     font-family: var(--fontR);
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -76,21 +78,25 @@ header p,
     margin: 0;
 }
 
-h1{
+h1 {
     font-size: 1.3em;
     margin-block-start: 0.77em;
     margin-block-end: 0.77em;
 }
-h2{
+
+h2 {
     font-size: 1.1em;
     line-height: 1.8rem;
 }
-h3{
+
+h3 {
     font-size: 0.9em;
 }
-p{
+
+p {
     font-size: .6em;
 }
+
 /* Rellenos */
 .submenu,
 .subitems,
@@ -110,16 +116,23 @@ iframe {
     ul) a {
     text-decoration: none;
 }
-a{
+
+a {
     color: var(--fourth);
 }
-:is(ul) li {    
+
+:is(ul) li {
     list-style: none;
 }
 
-body{
+body {
     background-color: var(--first);
 }
 
+@media (width <=640px) {
+    .OcultoParaCelu {
+        display: none;
+    }
+}
 
 /* 2023 - Autor: Alejandro Daniel Di Stefano */

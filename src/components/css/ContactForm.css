@@ -69,12 +69,20 @@ h4.NoMargin {
 
 p.MuiTypography-body1 {
     padding-top: 2rem;
-    
+
 }
 .MuiButton-containedPrimary {
     color: #fff;
     background-color: var(--fourth) !important;
 }
+
+@media (max-width: 959.95px){
+
+.makeStyles-cardAdmin-5,
+.makeStyles-cardAdmin-1 {
+    width: 380px !important;
+}}
+
 @media (width <= 640px) {
     .CategorySelect select {
         max-width: 280px;

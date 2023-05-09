@@ -80,7 +80,7 @@ const History = () => {
 
     
     return (
-        <div className="checkout-payment CarroDeCompras CheckOutDiv">
+        <div className="checkout-payment CarroDeCompras CheckOutDiv OcultoParaCelu">
             <h1 className='Mini'>Historial de Compras</h1>
 
             {history.length > 0 ? (

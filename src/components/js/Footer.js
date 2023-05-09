@@ -95,21 +95,21 @@ const Footer = () => {
                 <section className='Links'>
                     <div>
                         <NavLink to='/'><li>Inicio</li></NavLink>
-                        <NavLink to='/itemlist' ><li>Listado de Productos</li></NavLink>
+                        <NavLink to='/itemlist' className='OcultoParaCelu'><li>Listado de Productos</li></NavLink>
                         <NavLink to='/contact' ><li>Contactenos</li></NavLink>
                         <div className='Line'></div>
 
                         {authenticated ? (
                             <>
                                 <NavLink className='Gold'>Bienvenido <span>{user.email}</span></NavLink>
-                                <NavLink to='/myhistory' className={'delay08'}><li>Mi Historial de Compras</li></NavLink>
+                                <NavLink to='/myhistory' className={'delay08 OcultoParaCelu'} ><li>Mi Historial de Compras</li></NavLink>
                                 <NavLink onClick={handleLogout}>Logout</NavLink>
                                 <div className='Line'></div>
                                 {authenticated && user.email === "admin@mail.com" && (
                                     <>
-                                        <NavLink to='/history' className={'delay08'}><li>Historial de Compras</li></NavLink>
+                                        <NavLink to='/history' className={'delay08 OcultoParaCelu'} ><li>Historial de Compras</li></NavLink>
                                         <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>
-                                        <NavLink to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
+                                        <NavLink to='/admin/itemlist' className='OcultoParaCelu'><li>Administrar Productos</li></NavLink>
                                     </>
                                 )}
                             </>
