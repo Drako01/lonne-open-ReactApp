@@ -1,9 +1,48 @@
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Swal from 'sweetalert2';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { makeStyles, Typography, Button, TextField } from '@material-ui/core';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+        },
+    },
+});
+
+const useStyles = makeStyles((theme) => ({
+    cardAdmin: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        padding: theme.spacing(3),
+        backgroundColor: '#fff',
+        width: '380px',
+        margin: '1rem',
+        [theme.breakpoints.down('sm')]: {
+            width: '100%',
+        },
+    },
+    input: {
+        marginBottom: theme.spacing(2),
+        width: '100%',
+    },
+    button: {
+        marginTop: theme.spacing(2),
+    },
+}));
 
 const Signup = () => {
+    const classes = useStyles();
     const auth = getAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -14,6 +53,7 @@ const Signup = () => {
     const handleEmailChange = (event) => setEmail(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value);
     const handleRePasswordChange = (event) => setRePassword(event.target.value);
+
 
     const handleSignup = (event) => {
         event.preventDefault();
@@ -42,58 +82,58 @@ const Signup = () => {
     };
 
     return (
-        <div>
-            <h1>Crear cuenta</h1>
-            {error &&
-                <p>{error}</p>
-            }
-            <form onSubmit={handleSignup} className="ContactForm">
-
-                <div className="LonneInput">
-                    <label htmlFor="email">Ingrese su Email</label>
-                </div>
-                <div className="LonneInput">
-                    <input
+        <ThemeProvider theme={theme}>
+            <div>
+                <Typography variant="h1" className="Mini">Crear cuenta</Typography>
+                {error &&
+                    <Typography variant="body1">{error}</Typography>
+                }
+                <form onSubmit={handleSignup} className={classes.cardAdmin}>
+                    <TextField
                         type="email"
                         value={email}
                         name="email"
+                        className={classes.input}
                         onChange={handleEmailChange}
+                        label="Ingrese su Email"
+                        variant="outlined"
+                        fullWidth
                     />
-                </div>
 
-                <div className="LonneInput">
-                    <label htmlFor="password">Ingrese su Password</label>
-                </div>
-                <div className="LonneInput">
-                    <input
+                    <TextField
                         type="password"
                         value={password}
                         name="password"
+                        className={classes.input}
                         onChange={handlePasswordChange}
+                        label="Ingrese su Password"
+                        variant="outlined"
+                        fullWidth
                     />
-                </div>
 
-                <div className="LonneInput">
-                    <label htmlFor="rePassword">Confirme su Password</label>
-                </div>
-                <div className="LonneInput">
-                    <input
+                    <TextField
                         type="password"
                         value={rePassword}
                         name="rePassword"
+                        className={classes.input}
                         onChange={handleRePasswordChange}
+                        label="Confirme su Password"
+                        variant="outlined"
+                        fullWidth
                     />
-                </div>
 
-                <div className='ComprarFinal FinalButtons'>
-                    <button type="submit">Crear cuenta</button>
-                </div>
-            </form>
-            <div className="Signup">
-                <Link to={'/login'}>Ya tienes cuenta? Inicia Sesión.!</Link>
+                    <Button type="submit" variant="contained" color="primary" className={classes.button}>
+                        Crear cuenta
+                    </Button>
+
+                    <Typography variant="body1">
+                        Ya tienes cuenta? <RouterLink to="/login">Inicia Sesión.</RouterLink>
+                    </Typography>
+                </form>
             </div>
-        </div>
+        </ThemeProvider>
     );
 };
+
 
 export default Signup;

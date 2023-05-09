@@ -66,6 +66,10 @@ h4.NoMargin {
     text-align: center;
     padding-bottom: 2rem;
 }
+
+p.MuiTypography-body1 {
+    padding-top: 2rem;
+}
 @media (width <= 640px) {
     .CategorySelect select {
         max-width: 280px;
