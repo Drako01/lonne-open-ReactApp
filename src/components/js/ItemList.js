@@ -12,23 +12,41 @@ const ItemList = () => {
     const { itemId } = useParams();
     const [product, setProduct] = useState([]);
     const [authenticated, setAuthenticated] = useState(false);
-    const [percentage, setPercentage] = useState(0);
+    const [discountPercentage, setDiscountPercentage] = useState(0);
+    const [increasePercentage, setIncreasePercentage] = useState(0);
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [, setCategories] = useState([]);
 
     const handleOnClick = () => {
         navigate('/');
     };
 
-    const handlePriceUpdate = async (percentage) => {
+    const handlePriceUpdate = async (percentage, category) => {
         try {
             const productsRef = collection(db, 'products');
             const querySnapshot = await getDocs(productsRef);
 
-            querySnapshot.forEach((doc) => {
+            const updatedProducts = querySnapshot.docs.map((doc) => {
                 const data = doc.data();
-                const currentPrice = parseFloat(data.price);
-                const updatedPrice = (currentPrice * (1 + percentage / 100)).toFixed(2);
-                updateDoc(doc.ref, { price: updatedPrice });
+                if (category === 'all' || data.category === category) {
+                    const currentPrice = parseFloat(data.price);
+                    let updatedPrice;
+
+                    if (percentage < 0) {
+                        updatedPrice = (currentPrice - (currentPrice * Math.abs(percentage) / 100)).toFixed(2);
+                    } else {
+                        updatedPrice = (currentPrice + (currentPrice * percentage / 100)).toFixed(2);
+                    }
+
+                    updateDoc(doc.ref, { price: updatedPrice });
+
+                    return { id: doc.id, ...data, price: updatedPrice };
+                } else {
+                    return { id: doc.id, ...data };
+                }
             });
+
+            setProducts(updatedProducts);
 
             Swal.fire('Éxito', 'Precios actualizados exitosamente', 'success');
         } catch (error) {
@@ -36,7 +54,24 @@ const ItemList = () => {
         }
     };
 
-    
+
+
+    const handleCategoryChange = (e) => {
+        setSelectedCategory(e.target.value);
+    };
+
+
+    const fetchCategories = async () => {
+        try {
+            const categoriesRef = collection(db, 'categories');
+            const querySnapshot = await getDocs(categoriesRef);
+            const categoriesData = querySnapshot.docs.map((doc) => doc.data());
+            setCategories(categoriesData);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+
     useEffect(() => {
         setLoading(true);
 
@@ -111,6 +146,10 @@ const ItemList = () => {
         });
     };
 
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
     return (
         <div>
             {loading ? (
@@ -125,29 +164,43 @@ const ItemList = () => {
                             <div className="ButtonItemListDetail">
                                 <button onClick={handleOnClick}>Volver</button>
                             </div>
-                            <div className="ButtonItemListDetail">
-                                <button onClick={() => handlePriceUpdate(-10)}>Aplicar un Descuento del 10% a Todos los Productos</button>
-                            </div>
-                            <div className="ButtonItemListDetail Porcentaje">
-                                <input
-                                    className="InputPorcentaje"
-                                    type="number"
-                                    value={percentage}
-                                    onChange={(e) => setPercentage(parseFloat(e.target.value))}
-                                    placeholder="Porcentaje de aumento"
-                                /> <h5>%</h5>
-                                <button onClick={() => handlePriceUpdate(percentage)}>Aplicar Descuento de precios</button>
-                            </div>
-                            <div className="ButtonItemListDetail Porcentaje">
-                                <input
-                                    className="InputPorcentaje"
-                                    type="number"
-                                    value={percentage}
-                                    onChange={(e) => setPercentage(parseFloat(e.target.value))}
-                                    placeholder="Porcentaje de aumento"
-                                /><h5>%</h5>
-                                <button onClick={() => handlePriceUpdate(percentage)}>Aplicar Aumento de precios</button>
-                            </div>
+                            <section className='Precios'>
+                                <div className="ButtonItemListDetail Porcentaje">
+                                    <h5>Filtro por categorías </h5>
+                                    <select id="category" value={selectedCategory} onChange={handleCategoryChange} className="InputPorcentaje">
+                                        <option value="all">Todos los Productos</option>
+                                        {products.map((product) => (
+                                            <option key={product.id} value={product.category}>{product.category}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="ButtonItemListDetail">
+                                    <button onClick={() => handlePriceUpdate(-10, selectedCategory)}>Aplicar un Descuento del 10% a Todos los Productos</button>
+                                </div>
+                                <div className="ButtonItemListDetail Porcentaje">
+                                    <input
+                                        className="InputPorcentaje"
+                                        type="number"
+                                        value={discountPercentage}
+                                        onChange={(e) => setDiscountPercentage(parseFloat(e.target.value))}
+                                        placeholder="Porcentaje de descuento"
+                                    />
+                                    <h5>%</h5>
+                                    <button onClick={() => handlePriceUpdate(-discountPercentage, selectedCategory)}>Aplicar Descuento de precios</button>
+                                </div>
+
+                                <div className="ButtonItemListDetail Porcentaje">
+                                    <input
+                                        className="InputPorcentaje"
+                                        type="number"
+                                        value={increasePercentage}
+                                        onChange={(e) => setIncreasePercentage(parseFloat(e.target.value))}
+                                        placeholder="Porcentaje de aumento"
+                                    />
+                                    <h5>%</h5>
+                                    <button onClick={() => handlePriceUpdate(increasePercentage, selectedCategory)}>Aplicar Aumento de precios</button>
+                                </div>
+                            </section>
                             <table className="ItemListDetail">
                                 <thead>
                                     <tr>

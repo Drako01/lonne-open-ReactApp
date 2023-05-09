@@ -127,17 +127,30 @@ td>.OutStock p {
     background-color: transparent;
     color: var(--first);
 }
+.Precios{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 .Porcentaje{
     display: flex;
     align-items: center;
+    padding-right: 1rem;
+}
+.Porcentaje button{
+    width: 15rem;
 }
 .Porcentaje h5{
     color: var(--fourth);
     font-weight: 100;
+    padding-right: 1rem;
+}
+.Porcentaje input{
+    width: 4rem;
 }
 .InputPorcentaje{
     height: 2.5rem;
-    width: 4rem;
+    width: 15rem;
     font-size: 1rem;
     color: var(--fourth);
 }
