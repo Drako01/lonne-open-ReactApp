@@ -143,6 +143,10 @@ td>.OutStock p {
     align-items: center;
     padding-right: 1rem;
 }
+.Porcentaje img{
+    width: 1.5rem !important;
+    margin: 0;
+}
 .Porcentaje button{
     width: 15rem;
 }
@@ -154,6 +158,13 @@ td>.OutStock p {
 .Porcentaje input{
     width: 4rem;
 }
+input.InputPorcentajeDentro {
+    width: 3rem;
+    font-size: 1rem;
+    height: 2.5rem;
+    margin-right: .2rem;
+}
+
 .InputPorcentaje{
     height: 2.5rem;
     width: 15rem;
