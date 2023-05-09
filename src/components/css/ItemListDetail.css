@@ -1,6 +1,6 @@
 .ItemListDetail {
     padding: 0 2rem;
-    width: 100vw;
+    width: 100%;
 }
 
 .ItemListDetail tbody tr td img {
