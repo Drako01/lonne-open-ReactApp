@@ -78,7 +78,7 @@ const ProductCharge = ({ greeting }) => {
         event.preventDefault();
 
         const imageFile = event.target.image.files[0];
-        const name = event.target.name.value;
+        const name = event.target.name.value.slice(0, 36);
         const description = event.target.description.value;
         const category = event.target.category.value;
         const price = event.target.price.value;
@@ -137,6 +137,7 @@ const ProductCharge = ({ greeting }) => {
                             placeholder="Nombre"
                             required
                             className={classes.input}
+                            maxLength={36}
                         />
                         <input
                             type="text"
