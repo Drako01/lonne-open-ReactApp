@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(3),
         backgroundColor: '#fff',
         width: '380px',
-        margin: '1rem',
         [theme.breakpoints.down('sm')]: {
             width: '100%',
         },

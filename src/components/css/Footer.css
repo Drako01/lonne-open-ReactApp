@@ -70,6 +70,11 @@ footer.Bottom .Links{
     color: var(--gold);
     font-weight: 600;
 }
+.LinkToArmoTuSitio{
+    color: var(--light);
+    font-family: var(--fontB);
+    font-weight: 600;
+}
 @media (width <= 980px) {
     .Footer p{
         font-size: 1rem;

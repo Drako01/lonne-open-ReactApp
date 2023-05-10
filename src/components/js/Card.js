@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         width: '380px',
         [theme.breakpoints.down('sm')]: {
             width: '340px',
-            height: '480px',
+            height: '560px',
         },
     },
     media: {
@@ -80,7 +80,7 @@ const Cards = ({ id, name, price, category, description, size, image, stock }) =
                             Talle: {size}
                         </Typography>
                         <Typography variant="h5" color="textSecondary">
-                            Precio: $ {roundedPrice}.- {/* Mostrar el precio redondeado */}
+                            Precio: $ {roundedPrice}.- 
                         </Typography>
                     </div>
                     <div className={classes.buttonContainer}>

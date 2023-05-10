@@ -132,7 +132,7 @@ const Footer = () => {
             <footer className='Bottom'>
                 <div className='Legal'>
                     <p>
-                        &copy; ArmoTuSitio.com | Todos los derechos reservados | Año {currentYear}
+                        &copy; <NavLink className={'LinkToArmoTuSitio'} to={'https://armotusitio.com/'}>ArmoTuSitio.com</NavLink>  | Todos los derechos reservados | Año {currentYear}
                     </p>
 
 
