@@ -25,37 +25,81 @@ const ItemList = () => {
 
 
     const handlePriceUpdate = async (percentage, category) => {
-        try {
-            const productsRef = collection(db, 'products');
-            const querySnapshot = await getDocs(productsRef);
+        if (percentage < 0 || percentage === 10) {
+            await Swal.fire({
+                title: 'Confirmación',
+                text: `Esta acción aplicará un descuento del ${discountPercentage || 10}% a los productos seleccionados. ¿Seguro que quieres continuar?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'var(--first)',
+                cancelButtonColor: 'var(--brick)',
+                confirmButtonText: 'Sí, aplicar descuento'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    try {
+                        const productsRef = collection(db, 'products');
+                        const querySnapshot = await getDocs(productsRef);
 
-            const updatedProducts = querySnapshot.docs.map((doc) => {
-                const data = doc.data();
-                if (category === 'all' || data.category === category) {
-                    const currentPrice = parseFloat(data.price);
-                    let updatedPrice;
+                        const updatedProducts = querySnapshot.docs.map((doc) => {
+                            const data = doc.data();
+                            if (category === 'all' || data.category === category) {
+                                const currentPrice = parseFloat(data.price);
+                                const updatedPrice = (currentPrice - (currentPrice * 0.1)).toFixed(2);
+                                updateDoc(doc.ref, { price: updatedPrice });
+                                return { id: doc.id, ...data, price: updatedPrice };
+                            } else {
+                                return { id: doc.id, ...data };
+                            }
+                        });
 
-                    if (percentage < 0) {
-                        updatedPrice = (currentPrice - (currentPrice * Math.abs(percentage) / 100)).toFixed(2);
-                    } else {
-                        updatedPrice = (currentPrice + (currentPrice * percentage / 100)).toFixed(2);
+                        setProducts(updatedProducts);
+
+                        Swal.fire('Éxito', 'Precios actualizados exitosamente', 'success');
+                    } catch (error) {
+                        Swal.fire('Error', error.message, 'error');
                     }
-
-                    updateDoc(doc.ref, { price: updatedPrice });
-
-                    return { id: doc.id, ...data, price: updatedPrice };
-                } else {
-                    return { id: doc.id, ...data };
                 }
             });
+        } else if (percentage > 0) {
+            await Swal.fire({
+                title: 'Confirmación',
+                text: `Esta acción aplicará un aumento del ${increasePercentage}% a los productos seleccionados. ¿Seguro que quieres continuar?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: 'var(--first)',
+                cancelButtonColor: 'var(--brick)',
+                confirmButtonText: 'Sí, aplicar aumento'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    try {
+                        const productsRef = collection(db, 'products');
+                        const querySnapshot = await getDocs(productsRef);
 
-            setProducts(updatedProducts);
+                        const updatedProducts = querySnapshot.docs.map((doc) => {
+                            const data = doc.data();
+                            if (category === 'all' || data.category === category) {
+                                const currentPrice = parseFloat(data.price);
+                                const updatedPrice = (currentPrice + (currentPrice * percentage / 100)).toFixed(2);
+                                updateDoc(doc.ref, { price: updatedPrice });
+                                return { id: doc.id, ...data, price: updatedPrice };
+                            } else {
+                                return { id: doc.id, ...data };
+                            }
+                        });
 
-            Swal.fire('Éxito', 'Precios actualizados exitosamente', 'success');
-        } catch (error) {
-            Swal.fire('Error', error.message, 'error');
+                        setProducts(updatedProducts);
+
+                        Swal.fire('Éxito', 'Precios actualizados exitosamente', 'success');
+                    } catch (error) {
+                        Swal.fire('Error', error.message, 'error');
+                    }
+                }
+            });
         }
     };
+
+
+
 
 
 
@@ -197,8 +241,9 @@ const ItemList = () => {
                                         </select>
 
                                     </div>
-                                    <div className="ButtonItemListDetail">
-                                        <button onClick={() => handlePriceUpdate(-10, selectedCategory)}>Aplicar un Descuento del 10% a Todos los Productos</button>
+                                    <div className="ButtonItemListDetail Porcentaje">
+                                        <h5>Todas las categorías </h5>
+                                        <button onClick={() => handlePriceUpdate(-10, selectedCategory)}>Descuento del 10% a Todos los Productos</button>
                                     </div>
 
 
@@ -214,7 +259,7 @@ const ItemList = () => {
                                             placeholder="Porcentaje de descuento"
                                         />
                                         <h5>%</h5>
-                                        <button onClick={() => handlePriceUpdate(-discountPercentage, selectedCategory)}>Aplicar Descuento de precios</button>
+                                        <button onClick={() => handlePriceUpdate(-discountPercentage, selectedCategory)}> Descuento</button>
                                     </div>
 
                                     <div className="ButtonItemListDetail Porcentaje">
@@ -226,7 +271,7 @@ const ItemList = () => {
                                             placeholder="Porcentaje de aumento"
                                         />
                                         <h5>%</h5>
-                                        <button onClick={() => handlePriceUpdate(increasePercentage, selectedCategory)}>Aplicar Aumento de precios</button>
+                                        <button onClick={() => handlePriceUpdate(increasePercentage, selectedCategory)}> Aumento</button>
                                     </div>
 
                                 </div>
