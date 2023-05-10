@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#fff',
         width: '380px',
         [theme.breakpoints.down('sm')]: {
-            width: '100%',
+            width: '380px',
         },
     },
     input: {
