@@ -134,10 +134,10 @@ const ProductCharge = ({ greeting }) => {
                         <input
                             type="text"
                             name="name"
-                            placeholder="Nombre"
+                            placeholder="Nombre - Máximo 36 caracteres"
                             required
                             className={classes.input}
-                            maxLength={36}
+                            maxLength={36}                            
                         />
                         <input
                             type="text"
@@ -145,6 +145,7 @@ const ProductCharge = ({ greeting }) => {
                             placeholder="Categoría"
                             required
                             className={classes.input}
+                            maxLength={36}
                         />
                         <textarea
                             name="description"
@@ -172,6 +173,7 @@ const ProductCharge = ({ greeting }) => {
                             placeholder="Talle"
                             required
                             className={classes.input}
+                            maxLength={36}
                         />
                         <input
                             type="number"
