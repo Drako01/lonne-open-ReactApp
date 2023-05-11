@@ -91,12 +91,12 @@ const Cart = () => {
             </TableCell>
             <TableCell>{`$${p.price}.-`}</TableCell>
             <TableCell>{p.quantity}</TableCell>
-            <TableCell>{`$${(p.quantity * p.price).toFixed(2)}`}</TableCell>            
-                <TableCell className='Grey'>
-                    <IconButton onClick={() => clickRemoveItem(p.id)} aria-label="Eliminar">
-                        <DeleteIcon />
-                    </IconButton>
-                </TableCell>           
+            <TableCell>{`$${(p.quantity * p.price).toFixed(2)}`}</TableCell>
+            <TableCell className='Grey'>
+                <IconButton onClick={() => clickRemoveItem(p.id)} aria-label="Eliminar">
+                    <DeleteIcon />
+                </IconButton>
+            </TableCell>
         </TableRow>
     ));
 
@@ -130,7 +130,7 @@ const Cart = () => {
             ) : (
                 <Card sx={{ mt: 4, p: 2 }}>
                     <CardContent>
-                        <Typography variant="h6">{`Total: $${totalPrice.toFixed(2)}.-`}</Typography>
+                        <Typography variant="h6">{`Total: $${Math.round(totalPrice * 10) / 10}.-`}</Typography>
                     </CardContent>
                     <CardActions>
                         <Button variant="outlined" color="error" onClick={clear}>
