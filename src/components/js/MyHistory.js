@@ -4,8 +4,9 @@ import { collection, query, getDocs, orderBy } from 'firebase/firestore';
 import { useParams, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import buscar from '../assets/icons/search.png';
+import { Table, TableHead, TableBody, TableRow, TableCell, Typography } from '@material-ui/core';
 
-const History = () => {
+const MyHistory = () => {
     const [history, setHistory] = useState([]);
     const [loading, setLoading] = useState(true);
     const { historyId } = useParams();
@@ -42,8 +43,13 @@ const History = () => {
                     return historyAdapted;
                 });
 
-                if (auth.currentUser && historyData.some((history) => history.email === auth.currentUser.email)) {
-                    const userHistoryData = historyData.filter((history) => history.email === auth.currentUser.email);
+                if (
+                    auth.currentUser &&
+                    historyData.some((history) => history.email === auth.currentUser.email)
+                ) {
+                    const userHistoryData = historyData.filter(
+                        (history) => history.email === auth.currentUser.email
+                    );
                     if (historyId) {
                         const selectedHistory = userHistoryData.find((history) => history.id === historyId);
                         setHistory(selectedHistory ? [selectedHistory] : []);
@@ -78,56 +84,55 @@ const History = () => {
         );
     }
 
-    
     return (
         <div className="checkout-payment CarroDeCompras CheckOutDiv OcultoParaCelu">
-            <h1 className='Mini'>Historial de Compras</h1>
+            <Typography variant="h1" className="Mini">Historial de Compras</Typography>
 
             {history.length > 0 ? (
-                <table className="ItemListDetail">
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Comprador</th>
-                            <th>E Mail</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario</th>
-                            <th>Precio Total</th>
-                            <th>Orden</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <Table className="ItemListDetail">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Fecha</TableCell>
+                            <TableCell>Comprador</TableCell>
+                            <TableCell>E Mail</TableCell>
+                            <TableCell>Producto</TableCell>
+                            <TableCell>Cantidad</TableCell>
+                            <TableCell>Precio Unitario</TableCell>
+                            <TableCell>Precio Total</TableCell>
+                            <TableCell>Orden</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {history.map((item) =>
-                            item.products.map((product, index) =>
-                                <tr key={item.id + '_' + index}>
-                                    {index === 0 && <td rowSpan={item.products.length}>{item.date}</td>}
-                                    {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.buyer}</td>}
-                                    {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.email}</td>}
-                                    <td className="LeftItem">{product.name}</td>
-                                    <td>{product.quantity}</td>
-                                    <td className='PriceProducto RightItem'>${product.price}.-</td>
-                                    {index === 0 && <td className='PriceProducto RightItem' rowSpan={item.products.length}>${item.total}.-</td>}
-                                    {index === 0 && <td rowSpan={item.products.length} >
-                                        <div className='ComprarFinal FinalButtons SearchButton'>
-                                            <Link to={`/orderconfirmationdetail/${item.id}`}>
-                                                <img src={buscar} className="App-icono Car CarritoList" alt="icono" />
-                                            </Link>
-                                        </div>
-                                    </td>
-                                    }
-                                    
-
-                                </tr>
-                            )
+                            item.products.map((product, index) => (
+                                <TableRow key={item.id + '_' + index}>
+                                    {index === 0 && <TableCell rowSpan={item.products.length}>{item.date}</TableCell>}
+                                    {index === 0 && <TableCell className="LeftItem" rowSpan={item.products.length}>{item.buyer}</TableCell>}
+                                    {index === 0 && <TableCell className="LeftItem" rowSpan={item.products.length}>{item.email}</TableCell>}
+                                    <TableCell className="LeftItem">{product.name}</TableCell>
+                                    <TableCell>{product.quantity}</TableCell>
+                                    <TableCell className=' RightItem'>${product.price}.-</TableCell>
+                                    {index === 0 && <TableCell className=' RightItem' rowSpan={item.products.length}>${item.total.toFixed(2)}.-</TableCell>}
+                                    {index === 0 && (
+                                        <TableCell rowSpan={item.products.length}>
+                                            <div className='ComprarFinal FinalButtons SearchButton'>
+                                                <Link to={`/orderconfirmationdetail/${item.id}`}>
+                                                    <img src={buscar} className="App-icono Car CarritoList" alt="icono" />
+                                                </Link>
+                                            </div>
+                                        </TableCell>
+                                    )}
+                                </TableRow>
+                            ))
                         )}
-                    </tbody>
-
-                </table>
+                    </TableBody>
+                </Table>
             ) : (
-                <h3>¡Aún no has hecho ninguna Compra.!</h3>
+                <Typography variant="h3">¡Aún no has hecho ninguna Compra!</Typography>
             )}
         </div>
     );
 };
-export default History;
+
+export default MyHistory;
+

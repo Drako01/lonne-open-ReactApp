@@ -3,9 +3,10 @@ import { db, auth } from '../../Firebase/firebaseConfig';
 import { collection, query, getDocs, deleteDoc, doc, orderBy } from 'firebase/firestore';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import close from '../assets/icons/close.png'
-import buscar from '../assets/icons/search.png';
-
+import CloseIcon from '@mui/icons-material/Close';
+import SearchIcon from '@mui/icons-material/Search';
+import { Table, TableRow, TableCell, TableHead, TableBody } from '@mui/material';
+import { Button } from '@mui/material';
 
 const History = () => {
     const [history, setHistory] = useState([]);
@@ -21,10 +22,7 @@ const History = () => {
             try {
                 const historyRef = collection(db, 'history');
                 const historyQuery = query(historyRef, orderBy('date', 'desc'));
-
-
                 const snapshot = await getDocs(historyQuery);
-
                 const historyData = snapshot.docs.map((doc) => {
                     const data = doc.data();
                     const products = data.products.map((product) => {
@@ -42,11 +40,8 @@ const History = () => {
                         buyer: data.buyer,
                         email: data.email
                     };
-
                     return historyAdapted;
                 });
-
-
                 if (historyId) {
                     const selectedHistory = historyData.find(
                         (history) => history.id === historyId
@@ -75,6 +70,7 @@ const History = () => {
         });
         return unsubscribe;
     }, []);
+
 
     const handleDelete = async (id) => {
         await Swal.fire({
@@ -113,72 +109,88 @@ const History = () => {
 
     return (
         (authenticated) ? (
-            < >
+            <>
                 <div className="checkout-payment CarroDeCompras CheckOutDiv OcultoParaCelu">
                     <h1 className='Mini'>Historial de Compras</h1>
 
                     {history.length > 0 ? (
-                        <table className="ItemListDetail">
-                            <thead>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Comprador</th>
-                                    <th>E Mail</th>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio Unitario</th>
-                                    <th>Precio Total</th>
-                                    <th>Orden</th>
-                                    <th>Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <Table className="ItemListDetail">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Fecha</TableCell>
+                                    <TableCell>Comprador</TableCell>
+                                    <TableCell>E Mail</TableCell>
+                                    <TableCell>Producto</TableCell>
+                                    <TableCell>Cantidad</TableCell>
+                                    <TableCell>Precio Unitario</TableCell>
+                                    <TableCell>Precio Total</TableCell>
+                                    <TableCell>Orden</TableCell>
+                                    <TableCell>Eliminar</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
                                 {history.map((item) =>
-                                    item.products.map((product, index) =>
-                                        <tr key={item.id + '_' + index}>
-                                            {index === 0 && <td rowSpan={item.products.length}>{item.date}</td>}
-                                            {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.buyer}</td>}
-                                            {index === 0 && <td className="LeftItem" rowSpan={item.products.length}>{item.email}</td>}
-                                            <td className="LeftItem">{product.name}</td>
-                                            <td>{product.quantity}</td>
-                                            <td className='PriceProducto RightItem'>${product.price}.-</td>
-                                            {index === 0 && <td className='PriceProducto RightItem' rowSpan={item.products.length}>${item.total}.-</td>}
-                                            {index === 0 && <td rowSpan={item.products.length} >
-                                                <div className='ComprarFinal FinalButtons SearchButton'>
-                                                    <Link to={`/orderconfirmationdetail/${item.id}`}>
-                                                        <img src={buscar} className="App-icono Car CarritoList" alt="icono" />
-                                                    </Link>
-                                                </div>
-                                            </td>
-                                            }
-                                            {index === 0 &&
-                                                <td rowSpan={item.products.length} className='EliminarItem'>
-                                                    <div className='HistoryDeleteButton '>
-                                                        <button onClick={() => handleDelete(item.id)}>
-                                                            <img src={close} alt='Close' />
-                                                        </button>
+                                    item.products.map((product, index) => (
+                                        <TableRow key={item.id + '_' + index}>
+                                            {index === 0 && (
+                                                <TableCell rowSpan={item.products.length}>{item.date}</TableCell>
+                                            )}
+                                            {index === 0 && (
+                                                <TableCell className="LeftItem" rowSpan={item.products.length}>
+                                                    {item.buyer}
+                                                </TableCell>
+                                            )}
+                                            {index === 0 && (
+                                                <TableCell className="LeftItem" rowSpan={item.products.length}>
+                                                    {item.email}
+                                                </TableCell>
+                                            )}
+                                            <TableCell className="LeftItem">{product.name}</TableCell>
+                                            <TableCell>{product.quantity}</TableCell>
+                                            <TableCell className=' RightItem'>${product.price}.-</TableCell>
+                                            {index === 0 && (
+                                                <TableCell className=' RightItem' rowSpan={item.products.length}>
+                                                    ${item.total.toFixed(2)}.-
+                                                </TableCell>
+                                            )}
+                                            {index === 0 && (
+                                                <TableCell rowSpan={item.products.length}>
+                                                    <div className='ComprarFinal FinalButtons SearchButton'>
+                                                        <Link to={`/orderconfirmationdetail/${item.id}`}>
+                                                            <SearchIcon className="App-icono Car CarritoList dark-icon" />
+                                                        </Link>
                                                     </div>
-                                                </td>
-                                            }
-
-                                        </tr>
-                                    )
+                                                </TableCell>
+                                            )}
+                                            {index === 0 && (
+                                                <TableCell rowSpan={item.products.length} className='EliminarItem'>
+                                                    <div className='HistoryDeleteButton'>
+                                                        <Button onClick={() => handleDelete(item.id)}>
+                                                            <CloseIcon className="dark-icon" />
+                                                        </Button>
+                                                    </div>
+                                                </TableCell>
+                                            )}
+                                        </TableRow>
+                                    ))
                                 )}
-                            </tbody>
-
-                        </table>
+                            </TableBody>
+                        </Table>
                     ) : (
-                        <h3>¡Aún no has hecho ninguna Compra.!</h3>
+                        <h3>No hay historial de compras disponible.</h3>
                     )}
                 </div>
-            </>) : (
-            <>
-                <div className="ButtonItemListDetail OcultoParaCelu">
-                    <button onClick={handleOnClick}>Volver</button>
+                <div className="back-to-home">
+                    <Button variant="contained" color="primary" onClick={handleOnClick}>
+                        Volver al inicio
+                    </Button>
                 </div>
-                <h3>No esta Autorizado para acceder a esta Página</h3>
             </>
+        ) : (
+            <div className="auth-error-message">Acceso denegado. Debes iniciar sesión como administrador.</div>
         )
     );
 };
+
 export default History;
+

@@ -98,18 +98,10 @@ const ItemList = () => {
         }
     };
 
-
-
-
-
-
     const handleCategoryChange = (e) => {
         const category = e.target.value;
         setSelectedCategory(category);
     };
-
-
-
 
     const fetchCategories = async () => {
         try {

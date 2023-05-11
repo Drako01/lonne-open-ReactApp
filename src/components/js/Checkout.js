@@ -8,6 +8,30 @@ import 'firebase/firestore';
 import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../../Firebase/firebaseConfig'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { makeStyles } from '@material-ui/core/styles';
+import { Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+
+
+const useStyles = makeStyles({
+    checkOutDiv: {
+        // Agrega estilos personalizados para el div CheckOutDiv
+    },
+    title: {
+        // Agrega estilos personalizados para el título
+    },
+    itemListDetail: {
+        // Agrega estilos personalizados para la tabla
+    },
+    leftItem: {
+        // Agrega estilos personalizados para la celda izquierda
+    },
+    totalRow: {
+        // Agrega estilos personalizados para la fila del total
+    },
+    priceProducto: {
+        // Agrega estilos personalizados para el precio del producto
+    },
+});
 
 
 const Checkout = () => {
@@ -22,6 +46,7 @@ const Checkout = () => {
     const [reEmail, setReEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [user, setUser] = useState(null);
+    const classes = useStyles();
 
     useEffect(() => {
         const auth = getAuth();
@@ -47,7 +72,7 @@ const Checkout = () => {
             products: cart,
             card: number,
             buyer: name,
-            email: email  || user.email,
+            email: email || user.email,
         };
 
         try {
@@ -142,32 +167,32 @@ const Checkout = () => {
     return (
         <div>
             <h1 className="Mini">Checkout</h1>
-            <div className='CheckOutDiv'>
-                <h3>Resumen de Compra</h3>
-                <table className="ItemListDetail">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div className={classes.checkOutDiv}>
+                <h3 className={classes.title}>Resumen de Compra</h3>
+                <Table className={classes.itemListDetail}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Nombre</TableCell>
+                            <TableCell>Precio</TableCell>
+                            <TableCell>Cantidad</TableCell>
+                            <TableCell>Subtotal</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {cart.map((product) => (
-                            <tr key={product.id}>
-                                <td className='LeftItem'>{product.name}</td>
-                                <td>${product.price}</td>
-                                <td>{product.quantity}</td>
-                                <td>${product.price * product.quantity}</td>
-                            </tr>
+                            <TableRow key={product.id}>
+                                <TableCell className={classes.leftItem}>{product.name}</TableCell>
+                                <TableCell>${product.price}</TableCell>
+                                <TableCell>{product.quantity}</TableCell>
+                                <TableCell>${product.price * product.quantity}</TableCell>
+                            </TableRow>
                         ))}
-                        <tr className="total-row">
-                            <td className='PriceProducto' colSpan="3 ">Total:</td>
-                            <td className='PriceProducto'>${totalPrice}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <TableRow className={classes.totalRow}>
+                            <TableCell className={classes.priceProducto} colSpan="3">Total:</TableCell>
+                            <TableCell className={classes.priceProducto}>${totalPrice.toFixed(2)}</TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
             </div>
             <div className="checkout-payment CheckOutDiv">
                 <h3>Confirme su E Mail</h3>
@@ -257,14 +282,14 @@ const Checkout = () => {
                     </form>
                     {user ? (
                         <div className={`ComprarFinal FinalButtons `}>
-                            <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
+                            <button onClick={handleOnClick}>Pagar ${totalPrice.toFixed(2)}</button>
                         </div>
                     ) : (
                         <div className={`ComprarFinal FinalButtons ${email.length === 0 || email !== reEmail ? 'Disabled' : ''}`}>
                             {email.length === 0 || email !== reEmail ? (
-                                <button disabled onClick={handleOnClick}>Pagar ${totalPrice}</button>
+                                <button disabled onClick={handleOnClick}>Pagar ${totalPrice.toFixed(2)}</button>
                             ) : (
-                                <button onClick={handleOnClick}>Pagar ${totalPrice}</button>
+                                <button onClick={handleOnClick}>Pagar ${totalPrice.toFixed(2)}</button>
                             )}
                         </div>
 
