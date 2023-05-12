@@ -134,8 +134,8 @@ const ItemListContainer = ({ greeting }) => {
                 </div>
                 <section className="LoginName">
                     {user ? (
-                        <div>
-                            <h2>Bienvenido {user.email}</h2>
+                        <div className='Bienvenida'>
+                            <h3>Bienvenido {user.displayName || user.email}</h3>
                             <div className='ComprarFinal FinalButtons'>
                                 <button onClick={handleLogout}>Logout</button>
                             </div>

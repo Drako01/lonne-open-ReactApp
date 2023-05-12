@@ -160,9 +160,9 @@ body.open .background{
     justify-content: center;
 }
 .LoginName h3{
-    color: var(--brick);
-    font-size: 1.5rem;
-    
+    color: var(--dark);
+    font-size: 1.6rem;
+    padding: 2rem 0;
 }
 .AdminList li{
     text-shadow: .1rem .1rem .25rem var(--dark);

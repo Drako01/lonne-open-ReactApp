@@ -129,6 +129,7 @@ body {
     background-color: var(--first);
 }
 
+
 @media (width <=640px) {
     .OcultoParaCelu {
         display: none;
