@@ -80,7 +80,7 @@ const OrderConfirmationDetail = () => {
     const formattedDate = new Date(date.toDate()).toLocaleDateString();
 
     return (
-        authenticated ? (
+        (authenticated ) ? (
             <>
                 <div className='OrderConfirmation OutStock OrderFinal'>
                     <section>
