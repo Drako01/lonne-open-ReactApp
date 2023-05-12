@@ -128,7 +128,7 @@ const MyHistory = () => {
                     </TableBody>
                 </Table>
             ) : (
-                <Typography variant="h3">¡Aún no has hecho ninguna Compra!</Typography>
+                <Typography variant="h4">¡Aún no has hecho ninguna Compra!</Typography>
             )}
         </div>
     );

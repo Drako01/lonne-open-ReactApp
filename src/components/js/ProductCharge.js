@@ -2,7 +2,7 @@ import { db, auth, storage } from '../../Firebase/firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore';
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { makeStyles, Typography, Button } from '@material-ui/core';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -59,8 +59,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductCharge = ({ greeting }) => {
     const [loading, setLoading] = useState(false);
-    const [authenticated, setAuthenticated] = useState(false);
-    const navigate = useNavigate();
+    const [authenticated, setAuthenticated] = useState(false);   
     const classes = useStyles();
 
     useEffect(() => {
@@ -111,10 +110,6 @@ const ProductCharge = ({ greeting }) => {
         }
     };
 
-    
-    const handleOnClick = () => {
-        navigate('/');
-    };
 
     if (loading) {
         return (
@@ -137,7 +132,7 @@ const ProductCharge = ({ greeting }) => {
                             placeholder="Nombre - Máximo 36 caracteres"
                             required
                             className={classes.input}
-                            maxLength={36}                            
+                            maxLength={36}
                         />
                         <input
                             type="text"
@@ -194,10 +189,8 @@ const ProductCharge = ({ greeting }) => {
                 </div>
             ) : (
                 <>
-                    <div className="ButtonItemListDetail">
-                        <button onClick={handleOnClick}>Volver</button>
-                    </div>
-                    <h3>No está autorizado para acceder a esta página</h3>
+                    <Typography variant="h1" className='Mini'>Acceso denegado</Typography>
+                    <Link to={'/'}>Volver</Link>
                 </>
             )}
         </ThemeProvider>

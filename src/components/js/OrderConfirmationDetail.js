@@ -80,51 +80,60 @@ const OrderConfirmationDetail = () => {
     const formattedDate = new Date(date.toDate()).toLocaleDateString();
 
     return (
-        <div className='OrderConfirmation OutStock OrderFinal'>
-            <section>
-                <Typography variant="h4">Recibo de Compra con ID#: {orderId}</Typography>
-                <Typography variant="h6">Nombre del comprador: {buyer}</Typography>
-                <Typography>{formattedDate}</Typography>
-                <TableContainer>
-                    <Table className="ItemListDetail OrderConfirmationTable">
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Producto</TableCell>
-                                <TableCell>Precio</TableCell>
-                                <TableCell>Cantidad</TableCell>
-                                <TableCell>Subtotal</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {products.map((product, id) => (
-                                <TableRow key={id}>
-                                    <TableCell>{product.name}</TableCell>
-                                    <TableCell>${product.price}.-</TableCell>
-                                    <TableCell>{product.quantity}</TableCell>
-                                    <TableCell>${(parseFloat(product.price) * product.quantity).toFixed(2)}.-</TableCell>
-                                </TableRow>
-                            ))}
-                            <TableRow>
-                                <TableCell colSpan="4">
-                                    <div className='OrderPriceFinal'>
-                                        <Typography variant="span">Precio Total:</Typography>
-                                        <Typography variant="span">${parseFloat(total).toFixed(2)}.-</Typography>
-                                    </div>
-                                </TableCell>
-                            </TableRow>
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </section>
-            <div className='ComprarFinal OrderFinalButton oculto-impresion'>
-                <Button variant="contained" onClick={handlePrint}>Imprimir</Button>
-                {authenticated && user.email === process.env.REACT_APP_MAIL_Admin ? (
-                    <Link to='/history'>Volver</Link>
-                ) : (
-                    <Link to='/myhistory'>Volver</Link>
-                )}
-            </div>
-        </div>
+        authenticated ? (
+            <>
+                <div className='OrderConfirmation OutStock OrderFinal'>
+                    <section>
+                        <Typography variant="h4">Recibo de Compra con ID#: {orderId}</Typography>
+                        <Typography variant="h6">Nombre del comprador: {buyer}</Typography>
+                        <Typography>{formattedDate}</Typography>
+                        <TableContainer>
+                            <Table className="ItemListDetail OrderConfirmationTable">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Producto</TableCell>
+                                        <TableCell>Precio</TableCell>
+                                        <TableCell>Cantidad</TableCell>
+                                        <TableCell>Subtotal</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {products.map((product, id) => (
+                                        <TableRow key={id}>
+                                            <TableCell>{product.name}</TableCell>
+                                            <TableCell>${product.price}.-</TableCell>
+                                            <TableCell>{product.quantity}</TableCell>
+                                            <TableCell>${(parseFloat(product.price) * product.quantity).toFixed(2)}.-</TableCell>
+                                        </TableRow>
+                                    ))}
+                                    <TableRow>
+                                        <TableCell colSpan="4">
+                                            <div className='OrderPriceFinal'>
+                                                <Typography variant="span">Precio Total:</Typography>
+                                                <Typography variant="span">${parseFloat(total).toFixed(2)}.-</Typography>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </section>
+                    <div className='ComprarFinal OrderFinalButton oculto-impresion'>
+                        <Button variant="contained" onClick={handlePrint}>Imprimir</Button>
+                        {authenticated && user.email === process.env.REACT_APP_MAIL_Admin ? (
+                            <Link to='/history'>Volver</Link>
+                        ) : (
+                            <Link to='/myhistory'>Volver</Link>
+                        )}
+                    </div>
+                </div>
+            </>
+        ) : (
+            <>
+                <Typography variant="h1" className='Mini'>Acceso denegado</Typography>
+                <Link to={'/'}>Volver</Link>
+            </>
+        )
     );
 };
 

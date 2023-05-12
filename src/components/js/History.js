@@ -5,8 +5,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
-import { Table, TableRow, TableCell, TableHead, TableBody } from '@mui/material';
-import { Button } from '@mui/material';
+import { Table, TableRow, TableCell, TableHead, TableBody, Button, Typography } from '@mui/material';
+
 
 const History = () => {
     const [history, setHistory] = useState([]);
@@ -187,7 +187,10 @@ const History = () => {
                 </div>
             </>
         ) : (
-            <div className="auth-error-message">Acceso denegado. Debes iniciar sesión como administrador.</div>
+            <>                
+                <Typography variant="h1" className='Mini'>Acceso denegado</Typography>
+                <Link to={'/'}>Volver</Link>
+            </>
         )
     );
 };

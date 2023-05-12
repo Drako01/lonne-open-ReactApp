@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { makeStyles, Typography, Button } from '@material-ui/core';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage, auth } from '../../Firebase/firebaseConfig'; // Agregar 'auth' a las importaciones
+import { storage, auth } from '../../Firebase/firebaseConfig';
 import { updateDoc } from 'firebase/firestore';
 import { doc } from 'firebase/firestore';
 import { db } from '../../Firebase/firebaseConfig';
@@ -254,7 +254,10 @@ const ItemAdmin = ({
                 </ThemeProvider>
             </>
         ) : (
-            <Typography variant="h1" className='Mini'>Acceso denegado</Typography>
+            <>
+                <Typography variant="h1" className='Mini'>Acceso denegado</Typography>
+                <Link to={'/'}>Volver</Link>
+            </>
         )
     );
 };

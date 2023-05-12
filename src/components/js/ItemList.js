@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { getDoc, doc, collection, getDocs, deleteDoc, updateDoc } from 'firebase/firestore';
 import { db, auth } from '../../Firebase/firebaseConfig';
 import close from '../assets/icons/close.png';
+import { Typography } from '@mui/material';
 
 const ItemList = () => {
     const navigate = useNavigate();
@@ -314,10 +315,10 @@ const ItemList = () => {
                         </>
                     ) : (
                         <>
-                            <div className="ButtonItemListDetail">
-                                <button onClick={handleOnClick}>Volver</button>
-                            </div>
-                            <h3>No está autorizado para acceder a esta página</h3>
+                            <>
+                    <Typography variant="h1" className='Mini'>Acceso denegado</Typography>
+                    <Link to={'/'}>Volver</Link>
+                </>
                         </>
                     )}
                 </section>
