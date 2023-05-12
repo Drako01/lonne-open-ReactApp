@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         marginTop: theme.spacing(2),
+        width: '100%',
     },
 }));
 

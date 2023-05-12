@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from 'react-router-dom';
 import { makeStyles, Typography, Button, TextField } from '@material-ui/core';
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         marginTop: theme.spacing(2),
+        width: '100%',
     },
 }));
 
@@ -72,6 +73,25 @@ const Login = () => {
             });
     };
 
+    const handleGoogleLogin = () => {
+        signInWithPopup(auth, new GoogleAuthProvider())
+            .then((result) => {
+                const user = result.user;
+                localStorage.setItem("user", JSON.stringify(user));
+                Swal.fire({
+                    title: `Bienvenido ${user.displayName}`,
+                    html: `Gracias por entrar a nuestro Pro-Shop`,
+                    icon: 'success',
+                    didClose: () => {
+                        navigate('/');
+                    }
+                });
+            })
+            .catch(() => {
+                Swal.fire('Error', 'Error al iniciar sesión con Google', 'error');
+            });
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <div>
@@ -104,6 +124,10 @@ const Login = () => {
 
                     <Button type="submit" variant="contained" color="primary" className={classes.button}>
                         Iniciar sesión
+                    </Button>
+
+                    <Button onClick={handleGoogleLogin} variant="contained" color="secondary" className={classes.button}>
+                        Iniciar sesión con Google
                     </Button>
 
                     <Typography variant="body1">
