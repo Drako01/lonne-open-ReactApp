@@ -13,6 +13,7 @@ import { useCart } from '../../context/CartContext';
 
 
 const Footer = () => {
+    const adminEmail = process.env.REACT_APP_MAIL_Admin;    
     const mensajeWhatsApp = () => {
         window.open("https://wa.me/5492257548207?text=Hola!%20Me%20gustaría%20tener%20información%20sobre%20los%20servicios%20que%20ofrecen.!")
     }
@@ -86,8 +87,30 @@ const Footer = () => {
         });
     };
 
+    // Logueo como Admin
+    const isAdminUser = () => {       
+        const storedAdminUser = localStorage.getItem('adminUser');
+        return storedAdminUser === adminEmail;
+    };
+    const handleAuthStateChanged = (user) => {
+        if (user) {
+            localStorage.setItem('adminUser', process.env.REACT_APP_MAIL_Admin);
+            setAuthenticated(true);
+            setUser(user);
+        } else {
+            localStorage.removeItem('adminUser');
+            setAuthenticated(false);
+            setUser(null);
+        }
+    };
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(handleAuthStateChanged);
+        return () => unsubscribe();
+    }, []);
 
+    // Fin logueo como Asmin
 
+    
     return (
         <div className="Footer oculto-impresion">
             <footer className='Top'>
@@ -105,7 +128,7 @@ const Footer = () => {
                                 <NavLink to='/myhistory' className={'delay08 OcultoParaCelu'} ><li>Mi Historial de Compras</li></NavLink>
                                 <NavLink onClick={handleLogout}>Logout</NavLink>
                                 <div className='Line'></div>
-                                {authenticated && user.email === "admin@lonneopen.com" && (
+                                {authenticated && isAdminUser() && (
                                     <>
                                         <NavLink to='/history' className={'delay08 OcultoParaCelu'} ><li>Historial de Compras</li></NavLink>
                                         <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>

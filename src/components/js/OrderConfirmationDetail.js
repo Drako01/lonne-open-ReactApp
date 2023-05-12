@@ -118,7 +118,7 @@ const OrderConfirmationDetail = () => {
             </section>
             <div className='ComprarFinal OrderFinalButton oculto-impresion'>
                 <Button variant="contained" onClick={handlePrint}>Imprimir</Button>
-                {authenticated && user.email === "admin@lonneopen.com" ? (
+                {authenticated && user.email === process.env.REACT_APP_MAIL_Admin ? (
                     <Link to='/history'>Volver</Link>
                 ) : (
                     <Link to='/myhistory'>Volver</Link>

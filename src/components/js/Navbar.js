@@ -1,9 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import CartWidget from './CartWidget'
+import CartWidget from './CartWidget';
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db, auth } from '../../Firebase/firebaseConfig';
-
 
 const Navbar = () => {
     const [categories, setCategories] = useState([]);
@@ -26,7 +25,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user && user.email === "admin@lonneopen.com") {
+            if (user && user.email === process.env.REACT_APP_MAIL_Admin) {
                 setAuthenticated(true);
             } else {
                 setAuthenticated(false);
@@ -48,7 +47,6 @@ const Navbar = () => {
         );
     };
 
-
     return (
         <section>
             <button className='burguer' onClick={toggleMenu}></button>
@@ -58,22 +56,22 @@ const Navbar = () => {
                     {categories.map((category, index) => (
                         <NavLink key={index} to={`/category/${category}`} className={`delay${index + 1}`}><li>{category}</li></NavLink>
                     ))}
-                    <NavLink to='/itemlist ' className='OcultoParaCelu'><li>Listado de Productos</li></NavLink>
+                    <NavLink to='/itemlist' className='OcultoParaCelu'><li>Listado de Productos</li></NavLink>
                     <NavLink to='/myhistory' className={'delay08 OcultoParaCelu'}><li>Mi Historial de Compras</li></NavLink>
                     <NavLink to='/contact' className={'delay07'}><li>Contactenos</li></NavLink>
                     <NavLink to='https://lonneopen.com/' className={'delay07'}><li>Volver al Sitio</li></NavLink>
                     {authenticated && (
                         <>
-                            <NavLink className='AdminList delay08 OcultoParaCelu' to='/history' ><li>Historial de Compras</li></NavLink>
-                            <NavLink className='AdminList delay08 OcultoParaCelu' to='/charge/products' ><li>Cargar Productos</li></NavLink>
-                            <NavLink className='AdminList delay08 OcultoParaCelu' to='/admin/itemlist' ><li>Administrar Productos</li></NavLink>
+                            <NavLink className='AdminList delay08 OcultoParaCelu' to='/history'><li>Historial de Compras</li></NavLink>
+                            <NavLink className='AdminList delay08 OcultoParaCelu' to='/charge/products'><li>Cargar Productos</li></NavLink>
+                            <NavLink className='AdminList delay08 OcultoParaCelu' to='/admin/itemlist'><li>Administrar Productos</li></NavLink>
                         </>
                     )}
                 </nav>
             </div>
             <CartWidget />
         </section>
-    )
-}
+    );
+};
 
 export default Navbar;
