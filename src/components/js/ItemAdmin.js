@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from "react";
 import { makeStyles, Typography, Button } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../Firebase/firebaseConfig';
+import { storage, auth } from '../../Firebase/firebaseConfig'; // Agregar 'auth' a las importaciones
 import { updateDoc } from 'firebase/firestore';
 import { doc } from 'firebase/firestore';
 import { db } from '../../Firebase/firebaseConfig';
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
     datesAdmin: {
         marginBottom: theme.spacing(2),
-    },    
+    },
     input: {
         marginBottom: theme.spacing(2),
         width: '100%',
@@ -99,6 +99,7 @@ const ItemAdmin = ({
     const [newSize, setSize] = useState(size);
     const [newStock, setStock] = useState(stock);
     const navigate = useNavigate();
+    const [authenticated, setAuthenticated] = useState(false);
     const [newImageFile, setImageFile] = useState(null);
     const classes = useStyles();
 
@@ -124,6 +125,16 @@ const ItemAdmin = ({
         const file = event.target.files[0];
         setImageFile(file);
     };
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            if (user && user.email === process.env.REACT_APP_MAIL_Admin) {
+                setAuthenticated(true);
+            } else {
+                setAuthenticated(false);
+            }
+        });
+        return unsubscribe;
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -167,78 +178,84 @@ const ItemAdmin = ({
     };
 
     return (
-        <ThemeProvider theme={theme}>
-            <form onSubmit={handleSubmit} className={classes.cardAdmin}>
-                <Typography variant="h1" className='Mini'>Modificar Producto</Typography>
-                <img src={image} alt={name} className={classes.image} />
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                    className={classes.input}
-                />
-                <input
-                    type="text"
-                    value={newName}
-                    onChange={handleNameChange}
-                    className={classes.input}
-                    placeholder="Name"
-                    required
-                />
-                <input
-                    type="text"
-                    value={newCategory}
-                    onChange={handleCategoryChange}
-                    className={classes.input}
-                    placeholder="Category"
-                    required
-                />
-                <textarea
-                    type="text"
-                    value={newDescription}
-                    onChange={handleDescriptionChange}
-                    className={`${classes.textarea}`}
-                    placeholder="Description"
-                    required
-                />
-                <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    value={newPrice}
-                    onChange={handlePriceChange}
-                    className={classes.input}
-                    placeholder="Price"
-                    required
-                />
-                <input
-                    type="text"
-                    value={newSize}
-                    onChange={handleSizeChange}
-                    className={classes.input}
-                    placeholder="Size"
-                    required
-                />
-                <input
-                    type="number"
-                    min="0"
-                    step="1"
-                    value={newStock}
-                    onChange={handleStockChange}
-                    className={classes.input}
-                    placeholder="Stock"
-                    required
-                />
-                <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                >
-                    Modificar
-                </Button>
-            </form>
-        </ThemeProvider>
+        authenticated ? (
+            <>
+                <ThemeProvider theme={theme}>
+                    <form onSubmit={handleSubmit} className={classes.cardAdmin}>
+                        <Typography variant="h1" className='Mini'>Modificar Producto</Typography>
+                        <img src={image} alt={name} className={classes.image} />
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className={classes.input}
+                        />
+                        <input
+                            type="text"
+                            value={newName}
+                            onChange={handleNameChange}
+                            className={classes.input}
+                            placeholder="Name"
+                            required
+                        />
+                        <input
+                            type="text"
+                            value={newCategory}
+                            onChange={handleCategoryChange}
+                            className={classes.input}
+                            placeholder="Category"
+                            required
+                        />
+                        <textarea
+                            type="text"
+                            value={newDescription}
+                            onChange={handleDescriptionChange}
+                            className={`${classes.textarea}`}
+                            placeholder="Description"
+                            required
+                        />
+                        <input
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            value={newPrice}
+                            onChange={handlePriceChange}
+                            className={classes.input}
+                            placeholder="Price"
+                            required
+                        />
+                        <input
+                            type="text"
+                            value={newSize}
+                            onChange={handleSizeChange}
+                            className={classes.input}
+                            placeholder="Size"
+                            required
+                        />
+                        <input
+                            type="number"
+                            min="0"
+                            step="1"
+                            value={newStock}
+                            onChange={handleStockChange}
+                            className={classes.input}
+                            placeholder="Stock"
+                            required
+                        />
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            className={classes.button}
+                        >
+                            Modificar
+                        </Button>
+                    </form>
+                </ThemeProvider>
+            </>
+        ) : (
+            <Typography variant="h1" className='Mini'>Acceso denegado</Typography>
+        )
     );
 };
 
