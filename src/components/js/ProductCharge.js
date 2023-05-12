@@ -65,7 +65,7 @@ const ProductCharge = ({ greeting }) => {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user && user.email === "admin@mail.com") {
+            if (user && user.email === "admin@lonneopen.com") {
                 setAuthenticated(true);
             } else {
                 setAuthenticated(false);

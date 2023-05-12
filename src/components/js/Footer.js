@@ -105,7 +105,7 @@ const Footer = () => {
                                 <NavLink to='/myhistory' className={'delay08 OcultoParaCelu'} ><li>Mi Historial de Compras</li></NavLink>
                                 <NavLink onClick={handleLogout}>Logout</NavLink>
                                 <div className='Line'></div>
-                                {authenticated && user.email === "admin@mail.com" && (
+                                {authenticated && user.email === "admin@lonneopen.com" && (
                                     <>
                                         <NavLink to='/history' className={'delay08 OcultoParaCelu'} ><li>Historial de Compras</li></NavLink>
                                         <NavLink to='/charge/products' ><li>Cargar Productos</li></NavLink>

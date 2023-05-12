@@ -118,7 +118,7 @@ const OrderConfirmationDetail = () => {
             </section>
             <div className='ComprarFinal OrderFinalButton oculto-impresion'>
                 <Button variant="contained" onClick={handlePrint}>Imprimir</Button>
-                {authenticated && user.email === "admin@mail.com" ? (
+                {authenticated && user.email === "admin@lonneopen.com" ? (
                     <Link to='/history'>Volver</Link>
                 ) : (
                     <Link to='/myhistory'>Volver</Link>
